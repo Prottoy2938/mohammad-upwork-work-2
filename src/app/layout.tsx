@@ -1,5 +1,6 @@
 import { AuthContextProvider } from '@/context/AuthContext';
 import { Inter } from 'next/font/google';
+import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import './globals.css';
 
 // Load the Inter font with 'latin' subset
@@ -24,7 +25,7 @@ export default function RootLayout( { children }: { children: React.ReactNode } 
       <body>
         {/* Wrap the children with the AuthContextProvider to provide authentication context */}
         <AuthContextProvider>
-          {children}
+          <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
         </AuthContextProvider>
       </body>
     </html>
