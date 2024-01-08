@@ -1,7 +1,7 @@
 {
   "hosting": {
     "source": ".",
-    "site": "nextjs-version",
+    "site": "nextjs-version-c354b",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -19,6 +19,7 @@
       "firebase.json",
       "**/node_modules/**",
       "**/public/**"
-    ]
+    ],
+    "runtime": "nodejs18"
   }
 }
