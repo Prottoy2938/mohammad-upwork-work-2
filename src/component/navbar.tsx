@@ -20,7 +20,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useState, useEffect } from "react";
 import firebase_app from "../firebase/config";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 // Get the authentication instance using the Firebase app
 const auth = getAuth(firebase_app);
@@ -162,7 +162,7 @@ function ResponsiveAppBar() {
               ) : (
                 <a
                   style={{ textDecoration: "none", color: "black" }}
-                  href={"/login"}
+                  href={"/signin"}
                 >
                   <Button>
                     <Typography textAlign="center">Login</Typography>
@@ -224,7 +224,7 @@ function ResponsiveAppBar() {
               ) : (
                 <a
                   style={{ textDecoration: "none", color: "black" }}
-                  href={"/login"}
+                  href={"/signin"}
                 >
                   <Button sx={{ my: 2, color: "black", display: "block" }}>
                     Login

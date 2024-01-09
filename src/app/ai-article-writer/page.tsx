@@ -15,7 +15,6 @@ import { getDoc } from "firebase/firestore";
 import OpenAI from "openai";
 
 // Importing Styles
-import "../../index.css";
 
 const AboutUs: FC = () => {
   const [gptResponse, setGptResponse] = useState(null);

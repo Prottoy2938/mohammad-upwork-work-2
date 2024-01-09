@@ -25,7 +25,7 @@ function Page(): JSX.Element {
     console.log( result );
 
     // Redirect to the admin page
-    router.push( "/admin" );
+    router.push( "/" );
   }
 
   return (

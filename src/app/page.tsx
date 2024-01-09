@@ -3,7 +3,6 @@
 import { FC, useState, useEffect } from "react";
 // Importing MUI
 import { Box, Button, Link, Grid, Typography, Stack } from "@mui/material";
-import "../../index.css";
 import { getDoc, doc } from "firebase/firestore";
 import { HomepageData } from "../types/firestore";
 import CircularProgress from "@mui/material/CircularProgress";
