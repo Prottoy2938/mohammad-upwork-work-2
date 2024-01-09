@@ -1,11 +1,13 @@
+"use client"; // This is a client component 👈🏽
+
 import { FC, useState, useEffect } from "react";
 import { Box, Typography, Stack } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
 import { collection, query, orderBy, limit, getDocs } from "firebase/firestore";
 import { ArticlesData } from "../../types/firestore";
 import CircularProgress from "@mui/material/CircularProgress";
-import {articleQuery,} from "../../firebase/firestore/queries"
-import {articlesBannerImage} from "../../constants/img-src"
+import { articleQuery } from "../../firebase/firestore/queries";
+import { articlesBannerImage } from "../../constants/img-src";
 
 const Articles: FC = () => {
   const [loading, setLoading] = useState(true);

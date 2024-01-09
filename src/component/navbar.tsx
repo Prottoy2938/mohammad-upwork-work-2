@@ -1,3 +1,5 @@
+"use client"; // This is a client component 👈🏽
+
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -13,35 +15,32 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { v4 as uuidv4 } from "uuid";
-import {logoImage} from "../constants/img-src"
+import { logoImage } from "../constants/img-src";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import firebase_app from "../firebase/config";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
-import { useRouter } from 'next/router'
-
+import { useRouter } from "next/router";
 
 // Get the authentication instance using the Firebase app
 const auth = getAuth(firebase_app);
-
 
 const pages = [
   { name: "Home", url: "/" },
   { name: "Articles", url: "/articles" },
   { name: "About Us", url: "/about-us" },
   { name: "AI Article Writer", url: "/ai-article-writer" },
-
 ];
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null,
+    null
   );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null,
+    null
   );
 
-  const [user,  setUser] = React.useState<any>()
+  const [user, setUser] = React.useState<any>();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -58,51 +57,47 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
-  const router = useRouter()
+  const router = useRouter();
 
-
-
-
-  useEffect(()=>{
+  useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-        if (user) {
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
-          const uid = user.uid;
-          // ...
-          console.log("uid", uid)
-          setUser(uid)
-        } else {
-          // User is signed out
-          // ...
-          console.log("user is logged out")
-          setUser(null)
-        }
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+        console.log("uid", uid);
+        setUser(uid);
+      } else {
+        // User is signed out
+        // ...
+        console.log("user is logged out");
+        setUser(null);
+      }
+    });
+  }, []);
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        router.push("/");
+        console.log("Signed out successfully");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
       });
-     
-}, [])
-
-const handleLogout = () => {               
-  signOut(auth).then(() => {
-  // Sign-out successful.
-      router.push("/");
-      console.log("Signed out successfully")
-  }).catch((error) => {
-  // An error happened.
-  console.log(error)
-  });
-}
-
-
+  };
 
   return (
     <AppBar position="static" color="transparent">
       <Container maxWidth="xl" style={{ justifyContent: "space-around" }}>
         <Toolbar disableGutters style={{ justifyContent: "space-around" }}>
           <Box style={{ display: "flex" }}>
-            <img src={logoImage} alt="logo-image" width="74px"  height="34px"/>
+            <img src={logoImage} alt="logo-image" width="74px" height="34px" />
             <Typography
-            ml={2}
+              ml={2}
               variant="h6"
               noWrap
               component="a"
@@ -160,21 +155,20 @@ const handleLogout = () => {
                   </MenuItem>
                 </a>
               ))}
-              {user? 
-            
- <Button onClick={handleLogout}>
- <Typography textAlign="center">LogOut</Typography>
-</Button>
-            :
-            <a
-            style={{ textDecoration: "none", color: "black" }}
-            href={'/login'}
-          >
-           <Button >
-           <Typography textAlign="center">Login</Typography>
-         </Button> 
-         </a>
-            }
+              {user ? (
+                <Button onClick={handleLogout}>
+                  <Typography textAlign="center">LogOut</Typography>
+                </Button>
+              ) : (
+                <a
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/login"}
+                >
+                  <Button>
+                    <Typography textAlign="center">Login</Typography>
+                  </Button>
+                </a>
+              )}
             </Menu>
           </Box>
           <Box style={{ justifyContent: "space-around" }}>
@@ -220,21 +214,23 @@ const handleLogout = () => {
                   </Button>
                 </a>
               ))}
-               {user? 
-            
- <Button onClick={handleLogout}   sx={{ my: 2, color: "black", display: "block" }}>
-LogOut
-</Button>
-            :
-            <a
-            style={{ textDecoration: "none", color: "black" }}
-            href={'/login'}
-          >
-           <Button   sx={{ my: 2, color: "black", display: "block" }}>
-           Login
-         </Button> 
-         </a>
-            }
+              {user ? (
+                <Button
+                  onClick={handleLogout}
+                  sx={{ my: 2, color: "black", display: "block" }}
+                >
+                  LogOut
+                </Button>
+              ) : (
+                <a
+                  style={{ textDecoration: "none", color: "black" }}
+                  href={"/login"}
+                >
+                  <Button sx={{ my: 2, color: "black", display: "block" }}>
+                    Login
+                  </Button>
+                </a>
+              )}
             </Box>
           </Box>
         </Toolbar>

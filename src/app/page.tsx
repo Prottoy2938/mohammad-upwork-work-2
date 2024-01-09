@@ -1,3 +1,5 @@
+"use client"; // This is a client component 👈🏽
+
 import { FC, useState, useEffect } from "react";
 // Importing MUI
 import { Box, Button, Link, Grid, Typography, Stack } from "@mui/material";
@@ -5,7 +7,7 @@ import "../../index.css";
 import { getDoc, doc } from "firebase/firestore";
 import { HomepageData } from "../types/firestore";
 import CircularProgress from "@mui/material/CircularProgress";
-import { image2, image3, image4} from "../constants/img-src"
+import { image2, image3, image4 } from "../constants/img-src";
 
 import firebase_app from "../firebase/config";
 import { getFirestore } from "firebase/firestore";
@@ -52,12 +54,7 @@ const Homepage: FC = () => {
           <Stack spacing={10} padding={5}>
             <Grid container spacing={2}>
               <Grid item xs={5}>
-                <img
-                  src={image2}
-                  alt="image-2"
-                  width={300}
-                  height={150}
-                />
+                <img src={image2} alt="image-2" width={300} height={150} />
               </Grid>
               <Grid item xs={7}>
                 <Grid container spacing={2}>
@@ -82,12 +79,7 @@ const Homepage: FC = () => {
 
             <Grid container spacing={2}>
               <Grid item xs={5}>
-                <img
-                  src={image3}
-                  alt="image-3"
-                  width={300}
-                  height={150}
-                />
+                <img src={image3} alt="image-3" width={300} height={150} />
               </Grid>
               <Grid item xs={7}>
                 <Grid container spacing={2}>
@@ -113,12 +105,7 @@ const Homepage: FC = () => {
                 </Grid>
               </Grid>
               <Grid item xs={5}>
-                <img
-                  src={image4}
-                  alt="image-4"
-                  width={300}
-                  height={150}
-                />
+                <img src={image4} alt="image-4" width={300} height={150} />
               </Grid>
             </Grid>
           </Stack>
