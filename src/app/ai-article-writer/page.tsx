@@ -1,15 +1,9 @@
 "use client"; // This is a client component 👈🏽
 
-import { FC, useState, useEffect } from "react";
+import { FC, useState, useEffect, useReducer } from "react";
 // Importing MUI
-import {
-  Box,
-  Button,
-  Typography,
-  Stack,
-  TextField,
-  TextareaAutosize,
-} from "@mui/material";
+import { Box, Button, FormControl,InputLabel, Typography, Stack, TextField, TextareaAutosize, MenuItem, Select } from "@mui/material";
+
 import { openAIKeyDoc, openAIQueryDoc } from "../../firebase/firestore/queries";
 import OpenAI from "openai";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -18,6 +12,11 @@ import {CopyAll} from "@mui/icons-material"
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {getDoc, addDoc, Timestamp, collection} from "firebase/firestore"
 
+import firebase_app from "../../firebase/config";
+import { getFirestore } from "firebase/firestore";
+
+// Get the Firestore instance
+const db = getFirestore(firebase_app);
 
 // Importing Styles
 
@@ -26,11 +25,26 @@ const AboutUs: FC = () => {
   const [gptResponse, setGptResponse] = useState<any>(null);
   const [gptResponseLoading, setGptResponseLoading] = useState(false);
   const [apiKey, setApiKey] = useState(null);
-const [keywordsList, setKeywordsList] = useState<string>('')
-const [articleTopic, setArticleTopic] = useState<string>('')
   const [openAIPrompt, setOpenAIPrompt] = useState<string>('')
-const [articleLength, setArticleLength] = useState<any>(null)
-  
+  const [elements, setElements] = useState<any>({});
+  const [selectedElement, setSelectedElement] = useState("");
+const [componentValues, setComponentValues] = useState({});
+
+
+
+const getReplacedSentence = () => {
+  let replacedSentence = openAIPrompt.replace(regexPattern, '');
+  Object.entries(componentValues).forEach(([componentName, value]) => {
+    const regex = new RegExp(`{{${componentName.replace(regexPattern, '')}}}`, 'g');
+    // @ts-expect-error
+    replacedSentence = replacedSentence.replace(regex, value);
+  });
+  return replacedSentence;
+};
+
+
+
+
   useEffect(() => {
     // Retrieve API key from Firestore
     const fetchApiKey = async () => {
@@ -54,7 +68,7 @@ const [articleLength, setArticleLength] = useState<any>(null)
 // @ts-expect-error
         if (apiKeySnapshot.exists) {
           const apiKeyData: any = apiKeySnapshot.data();
-          setOpenAIPrompt(apiKeyData.gpt4query);
+          setElements(apiKeyData);
         } else {
           alert('No Query found in Firestore');
         }
@@ -63,18 +77,52 @@ const [articleLength, setArticleLength] = useState<any>(null)
       }
     };
 
+    
+
     fetchApiKey();
     fetchOpenAIQuery()
   }, []);
 
+  useEffect(() => {
+    setOpenAIPrompt(elements[selectedElement]);
+  }, [selectedElement, elements]);
 
-//   useEffect(() => {
-// let newOpenaiQuery: any=openaiQuery
-// newOpenaiQuery=newOpenaiQuery.replace(`[topic]`, articleTopic)
-// newOpenaiQuery=newOpenaiQuery.replace(`[keywords]`, keywordsList)
-// newOpenaiQuery=newOpenaiQuery.replace(`[length]`, articleLength)
 
-//   }, [articleTopic, keywordsList, articleLength])
+ 
+  useEffect(() => {
+    if(openAIPrompt){
+ // Extract components inside {{}}
+ const regex = /{{(.*?)}}/g;
+ const matches = openAIPrompt.match(regex);
+
+ if (matches) {
+   // Create initial state with component names as keys and values as empty strings
+   const initialComponentValues: any = {};
+   matches.forEach((match: any) => {
+     const componentName = match.replace(/[{}]/g, '').trim();
+     initialComponentValues[componentName] = "";
+   });
+   setComponentValues(initialComponentValues);
+ }
+    }
+   
+  }, [openAIPrompt]);
+ 
+
+
+  // @ts-expect-error
+  const handleInputChange = (componentName, value) => {
+    // Update the state for the respective component
+    setComponentValues(prevValues => ({
+      ...prevValues,
+      [componentName]: value,
+    }));
+  };
+
+
+
+
+
 
   const makeOpenAiRequest = async () => {
     // Ensure we have an API key before making the request
@@ -83,10 +131,6 @@ const [articleLength, setArticleLength] = useState<any>(null)
       return;
     }
 
-    if(!articleLength || !keywordsList){
-      alert("Please fill all the input field")
-      return
-    }
 
     // Set loading to true before making the request
     setGptResponseLoading(true);
@@ -97,7 +141,8 @@ const [articleLength, setArticleLength] = useState<any>(null)
       });
 
       // updating the topic based on query
-      let gptPrompt=openAIPrompt.replace(`[topic]`, articleTopic).replace(`[keywords]`, keywordsList).replace(`[length]`, articleLength)
+      let gptPrompt=getReplacedSentence()
+      console.log(gptPrompt)
 
 const gptModel='gpt-4-1106-preview'
       const chatCompletion = await openai.chat.completions.create({
@@ -150,7 +195,7 @@ const gptModel='gpt-4-1106-preview'
 
   return (
     <Box padding={10}>
-      <Typography variant="h3">AI Article Writer</Typography>
+      <Typography variant="h3">Article Writer</Typography>
     <Box>
 
   
@@ -162,22 +207,43 @@ const gptModel='gpt-4-1106-preview'
           // placeholder="Put here News & Article from the website"
           multiline
           rows={20}
-          
+          // va
           variant="filled"
         />
-      <TextField
-      value={articleTopic}
-      id="outlined-basic" label="Topic (Optional)" variant="filled"
-      onChange={e=> setArticleTopic(e.target.value)}
-      />
-<TextField
-value={keywordsList}
-onChange={e=> setKeywordsList(e.target.value)}
-id="filled-basic" label="Keywords" variant="filled" />
-<TextField
-value={articleLength}
-onChange={e=> setArticleLength(e.target.value)}
-id="standard-basic" label="Article Length" variant="filled" />
+   
+{/* {Object.entries(componentValues).map(([componentName, value]) => (
+  <TextField
+  key={componentName}
+  label={componentName}
+  value={value}
+  onChange={(e) => handleInputChange(componentName, e.target.value)}
+variant="filled" />
+))} */}
+<FormControl fullWidth>
+  <InputLabel id="demo-simple-select-label">Query Options</InputLabel>
+
+  <Select
+        value={selectedElement}
+        onChange={(e: any) => setSelectedElement(e.target.value)}
+        label="Choose Query"
+      >
+        {Object.keys(elements).map((elementKey) => (
+          <MenuItem key={elementKey} value={elementKey}>
+            {elementKey}
+          </MenuItem>
+        ))}
+      </Select>
+      </FormControl>
+      {/* Render Material-UI TextField for each component */}
+      {Object.entries(componentValues).map(([componentName, value]) => (
+        <TextField
+          key={componentName}
+          label={componentName}
+          value={value}
+          onChange={(e) => handleInputChange(componentName, e.target.value)}
+          margin="normal"
+        />
+      ))}
 </Stack>
 <Box mt={5}>
 <Button disabled={gptResponseLoading} size="large" variant="contained" onClick={makeOpenAiRequest}>Write Article</Button>
