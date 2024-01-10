@@ -48,10 +48,12 @@ interface LinkData {
     };
   
     const generateId = () => {
-      return Math.random().toString(36).substr(2, 6).toUpperCase();
+      return Math.random().toString(36).substr(2, 8).toUpperCase();
     };
   
     const handleCreateLink = async () => {
+      if(linkData.url || linkData.providers.length){
+  
       const id = generateId();
         //  saving the response on firebase
     onAuthStateChanged(auth, async (user) => {
@@ -60,12 +62,11 @@ interface LinkData {
       userData: user,
         ...linkData,
       })
-     console.log(linkData)
-      // await addDoc(collection(db, "boosted-links"),{
-      //   id,
-      // userData: user,
-      //   ...linkData,
-      // });
+      await addDoc(collection(db, "boosted-links"),{
+        id,
+      userData: user,
+        ...linkData,
+      });
 
       setLinkData({
         boostApp: '',
@@ -73,7 +74,10 @@ interface LinkData {
         providers: [],
       });
     });
-
+      
+  }else{
+    alert("Please fill all the input")
+  }
     };
   
     return (
