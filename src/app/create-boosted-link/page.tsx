@@ -107,6 +107,14 @@ interface LinkData {
             control={<Checkbox checked={linkData.providers.includes('Facebook')} onChange={() => handleCheckboxChange('Facebook')} />}
             label="Facebook SignIn"
           />
+            <FormControlLabel
+            control={<Checkbox checked={linkData.providers.includes('Instagram')} onChange={() => handleCheckboxChange('Instagram')} />}
+            label="Instagram SignIn"
+          />
+            <FormControlLabel
+            control={<Checkbox checked={linkData.providers.includes('LinkedIn')} onChange={() => handleCheckboxChange('LinkedIn')} />}
+            label="LinkedIn SignIn"
+          />
         </FormGroup>
   
         <Button variant="contained" color="primary" onClick={handleCreateLink}>
