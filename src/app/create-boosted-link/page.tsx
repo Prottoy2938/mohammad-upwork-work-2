@@ -7,9 +7,11 @@ import 'firebase/firestore';
 import firebase_app from "../../firebase/config";
 import { getFirestore } from "firebase/firestore";
 import {getDoc, addDoc, Timestamp, collection} from "firebase/firestore"
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 
 // Get the Firestore instance
 const db = getFirestore(firebase_app);
+const auth = getAuth(firebase_app);
 
 
 interface LinkData {
@@ -51,17 +53,27 @@ interface LinkData {
   
     const handleCreateLink = async () => {
       const id = generateId();
-console.log(linkData)
-    //   await addDoc(collection(db, "ai-generated-articles"),{
-    //     id,
-    //     ...linkData,
-    //   });
+        //  saving the response on firebase
+    onAuthStateChanged(auth, async (user) => {
+     console.log({
+        id,
+      userData: user,
+        ...linkData,
+      })
+     console.log(linkData)
+      // await addDoc(collection(db, "boosted-links"),{
+      //   id,
+      // userData: user,
+      //   ...linkData,
+      // });
 
       setLinkData({
         boostApp: '',
         url: '',
         providers: [],
       });
+    });
+
     };
   
     return (
