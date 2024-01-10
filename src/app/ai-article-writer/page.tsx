@@ -11,9 +11,16 @@ import { IconButton } from '@mui/material';
 import {CopyAll} from "@mui/icons-material"
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {getDoc, addDoc, Timestamp, collection} from "firebase/firestore"
+import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 
 import firebase_app from "../../firebase/config";
 import { getFirestore } from "firebase/firestore";
+
+const regexPattern = /[!@#$%^&*()_+\[\]:;<>,.?~\\/-]/g;
+
+// Initialize Firebase auth instance
+const auth = getAuth(firebase_app);
+
 
 // Get the Firestore instance
 const db = getFirestore(firebase_app);
