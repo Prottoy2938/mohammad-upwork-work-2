@@ -29,7 +29,7 @@ const pages = [
   { name: "Home", url: "/" },
   { name: "Articles", url: "/articles" },
   { name: "About Us", url: "/about-us" },
-  { name: "AI Article Writer", url: "/ai-article-writer" },
+  { name: "Article Writer", url: "/ai-article-writer" },
 ];
 
 function ResponsiveAppBar() {
