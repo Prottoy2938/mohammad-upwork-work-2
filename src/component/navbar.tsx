@@ -21,6 +21,7 @@ import { useState, useEffect } from "react";
 import firebase_app from "../firebase/config";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import NavbarDropDown from "./navbar-dropdown"
 
 // Get the authentication instance using the Firebase app
 const auth = getAuth(firebase_app);
@@ -30,6 +31,8 @@ const pages = [
   { name: "Articles", url: "/articles" },
   { name: "About Us", url: "/about-us" },
   { name: "Article Writer", url: "/ai-article-writer" },
+  { name: "Boosted Link", url: "/create-boosted-link" },
+
 ];
 
 function ResponsiveAppBar() {
@@ -155,6 +158,7 @@ function ResponsiveAppBar() {
                   </MenuItem>
                 </a>
               ))}
+              <NavbarDropDown />
               {user ? (
                 <Button onClick={handleLogout}>
                   <Typography textAlign="center">LogOut</Typography>
@@ -214,6 +218,19 @@ function ResponsiveAppBar() {
                   </Button>
                 </a>
               ))}
+              <NavbarDropDown />
+           
+               {/* <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}>Option 1</MenuItem>
+        <MenuItem onClick={handleClose}>Option 2</MenuItem>
+        <MenuItem onClick={handleClose}>Option 3</MenuItem>
+      </Menu> */}
               {user ? (
                 <Button
                   onClick={handleLogout}
