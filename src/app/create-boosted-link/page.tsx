@@ -1,7 +1,7 @@
 "use client"; // This is a client component 👈🏽
 
 import { useState } from 'react';
-import { TextField, Button, Checkbox, FormGroup, FormControlLabel, Container, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+import { TextField, Button, Checkbox, FormGroup, FormControlLabel, Container, FormControl, InputLabel, Select, MenuItem, Snackbar, Alert } from '@mui/material';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import firebase_app from "../../firebase/config";
@@ -18,6 +18,7 @@ interface LinkData {
     boostApp: string;
     url: string;
     providers: string[];
+    id: string;
   }
   
   const CreateLinkPage: React.FC = () => {
@@ -25,7 +26,11 @@ interface LinkData {
       boostApp: '',
       url: '',
       providers: [],
+      id: ''
     });
+
+    const [openSnackbar, setOpenSnackbar] = useState(false);
+
   
     const handleInputChange = (e: any) => {
       const { name, value } = e.target;
@@ -55,30 +60,38 @@ interface LinkData {
       if(linkData.url || linkData.providers.length){
   
       const id = generateId();
+      setLinkData((prevData) => ({
+        ...prevData,
+        id,
+      }));
         //  saving the response on firebase
     onAuthStateChanged(auth, async (user) => {
-     console.log({
-        id,
-      userData: user,
-        ...linkData,
-      })
+    
       await addDoc(collection(db, "boosted-links"),{
-        id,
       userData: user,
         ...linkData,
+        id
       });
+      setOpenSnackbar(true);
 
-      setLinkData({
-        boostApp: '',
-        url: '',
-        providers: [],
-      });
+      // setLinkData({
+      //   boostApp: '',
+      //   url: '',
+      //   providers: [],
+      // });
     });
       
   }else{
     alert("Please fill all the input")
   }
     };
+
+    const handleCloseSnackbar = () => {
+      setOpenSnackbar(false);
+    };
+
+    const boostedLink = `https://example.com/${linkData.id}`;
+
   
     return (
       <Container>
@@ -108,8 +121,8 @@ interface LinkData {
             label="Facebook SignIn"
           />
             <FormControlLabel
-            control={<Checkbox checked={linkData.providers.includes('Instagram')} onChange={() => handleCheckboxChange('Instagram')} />}
-            label="Instagram SignIn"
+            control={<Checkbox checked={linkData.providers.includes('Twitter')} onChange={() => handleCheckboxChange('Twitter')} />}
+            label="Twitter SignIn"
           />
             <FormControlLabel
             control={<Checkbox checked={linkData.providers.includes('LinkedIn')} onChange={() => handleCheckboxChange('LinkedIn')} />}
@@ -120,6 +133,24 @@ interface LinkData {
         <Button variant="contained" color="primary" onClick={handleCreateLink}>
           Create Link
         </Button>
+        <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity="success">
+          <p>Boosted Link created</p>
+          <p>
+            <a href={boostedLink} target="_blank" rel="noopener noreferrer">
+              {boostedLink}
+            </a>
+          </p>
+          <Button
+            onClick={() => {
+              navigator.clipboard.writeText(boostedLink);
+              setOpenSnackbar(false);
+            }}
+          >
+            Copy Link
+          </Button>
+        </Alert>
+      </Snackbar>
       </Container>
     );
   };
