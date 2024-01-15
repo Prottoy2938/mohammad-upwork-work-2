@@ -13,6 +13,10 @@ import { getFirestore, doc, getDoc, setDoc, collection } from 'firebase/firestor
 import firebase_app from "../../../firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
 
+// Get the Firestore instance
+const db = getFirestore(firebase_app);
+
+
 interface BoostedLink {
   // Define the structure of your boosted link document
   id: string;
@@ -25,7 +29,6 @@ interface SignedUser {
   // Add other fields as needed
 }
 
-const db = getFirestore(firebase_app);
 const auth = getAuth(firebase_app);
 
 
@@ -42,6 +45,7 @@ interface SignedUser {
   // Add other fields as needed
 }
 
+// @ts-expect-error
 const BoostedLinkPage = ({params}) => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -60,10 +64,11 @@ const BoostedLinkPage = ({params}) => {
       // Fetch data from Firestore
       const fetchBoostedLink = async () => {
         try {
-          const boostedLinkDocRef = doc(getFirestore(), 'boosted-links', id as string);
-          const boostedLinkDoc = await getDoc(boostedLinkDocRef);
+
+          const boostedLinkDoc = await getDoc( doc(db,  'boosted-links', id))
 
           if (boostedLinkDoc.exists()) {
+            console.log("here")
             setBoostedLink(boostedLinkDoc.data() as BoostedLink);
           } else {
             setSnackbarMessage('Boosted link not found');
