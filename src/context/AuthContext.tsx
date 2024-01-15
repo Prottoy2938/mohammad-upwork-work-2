@@ -9,6 +9,7 @@ import {
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 import firebase_app from "@/firebase/config";
 import { useRouter } from "next/navigation";
+import { usePathname } from 'next/navigation';
 
 // Initialize Firebase auth instance
 const auth = getAuth(firebase_app);
@@ -24,12 +25,13 @@ interface AuthContextProviderProps {
 }
 
 export function AuthContextProvider({
-  children,
+  children
 }: AuthContextProviderProps): JSX.Element {
   // Set up state to track the authenticated user and loading status
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
+  const pathName=usePathname()
 
   useEffect(() => {
     // Subscribe to the authentication state changes
@@ -37,8 +39,13 @@ export function AuthContextProvider({
       if (user) {
         // User is signed in
         setUser(user);
+    
+
       } else {
-        router.push("/signin");
+        // because if a visitor is in the boosted link page, he doesn't needs to login.
+        if(!pathName.includes("/boosted-link")){
+          alert(pathName)
+          router.push("/signin");    }
       }
       // Set loading to false once authentication state is determined
       setLoading(false);

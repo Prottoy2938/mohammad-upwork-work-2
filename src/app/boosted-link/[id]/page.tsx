@@ -4,13 +4,13 @@
 // pages/boosted-links/[id].tsx
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { Button, CircularProgress, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc, collection } from 'firebase/firestore';
 
-import firebase_app from "../../firebase/config";
+import firebase_app from "../../../firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
 
 interface BoostedLink {
@@ -42,7 +42,7 @@ interface SignedUser {
   // Add other fields as needed
 }
 
-const BoostedLinkPage = () => {
+const BoostedLinkPage = ({params}) => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [boostedLink, setBoostedLink] = useState<BoostedLink | null>(null);
@@ -54,7 +54,7 @@ const BoostedLinkPage = () => {
     signOut(getAuth());
 
     // Get the id from the query parameters
-    const { id } = router.query;
+    const { id } = params;
 
     if (id) {
       // Fetch data from Firestore
@@ -84,7 +84,7 @@ const BoostedLinkPage = () => {
       setSnackbarOpen(true);
       setLoading(false);
     }
-  }, [router.query.id]);
+  }, [params.id]);
 
   const handleSignIn = async (provider: GoogleAuthProvider | FacebookAuthProvider | TwitterAuthProvider) => {
     try {
@@ -142,7 +142,7 @@ const BoostedLinkPage = () => {
 
       {/* Snackbar for displaying success/error messages */}
       <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-        <MuiAlert elevation={6} variant="filled" severity="success" onClose={handleCloseSnackbar}>
+        <MuiAlert elevation={6} variant="filled" severity="error" onClose={handleCloseSnackbar}>
           {snackbarMessage}
         </MuiAlert>
       </Snackbar>
