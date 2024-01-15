@@ -8,8 +8,8 @@ import { useRouter } from 'next/navigation';
 import { Button, CircularProgress, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc, collection } from 'firebase/firestore';
-
+import { getFirestore, doc, getDocs, setDoc, collection } from 'firebase/firestore';
+import { boostedLinksQuery } from "../../../firebase/firestore/queries";
 import firebase_app from "../../../firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
 
@@ -65,15 +65,20 @@ const BoostedLinkPage = ({params}) => {
       const fetchBoostedLink = async () => {
         try {
 
-          const boostedLinkDoc = await getDoc( doc(db,  'boosted-links', id))
-
-          if (boostedLinkDoc.exists()) {
-            console.log("here")
-            setBoostedLink(boostedLinkDoc.data() as BoostedLink);
-          } else {
-            setSnackbarMessage('Boosted link not found');
-            setSnackbarOpen(true);
-          }
+          const boostedLinkDoc = await getDocs(boostedLinksQuery(id))
+          boostedLinkDoc.forEach((doc) => {
+            if (doc.exists()) {
+               // Access the data of the first document using .data()
+            const documentData = doc.data();
+            console.log("First document data:", documentData);
+              setBoostedLink(doc.data() as BoostedLink);
+            } else {
+              setSnackbarMessage('Boosted link not found');
+              setSnackbarOpen(true);
+            }
+           
+          });
+         
         } catch (error) {
           console.error('Error fetching boosted link:', error);
           setSnackbarMessage('Error fetching boosted link');
