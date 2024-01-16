@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@amraneze/react-instagram-login": "^4.0.0",
     "@emotion/cache": "^11.11.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -28,6 +29,7 @@
     "react": "18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "18.2.0",
+    "react-linkedin-login-oauth2": "^2.0.1",
     "tailwindcss": "3.4.0",
     "typescript": "5.3.3",
     "uuid": "^9.0.1"

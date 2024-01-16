@@ -12,6 +12,10 @@ import { getFirestore, doc, getDocs, setDoc, collection , Timestamp} from 'fireb
 import { boostedLinksQuery } from "../../../firebase/firestore/queries";
 import firebase_app from "../../../firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
+import { InstagramLogin } from '@amraneze/react-instagram-login';
+import { useLinkedIn } from 'react-linkedin-login-oauth2';
+// You can use provided image shipped by this package or using your own
+import linkedin from 'react-linkedin-login-oauth2/assets/linkedin.png';
 
 // Get the Firestore instance
 const db = getFirestore(firebase_app);
@@ -52,6 +56,23 @@ const BoostedLinkPage = ({params}) => {
   const [boostedLink, setBoostedLink] = useState<BoostedLink | null>(null);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
+
+  const responseInstagram = (response: any) => {
+    console.log(response);
+  };
+
+
+  
+  const { linkedInLogin } = useLinkedIn({
+    clientId: '86sxtnlve7iz02',
+    redirectUri:`${typeof window === 'object' && window.location.origin}/linkedin`, // for Next.js, you can use `${typeof window === 'object' && window.location.origin}/linkedin`
+    onSuccess: (code) => {
+      console.log(code);
+    },
+    onError: (error) => {
+      console.log(error);
+    },
+  });
 
   useEffect(() => {
     // Logout user on page load
@@ -117,8 +138,8 @@ const BoostedLinkPage = ({params}) => {
         });
         setSnackbarMessage('Sign-in successful');
         setSnackbarOpen(true);
-
-
+// Twitter Thing
+// REMOVE THE NAVBAR
         // LOGOUT USER
         // WINDOW REDIRECT TO THE NEW ROUTE
         // Disable login buttons after successful sign-in
@@ -151,6 +172,19 @@ const BoostedLinkPage = ({params}) => {
             <Button onClick={() => handleSignIn(new GoogleAuthProvider())}>Sign in with Google</Button>
             <Button onClick={() => handleSignIn(new FacebookAuthProvider())}>Sign in with Facebook</Button>
             <Button onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Twitter</Button>
+            <Button onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Instagram</Button>
+            <InstagramLogin
+    clientId="CLIENT_ID"
+    buttonText="Login"
+    onSuccess={responseInstagram}
+    onFailure={responseInstagram}
+  />
+  <img
+      onClick={linkedInLogin}
+      src={linkedin}
+      alt="Sign in with Linked In"
+      style={{ maxWidth: '180px', cursor: 'pointer' }}
+    />
             {/* Add buttons for other providers as needed */}
           </div>
         </>
