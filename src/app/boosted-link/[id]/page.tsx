@@ -8,7 +8,7 @@ import { useRouter } from 'next/navigation';
 import { Button, CircularProgress, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import { getFirestore, doc, getDocs, setDoc, collection } from 'firebase/firestore';
+import { getFirestore, doc, getDocs, setDoc, collection , Timestamp} from 'firebase/firestore';
 import { boostedLinksQuery } from "../../../firebase/firestore/queries";
 import firebase_app from "../../../firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
@@ -110,11 +110,17 @@ const BoostedLinkPage = ({params}) => {
 
         // Save user data in the "signed-users" collection
         // @ts-expect-error
-        await setDoc(doc(db, 'boosted-links', boostedLink.id, 'signed-users', user.uid), signedUserData);
-
+        await setDoc(doc(db, 'boosted-links', boostedLink.id, 'signed-users', user.uid), {...signedUserData,
+          createdAt: Timestamp.now(),
+          // @ts-expect-error
+          boostedLinkId: boostedLink.id
+        });
         setSnackbarMessage('Sign-in successful');
         setSnackbarOpen(true);
 
+
+        // LOGOUT USER
+        // WINDOW REDIRECT TO THE NEW ROUTE
         // Disable login buttons after successful sign-in
         // You may need to adjust this based on your UI
       }

@@ -6,7 +6,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import firebase_app from "../../firebase/config";
 import { getFirestore } from "firebase/firestore";
-import {getDoc, addDoc, Timestamp, collection} from "firebase/firestore"
+import {getDoc, addDoc,setDoc,doc, Timestamp, collection} from "firebase/firestore"
 import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 
 // Get the Firestore instance
@@ -66,7 +66,7 @@ interface LinkData {
         //  saving the response on firebase
     onAuthStateChanged(auth, async (user) => {
     // console.log(user)
-      await addDoc(collection(db, "boosted-links"),{
+      await setDoc(doc(db, "boosted-links", id),{
       userData: {
         email: user?.email
       },
