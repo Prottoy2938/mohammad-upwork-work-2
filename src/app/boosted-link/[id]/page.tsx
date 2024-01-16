@@ -1,4 +1,3 @@
-
 // pages/boosted-links/[id].tsx
 "use client"; // This is a client component 👈🏽
 // pages/boosted-links/[id].tsx
@@ -64,7 +63,7 @@ const BoostedLinkPage = ({params}) => {
 
   
   const { linkedInLogin } = useLinkedIn({
-    clientId: '86sxtnlve7iz02',
+    clientId: '867gc5r3st2fnr',
     redirectUri:`${typeof window === 'object' && window.location.origin}/linkedin`, // for Next.js, you can use `${typeof window === 'object' && window.location.origin}/linkedin`
     onSuccess: (code) => {
       console.log(code);
