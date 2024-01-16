@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { Button, CircularProgress, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import { getFirestore, doc, getDocs, setDoc, collection , Timestamp} from 'firebase/firestore';
+import { getFirestore, doc, addDoc,getDocs, setDoc, collection , Timestamp} from 'firebase/firestore';
 import { boostedLinksQuery } from "../../../firebase/firestore/queries";
 import firebase_app from "../../../firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
@@ -118,23 +118,27 @@ const BoostedLinkPage = ({params}) => {
 
   const handleSignIn = async (provider: GoogleAuthProvider | FacebookAuthProvider | TwitterAuthProvider) => {
     try {
+ 
       // Sign in with the selected provider
       const result = await signInWithPopup(getAuth(), provider);
       const user = result.user;
 
       if (user) {
+        console.log(user)
         const signedUserData: SignedUser = {
           name: user.displayName || '',
           email: user.email || '',
         };
-
-        // Save user data in the "signed-users" collection
+        
         // @ts-expect-error
-        await setDoc(doc(db, 'boosted-links', boostedLink.id, 'signed-users', user.uid), {...signedUserData,
+const docRef = doc(db, "boosted-links", boostedLink.id, 'signed-users',user.uid);
+setDoc(docRef,{...signedUserData,
+  providerId: provider.providerId,
           createdAt: Timestamp.now(),
-          // @ts-expect-error
+   //   // @ts-expect-error
           boostedLinkId: boostedLink.id
-        });
+});
+
         setSnackbarMessage('Sign-in successful');
         setSnackbarOpen(true);
 // Twitter Thing
