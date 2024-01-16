@@ -118,11 +118,12 @@ const BoostedLinkPage = ({params}) => {
 
   const handleSignIn = async (provider: GoogleAuthProvider | FacebookAuthProvider | TwitterAuthProvider) => {
     try {
- 
+//  for facebook to get email
+      provider.addScope('email');
+      console.log(provider,"<<<<<<<<<<<<<<")
       // Sign in with the selected provider
       const result = await signInWithPopup(getAuth(), provider);
       const user = result.user;
-
       if (user) {
         console.log(user)
         const signedUserData: SignedUser = {
