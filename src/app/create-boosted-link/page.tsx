@@ -72,7 +72,8 @@ interface LinkData {
       },
       createdAt: Timestamp.now(),
         ...linkData,
-        id
+        id,
+        totalEmailGathered: 0
       });
       setOpenSnackbar(true);
 

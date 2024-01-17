@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { Button, CircularProgress, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import { getFirestore, doc, addDoc,getDocs, setDoc, collection , Timestamp} from 'firebase/firestore';
+import { getFirestore, doc, addDoc,getDocs,increment,updateDoc, setDoc, collection , Timestamp} from 'firebase/firestore';
 import { boostedLinksQuery } from "../../../firebase/firestore/queries";
 import firebase_app from "../../../firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
@@ -133,6 +133,11 @@ const BoostedLinkPage = ({params}) => {
         
         // @ts-expect-error
 const docRef = doc(db, "boosted-links", boostedLink.id, 'signed-users',user.uid);
+        // @ts-expect-error
+await updateDoc(doc(db, "boosted-links", boostedLink.id), {
+  totalEmailGathered: increment(1)
+});
+
 setDoc(docRef,{...signedUserData,
   providerId: provider.providerId,
           createdAt: Timestamp.now(),
