@@ -122,6 +122,7 @@ const BoostedLinks = () => {
             <TableCell>Created At</TableCell>
             <TableCell>URL</TableCell>
             <TableCell>Total Email Gathered</TableCell>
+            <TableCell>See All Email</TableCell>
             <TableCell>Providers</TableCell>
             <TableCell>Action</TableCell>
           </TableRow>
@@ -131,6 +132,9 @@ const BoostedLinks = () => {
             <TableRow key={link.id}>
               <TableCell>{link.createdAt.toDate().toLocaleString()}</TableCell>
               <TableCell>{link.url}</TableCell>
+              <a href={`/boosted-link-detailed/${link.id}`}>
+              <TableCell>See all emails</TableCell>
+              </a>
               <TableCell>{link.totalEmailGathered}</TableCell>
               <TableCell>
                 {['Facebook', 'Google', 'Instagram', 'Twitter', 'LinkedIn'].map((provider) => (
