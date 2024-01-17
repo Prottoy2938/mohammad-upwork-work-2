@@ -145,8 +145,11 @@ setDoc(docRef,{...signedUserData,
           boostedLinkId: boostedLink.id
 });
 
-        setSnackbarMessage('Sign-in successful');
-        setSnackbarOpen(true);
+        // setSnackbarMessage('Sign-in successful');
+        // setSnackbarOpen(true);
+    signOut(getAuth());
+    window.location.href = "https://www.example.com";
+
 // Twitter Thing
 // REMOVE THE NAVBAR
         // LOGOUT USER

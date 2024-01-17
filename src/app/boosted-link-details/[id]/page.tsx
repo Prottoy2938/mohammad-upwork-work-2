@@ -1,0 +1,65 @@
+// pages/[linkID].js
+"use client"
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
+import { getFirestore,limit, collection, query, where, orderBy, getDocs } from 'firebase/firestore';
+import firebase_app from "../../../firebase/config";
+
+
+const db = getFirestore(firebase_app);
+
+const LinkPage = ({ params}) => {
+  const {id: linkID}= params
+  const [data, setData] = useState([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+const userDocRef = collection(db, 'boosted-links', linkID, 'signed-users');
+// Query the posts collection, orderBy createdAt, and limit to the first 100 documents
+const postsQuery = query(userDocRef, orderBy('createdAt'), limit(100));
+const signedUsersSnapshot=await getDocs(postsQuery)
+        // Extract and set the data for rendering
+        const userData = signedUsersSnapshot.docs.map((doc) => doc.data());
+        console.log(userData)
+        setData(userData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    if (linkID) {
+      fetchData();
+    } else {
+      // Redirect or handle if linkID is not available
+      router.push('/'); // Replace with your desired redirection
+    }
+  }, [linkID, router]);
+
+  return (
+    <TableContainer component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Email</TableCell>
+            <TableCell>Name</TableCell>
+            <TableCell>CreatedAt</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map((user) => (
+            <TableRow key={user.email}>
+              <TableCell>{user.email? user.email :"User didn't give email"}</TableCell>
+              <TableCell>{user.name}</TableCell>
+              <TableCell>{user.createdAt.toDate().toLocaleString()}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+};
+
+export default LinkPage;

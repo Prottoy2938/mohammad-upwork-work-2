@@ -61,6 +61,7 @@ const BoostedLinks = () => {
       try {
         const querySnapshot = await getDocs(q);
         const linksData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        console.log(linksData)
         setSelectedProviders(updateSelectedProviders(boostedLoginProviders,linksData ))
         setLinks(linksData);
         setLoading(false);
@@ -120,22 +121,25 @@ const BoostedLinks = () => {
         <TableHead>
           <TableRow>
             <TableCell>Created At</TableCell>
-            <TableCell>URL</TableCell>
-            <TableCell>Total Email Gathered</TableCell>
-            <TableCell>See All Email</TableCell>
+            <TableCell>Main URL</TableCell>
+            <TableCell>Boosted URL</TableCell>
+            <TableCell>Emails Collected</TableCell>
             <TableCell>Providers</TableCell>
             <TableCell>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {links.map((link) => (
+          {links.map((link: any) => (
             <TableRow key={link.id}>
               <TableCell>{link.createdAt.toDate().toLocaleString()}</TableCell>
               <TableCell>{link.url}</TableCell>
-              <a href={`/boosted-link-detailed/${link.id}`}>
-              <TableCell>See all emails</TableCell>
+              <a href={ `${typeof window === 'object' && window.location.origin}/boosted-link/${link.id}`}>
+              <TableCell>{ `${typeof window === 'object' && window.location.origin}/boosted-link/${link.id}`}</TableCell>
               </a>
-              <TableCell>{link.totalEmailGathered}</TableCell>
+              <a href={`/boosted-link-details/${link.id}`}>
+              <TableCell>Total Emails: {link.totalEmailGathered} \nSee all emails</TableCell>
+              </a>
+              {/* <TableCell>{}</TableCell> */}
               <TableCell>
                 {['Facebook', 'Google', 'Instagram', 'Twitter', 'LinkedIn'].map((provider) => (
                    <FormControlLabel
