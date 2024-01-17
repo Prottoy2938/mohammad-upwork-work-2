@@ -4,8 +4,33 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { getFirestore, collection, query, limit,where, orderBy, getDocs, updateDoc, doc } from 'firebase/firestore';
-import { Table, TableBody, TableCell,  TableContainer, TableHead, TableRow, Paper, Checkbox, Button } from '@mui/material';
+import { Table, TableBody, FormControlLabel,TableCell,  TableContainer, TableHead, TableRow, Paper, Checkbox, Button } from '@mui/material';
 import { useAuthContext } from "@/context/AuthContext";
+import {boostedLoginProviders} from "@/constants/boosted-login-providers"
+
+
+const updateSelectedProviders = (allProviders: any, linksData: any) => {
+  const updatedProviders = {};
+
+  // Ensure all providers are initialized to false for all linkIds
+  linksData.forEach(({ id: linkId }) => {
+    updatedProviders[linkId] = {};
+    allProviders.forEach((provider) => {
+      updatedProviders[linkId][provider] = false;
+    });
+  });
+
+  // Update the selected providers based on the provided data
+  linksData.forEach(({ id: linkId, providers: selectedProviders }) => {
+    selectedProviders.forEach((provider) => {
+      updatedProviders[linkId][provider] = true;
+    });
+  });
+
+  // Return the updated providers object
+  return updatedProviders;
+};
+
 
 const BoostedLinks = () => {
   const [links, setLinks] = useState([]);
@@ -20,7 +45,7 @@ const BoostedLinks = () => {
       const db = getFirestore();
       const q = query(
         collection(db, 'boosted-links'),
-        where('userData.email', '==', user.email),
+        where('createdBy', '==', user.uid),
         orderBy('createdAt'),
         limit(100)
       );
@@ -28,6 +53,7 @@ const BoostedLinks = () => {
       try {
         const querySnapshot = await getDocs(q);
         const linksData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setSelectedProviders(updateSelectedProviders(boostedLoginProviders,linksData ))
         setLinks(linksData);
         setLoading(false);
       } catch (error) {
@@ -37,6 +63,7 @@ const BoostedLinks = () => {
     };
 
     if (user) {
+      console.log(user)
       fetchLinks();
     } 
   }, [user, router]);
@@ -85,11 +112,16 @@ const BoostedLinks = () => {
               <TableCell>{link.totalEmailGathered}</TableCell>
               <TableCell>
                 {['Facebook', 'Google', 'Instagram', 'Twitter', 'LinkedIn'].map((provider) => (
-                  <Checkbox
-                    key={provider}
+                   <FormControlLabel
+                   control={  <Checkbox
                     checked={selectedProviders[link.id]?.[provider] || false}
                     onChange={() => handleCheckboxChange(link.id, provider)}
-                  />
+                  />}
+                  label={provider}
+                  key={provider}
+
+                 />
+                
                 ))}
               </TableCell>
               <TableCell>

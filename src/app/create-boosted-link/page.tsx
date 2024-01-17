@@ -13,6 +13,7 @@ import { getAuth, onAuthStateChanged, User } from "firebase/auth";
 const db = getFirestore(firebase_app);
 const auth = getAuth(firebase_app);
 
+
 interface LinkData {
     boostApp: string;
     url: string;
@@ -67,9 +68,7 @@ interface LinkData {
     onAuthStateChanged(auth, async (user) => {
     // console.log(user)
       await setDoc(doc(db, "boosted-links", id),{
-      userData: {
-        email: user?.email
-      },
+      createdBy: user?.uid,
       createdAt: Timestamp.now(),
         ...linkData,
         id,

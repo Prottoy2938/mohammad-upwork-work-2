@@ -1,0 +1,1 @@
+export const boostedLoginProviders=['Facebook', 'Google', 'Instagram', 'Twitter', 'LinkedIn']
