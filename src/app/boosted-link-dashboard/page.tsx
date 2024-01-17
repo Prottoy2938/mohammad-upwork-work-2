@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { getFirestore, collection, query, limit,where, orderBy, getDocs, updateDoc, doc } from 'firebase/firestore';
-import { Table, TableBody, FormControlLabel,TableCell,  TableContainer, TableHead, TableRow, Paper, Checkbox, Button } from '@mui/material';
+import { Table, TableBody, FormControlLabel,Snackbar, MuiAlert,TableCell,  TableContainer, TableHead, TableRow, Paper, Checkbox, Button } from '@mui/material';
 import { useAuthContext } from "@/context/AuthContext";
 import {boostedLoginProviders} from "@/constants/boosted-login-providers"
 
@@ -38,7 +38,15 @@ const BoostedLinks = () => {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const { user } = useAuthContext() as { user: any }; // Use 'as' to assert the type as { user: any }
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackBarType, setSnackbarType] = useState("error")
 
+
+
+  const handleCloseSnackbar = () => {
+    setSnackbarOpen(false);
+  };
 
   useEffect(() => {
     const fetchLinks = async () => {
@@ -82,8 +90,19 @@ const BoostedLinks = () => {
 
     try {
       await updateDoc(linkRef, { providers: Object.keys(selectedProviders[linkId]).filter((provider) => selectedProviders[linkId][provider]) });
+
+      alert("Successfully updated")
+
       // Optionally, you can update the state or perform any other actions upon successful save
+      // setSnackbarMessage('Boosted link provider updated');
+      // setSnackbarType("success")
+      // setSnackbarOpen(true);
     } catch (error) {
+      // setSnackbarMessage('Something went wrong');
+      // setSnackbarType("error")
+      // setSnackbarOpen(true);
+      alert("Something went wrong")
+
       console.error('Error updating boosted link:', error);
     }
   };
@@ -93,6 +112,9 @@ const BoostedLinks = () => {
   }
 
   return (
+    <>
+    <h1>Your Boosted Links </h1>
+    
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
@@ -133,7 +155,15 @@ const BoostedLinks = () => {
           ))}
         </TableBody>
       </Table>
+      
     </TableContainer>
+     {/* Snackbar for displaying success/error messages */}
+     {/* <Snackbar open={snackbarOpen} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        <MuiAlert severity={snackBarType} elevation={6} variant="filled" onClose={handleCloseSnackbar}>
+          {snackbarMessage}
+        </MuiAlert>
+      </Snackbar> */}
+    </>
   );
 };
 
