@@ -44,7 +44,6 @@ export function AuthContextProvider({
       } else {
         // because if a visitor is in the boosted link page, he doesn't needs to login.
         if(!pathName.includes("/boosted-link")){
-          alert(pathName)
           router.push("/signin");    }
       }
       // Set loading to false once authentication state is determined

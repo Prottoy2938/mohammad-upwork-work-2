@@ -1,160 +1,109 @@
 "use client"; // This is a client component 👈🏽
 
-import { useState } from 'react';
-import { TextField, Button, Checkbox, FormGroup, FormControlLabel, Container, FormControl, InputLabel, Select, MenuItem, Snackbar, Alert } from '@mui/material';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import firebase_app from "../../firebase/config";
-import { getFirestore } from "firebase/firestore";
-import {getDoc, addDoc, Timestamp, collection} from "firebase/firestore"
-import { getAuth, onAuthStateChanged, User } from "firebase/auth";
+// pages/boostedLinks.js
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { getFirestore, collection, query, limit,where, orderBy, getDocs, updateDoc, doc } from 'firebase/firestore';
+import { Table, TableBody, TableCell,  TableContainer, TableHead, TableRow, Paper, Checkbox, Button } from '@mui/material';
+import { useAuthContext } from "@/context/AuthContext";
 
-// Get the Firestore instance
-const db = getFirestore(firebase_app);
-const auth = getAuth(firebase_app);
+const BoostedLinks = () => {
+  const [links, setLinks] = useState([]);
+  const [selectedProviders, setSelectedProviders] = useState({});
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
+  const { user } = useAuthContext() as { user: any }; // Use 'as' to assert the type as { user: any }
 
-interface LinkData {
-    boostApp: string;
-    url: string;
-    providers: string[];
-    id: string;
-  }
-  
-  const CreateLinkPage: React.FC = () => {
-    const [linkData, setLinkData] = useState<LinkData>({
-      boostApp: '',
-      url: '',
-      providers: [],
-      id: ''
+
+  useEffect(() => {
+    const fetchLinks = async () => {
+      const db = getFirestore();
+      const q = query(
+        collection(db, 'boosted-links'),
+        where('userData.email', '==', user.email),
+        orderBy('createdAt'),
+        limit(100)
+      );
+
+      try {
+        const querySnapshot = await getDocs(q);
+        const linksData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setLinks(linksData);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching boosted links:', error);
+        setLoading(false);
+      }
+    };
+
+    if (user) {
+      fetchLinks();
+    } 
+  }, [user, router]);
+
+  const handleCheckboxChange = (linkId, provider) => {
+    setSelectedProviders((prevSelectedProviders) => {
+      const updatedProviders = { ...prevSelectedProviders };
+      updatedProviders[linkId] = { ...updatedProviders[linkId], [provider]: !updatedProviders[linkId][provider] };
+      return updatedProviders;
     });
-
-    const [openSnackbar, setOpenSnackbar] = useState(false);
-
-  
-    const handleInputChange = (e: any) => {
-      const { name, value } = e.target;
-  
-      setLinkData((prevData) => ({
-        ...prevData,
-        [name as string]: value,
-      }));
-    };
-  
-    const handleCheckboxChange = (provider: string) => {
-      const updatedProviders = linkData.providers.includes(provider)
-        ? linkData.providers.filter((p) => p !== provider)
-        : [...linkData.providers, provider];
-  
-      setLinkData((prevData) => ({
-        ...prevData,
-        providers: updatedProviders,
-      }));
-    };
-  
-    const generateId = () => {
-      return Math.random().toString(36).substr(2, 8).toUpperCase();
-    };
-  
-    const handleCreateLink = async () => {
-      if(linkData.url || linkData.providers.length){
-  
-      const id = generateId();
-      setLinkData((prevData) => ({
-        ...prevData,
-        id,
-      }));
-        //  saving the response on firebase
-    onAuthStateChanged(auth, async (user) => {
-    // console.log(user)
-      await addDoc(collection(db, "boosted-links"),{
-      userData: {
-        email: user?.email
-      },
-      createdAt: Timestamp.now(),
-        ...linkData,
-        id
-      });
-      setOpenSnackbar(true);
-
-      // setLinkData({
-      //   boostApp: '',
-      //   url: '',
-      //   providers: [],
-      // });
-    });
-      
-  }else{
-    alert("Please fill all the input")
-  }
-    };
-
-    const handleCloseSnackbar = () => {
-      setOpenSnackbar(false);
-    };
-
-    const boostedLink = `https://example.com/${linkData.id}`;
-
-  
-    return (
-      <Container>
-        
-  
-        <TextField
-          label="URL to shorten"
-          variant="outlined"
-          name="url"
-          value={linkData.url}
-          onChange={handleInputChange}
-          fullWidth
-          margin="normal"
-        />
-  
-        <FormGroup>
-          <FormControlLabel
-            control={<Checkbox checked={linkData.providers.includes('Google')} onChange={() => handleCheckboxChange('Google')} />}
-            label="Google SignIn"
-          />
-          <FormControlLabel
-            control={<Checkbox checked={linkData.providers.includes('Instagram')} onChange={() => handleCheckboxChange('Instagram')} />}
-            label="Instagram SignIn"
-          />
-          <FormControlLabel
-            control={<Checkbox checked={linkData.providers.includes('Facebook')} onChange={() => handleCheckboxChange('Facebook')} />}
-            label="Facebook SignIn"
-          />
-            <FormControlLabel
-            control={<Checkbox checked={linkData.providers.includes('Twitter')} onChange={() => handleCheckboxChange('Twitter')} />}
-            label="Twitter SignIn"
-          />
-            <FormControlLabel
-            control={<Checkbox checked={linkData.providers.includes('LinkedIn')} onChange={() => handleCheckboxChange('LinkedIn')} />}
-            label="LinkedIn SignIn"
-          />
-        </FormGroup>
-  
-        <Button variant="contained" color="primary" onClick={handleCreateLink}>
-          Create Link
-        </Button>
-        <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
-        <Alert onClose={handleCloseSnackbar} severity="success">
-          <p>Boosted Link created</p>
-          <p>
-            <a href={boostedLink} target="_blank" rel="noopener noreferrer">
-              {boostedLink}
-            </a>
-          </p>
-          <Button
-            onClick={() => {
-              navigator.clipboard.writeText(boostedLink);
-              setOpenSnackbar(false);
-            }}
-          >
-            Copy Link
-          </Button>
-        </Alert>
-      </Snackbar>
-      </Container>
-    );
   };
-  
-  export default CreateLinkPage;
+
+  const handleSave = async (linkId) => {
+    const db = getFirestore();
+    const linkRef = doc(db, 'boosted-links', linkId);
+
+    try {
+      await updateDoc(linkRef, { providers: Object.keys(selectedProviders[linkId]).filter((provider) => selectedProviders[linkId][provider]) });
+      // Optionally, you can update the state or perform any other actions upon successful save
+    } catch (error) {
+      console.error('Error updating boosted link:', error);
+    }
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <TableContainer component={Paper}>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Created At</TableCell>
+            <TableCell>URL</TableCell>
+            <TableCell>Total Email Gathered</TableCell>
+            <TableCell>Providers</TableCell>
+            <TableCell>Action</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {links.map((link) => (
+            <TableRow key={link.id}>
+              <TableCell>{link.createdAt.toDate().toLocaleString()}</TableCell>
+              <TableCell>{link.url}</TableCell>
+              <TableCell>{link.totalEmailGathered}</TableCell>
+              <TableCell>
+                {['Facebook', 'Google', 'Instagram', 'Twitter', 'LinkedIn'].map((provider) => (
+                  <Checkbox
+                    key={provider}
+                    checked={selectedProviders[link.id]?.[provider] || false}
+                    onChange={() => handleCheckboxChange(link.id, provider)}
+                  />
+                ))}
+              </TableCell>
+              <TableCell>
+                <Button onClick={() => handleSave(link.id)} variant="contained" color="primary">
+                  Save
+                </Button>
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+};
+
+export default BoostedLinks;
+
