@@ -90,7 +90,7 @@ export default function NavbarDropDown() {
                     </a>
                     <a href="boosted-link-dashboard">
 
-                    <MenuItem>Boosted Link Dashboard</MenuItem>
+                    <MenuItem>My Boosted Link Dashboard</MenuItem>
                     </a>
 
                   </MenuList>

@@ -15,6 +15,14 @@ import { InstagramLogin } from '@amraneze/react-instagram-login';
 import { useLinkedIn } from 'react-linkedin-login-oauth2';
 // You can use provided image shipped by this package or using your own
 import linkedin from 'react-linkedin-login-oauth2/assets/linkedin.png';
+import Stack from '@mui/material/Stack';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import GoogleIcon from '@mui/icons-material/Google';
+
+
 
 // Get the Firestore instance
 const db = getFirestore(firebase_app);
@@ -174,31 +182,35 @@ setDoc(docRef,{...signedUserData,
       {loading ? (
         <CircularProgress />
       ) : (
-        <>
-          {/* Show your boosted link content here */}
-          <div>
-            <h1>{boostedLink?.id}</h1>
-          </div>
-
+        <>       
           {/* Social media login buttons */}
           <div>
-            <Button onClick={() => handleSignIn(new GoogleAuthProvider())}>Sign in with Google</Button>
-            <Button onClick={() => handleSignIn(new FacebookAuthProvider())}>Sign in with Facebook</Button>
-            <Button onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Twitter</Button>
-            <Button onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Instagram</Button>
-            <InstagramLogin
+          <Stack spacing={4} style={{
+border: "2px dashed gray",
+padding: '50px 70px',
+margin: '0 auto',
+marginTop: '150px',
+width: 'fit-content'
+            }}>
+          <Button startIcon={<GoogleIcon />} variant="outlined" onClick={() => handleSignIn(new GoogleAuthProvider())}>Sign in with Google</Button>
+            <Button startIcon={<FacebookIcon />} variant="outlined" onClick={() => handleSignIn(new FacebookAuthProvider())}>Sign in with Facebook</Button>
+            <Button startIcon={<TwitterIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Twitter</Button>
+            <Button startIcon={<InstagramIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Instagram</Button>
+            <Button startIcon={<LinkedInIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with LinkedIn</Button>
+</Stack>
+            {/* <InstagramLogin
     clientId="CLIENT_ID"
     buttonText="Login"
     onSuccess={responseInstagram}
     onFailure={responseInstagram}
-  />
-  <img
+  /> */}
+  {/* <img
       onClick={linkedInLogin}
     // @ts-expect-error
       src={linkedin}
       alt="Sign in with Linked In"
       style={{ maxWidth: '180px', cursor: 'pointer' }}
-    />
+    /> */}
             {/* Add buttons for other providers as needed */}
           </div>
         </>

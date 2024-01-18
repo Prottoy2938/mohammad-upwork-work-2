@@ -22,6 +22,9 @@ import firebase_app from "../firebase/config";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import NavbarDropDown from "./navbar-dropdown"
+import { usePathname } from 'next/navigation';
+
+
 
 // Get the authentication instance using the Firebase app
 const auth = getAuth(firebase_app);
@@ -91,8 +94,12 @@ function ResponsiveAppBar() {
       });
   };
 
+  const pathName=usePathname()
+
+
   return (
-    <AppBar position="static" color="transparent">
+    <>
+    {pathName.includes("/boosted-link/")? null :  <AppBar position="static" color="transparent">
       <Container maxWidth="xl" style={{ justifyContent: "space-around" }}>
         <Toolbar disableGutters style={{ justifyContent: "space-around" }}>
           <Box style={{ display: "flex" }}>
@@ -250,7 +257,9 @@ function ResponsiveAppBar() {
           </Box>
         </Toolbar>
       </Container>
-    </AppBar>
+    </AppBar>}
+   
+    </>
   );
 }
 export default ResponsiveAppBar;
