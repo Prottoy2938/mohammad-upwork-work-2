@@ -4,7 +4,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { getFirestore, collection, query, limit,where, orderBy, getDocs, updateDoc, doc } from 'firebase/firestore';
-import { Table, TableBody, FormControlLabel,Snackbar, MuiAlert,TableCell,  TableContainer, TableHead, TableRow, Paper, Checkbox, Button } from '@mui/material';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import { Table, TableBody, FormControlLabel,Snackbar,TableCell,  TableContainer, TableHead, TableRow, Paper, Checkbox, Button } from '@mui/material';
 import { useAuthContext } from "@/context/AuthContext";
 import {boostedLoginProviders} from "@/constants/boosted-login-providers"
 

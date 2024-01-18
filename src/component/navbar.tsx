@@ -31,8 +31,6 @@ const pages = [
   { name: "Articles", url: "/articles" },
   { name: "About Us", url: "/about-us" },
   { name: "Article Writer", url: "/ai-article-writer" },
-  { name: "Boosted Link", url: "/create-boosted-link" },
-
 ];
 
 function ResponsiveAppBar() {
