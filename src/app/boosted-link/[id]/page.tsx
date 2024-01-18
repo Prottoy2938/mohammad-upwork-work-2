@@ -141,14 +141,15 @@ await updateDoc(doc(db, "boosted-links", boostedLink.id), {
 setDoc(docRef,{...signedUserData,
   providerId: provider.providerId,
           createdAt: Timestamp.now(),
-   //   // @ts-expect-error
+   // @ts-expect-error
           boostedLinkId: boostedLink.id
 });
 
         // setSnackbarMessage('Sign-in successful');
         // setSnackbarOpen(true);
     signOut(getAuth());
-    window.location.href = "https://www.example.com";
+     // @ts-expect-error
+    window.location.href = boostedLink.url;
 
 // Twitter Thing
 // REMOVE THE NAVBAR
@@ -193,6 +194,7 @@ setDoc(docRef,{...signedUserData,
   />
   <img
       onClick={linkedInLogin}
+    // @ts-expect-error
       src={linkedin}
       alt="Sign in with Linked In"
       style={{ maxWidth: '180px', cursor: 'pointer' }}
