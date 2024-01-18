@@ -8,6 +8,8 @@ import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { Table, TableBody, FormControlLabel,Snackbar,TableCell,  TableContainer, TableHead, TableRow, Paper, Checkbox, Button } from '@mui/material';
 import { useAuthContext } from "@/context/AuthContext";
 import {boostedLoginProviders} from "@/constants/boosted-login-providers"
+import CircularProgress from "@mui/material/CircularProgress";
+import Typography from '@mui/material/Typography';
 
 
 const updateSelectedProviders = (allProviders: any, linksData: any) => {
@@ -110,23 +112,26 @@ const BoostedLinks = () => {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <CircularProgress
+    style={{ position: "fixed", left: "50vw", top: "35vh" }}
+  />
   }
 
   return (
     <>
-    <h1>Your Boosted Links </h1>
-    
-    <TableContainer component={Paper}>
+     <Typography variant="h1" gutterBottom>
+        Your Boosted URLs
+      </Typography>
+    <TableContainer style={{marginTop: "10px"}} component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Created At</TableCell>
-            <TableCell>Main URL</TableCell>
-            <TableCell>Boosted URL</TableCell>
-            <TableCell>Emails Collected</TableCell>
-            <TableCell>Providers</TableCell>
-            <TableCell>Action</TableCell>
+            <TableCell><b>Created At</b></TableCell>
+            <TableCell><b>Main URL</b></TableCell>
+            <TableCell><b>Boosted URL</b></TableCell>
+            <TableCell><b>Emails Collected</b></TableCell>
+            <TableCell><b>Providers</b></TableCell>
+            <TableCell><b>Action</b></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -134,12 +139,12 @@ const BoostedLinks = () => {
             <TableRow key={link.id}>
               <TableCell>{link.createdAt.toDate().toLocaleString()}</TableCell>
               <TableCell>{link.url}</TableCell>
-              <a href={ `${typeof window === 'object' && window.location.origin}/boosted-link/${link.id}`}>
-              <TableCell>{ `${typeof window === 'object' && window.location.origin}/boosted-link/${link.id}`}</TableCell>
-              </a>
-              <a href={`/boosted-link-details/${link.id}`}>
-              <TableCell>Total Emails: {link.totalEmailGathered} \nSee all emails</TableCell>
-              </a>
+             
+              <TableCell> <a href={ `${typeof window === 'object' && window.location.origin}/boosted-link/${link.id}`}>{ `${typeof window === 'object' && window.location.origin}/boosted-link/${link.id}`}  </a></TableCell>
+            
+             
+              <TableCell> <a href={`/boosted-link-details/${link.id}`}><b>Emails: {link.totalEmailGathered}</b> <br /><span style={{borderBottom: "2px solid black", fontSize: "15px", marginTop:"10px"}}>See all emails     </span>         </a></TableCell>
+
               {/* <TableCell>{}</TableCell> */}
               <TableCell>
                 {['Facebook', 'Google', 'Instagram', 'Twitter', 'LinkedIn'].map((provider) => (
