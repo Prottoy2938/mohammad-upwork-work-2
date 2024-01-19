@@ -16,16 +16,22 @@ const updateSelectedProviders = (allProviders: any, linksData: any) => {
   const updatedProviders = {};
 
   // Ensure all providers are initialized to false for all linkIds
-  linksData.forEach(({ id: linkId }) => {
+  linksData.forEach(({ id: linkId }: any) => {
+    // @ts-expect-error
     updatedProviders[linkId] = {};
+    // @ts-expect-error
     allProviders.forEach((provider) => {
+    // @ts-expect-error
       updatedProviders[linkId][provider] = false;
     });
   });
 
   // Update the selected providers based on the provided data
+    // @ts-expect-error
   linksData.forEach(({ id: linkId, providers: selectedProviders }) => {
+    // @ts-expect-error
     selectedProviders.forEach((provider) => {
+    // @ts-expect-error
       updatedProviders[linkId][provider] = true;
     });
   });
@@ -66,6 +72,7 @@ const BoostedLinks = () => {
         const linksData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         console.log(linksData)
         setSelectedProviders(updateSelectedProviders(boostedLoginProviders,linksData ))
+    // @ts-expect-error
         setLinks(linksData);
         setLoading(false);
       } catch (error) {
@@ -79,20 +86,22 @@ const BoostedLinks = () => {
       fetchLinks();
     } 
   }, [user, router]);
-
+    // @ts-expect-error
   const handleCheckboxChange = (linkId, provider) => {
     setSelectedProviders((prevSelectedProviders) => {
       const updatedProviders = { ...prevSelectedProviders };
+    // @ts-expect-error
       updatedProviders[linkId] = { ...updatedProviders[linkId], [provider]: !updatedProviders[linkId][provider] };
       return updatedProviders;
     });
   };
-
+    // @ts-expect-error
   const handleSave = async (linkId) => {
     const db = getFirestore();
     const linkRef = doc(db, 'boosted-links', linkId);
 
     try {
+    // @ts-expect-error
       await updateDoc(linkRef, { providers: Object.keys(selectedProviders[linkId]).filter((provider) => selectedProviders[linkId][provider]) });
 
       alert("Successfully updated")
@@ -119,7 +128,7 @@ const BoostedLinks = () => {
 
   return (
     <>
-     <Typography variant="h1" gutterBottom>
+     <Typography variant="h2" gutterBottom>
         Your Boosted URLs
       </Typography>
     <TableContainer style={{marginTop: "10px"}} component={Paper}>
@@ -150,6 +159,7 @@ const BoostedLinks = () => {
                 {['Facebook', 'Google', 'Instagram', 'Twitter', 'LinkedIn'].map((provider) => (
                    <FormControlLabel
                    control={  <Checkbox
+    // @ts-expect-error
                     checked={selectedProviders[link.id]?.[provider] || false}
                     onChange={() => handleCheckboxChange(link.id, provider)}
                   />}

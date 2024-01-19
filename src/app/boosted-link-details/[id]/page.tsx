@@ -5,17 +5,20 @@ import { useRouter } from 'next/navigation';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 import { getFirestore,limit, collection, query, where, orderBy, getDocs } from 'firebase/firestore';
 import firebase_app from "../../../firebase/config";
+import CircularProgress from "@mui/material/CircularProgress";
 
 
 const db = getFirestore(firebase_app);
 
-const LinkPage = ({ params}) => {
+const LinkPage = ({ params}: any) => {
   const {id: linkID}= params
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true)
   const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true)
       try {
 const userDocRef = collection(db, 'boosted-links', linkID, 'signed-users');
 // Query the posts collection, orderBy createdAt, and limit to the first 100 documents
@@ -24,8 +27,11 @@ const signedUsersSnapshot=await getDocs(postsQuery)
         // Extract and set the data for rendering
         const userData = signedUsersSnapshot.docs.map((doc) => doc.data());
         console.log(userData)
+            // @ts-expect-error
         setData(userData);
+        setLoading(false)
       } catch (error) {
+        setLoading(false)
         console.error('Error fetching data:', error);
       }
     };
@@ -38,6 +44,12 @@ const signedUsersSnapshot=await getDocs(postsQuery)
     }
   }, [linkID, router]);
 
+  if (loading) {
+    return <CircularProgress
+    style={{ position: "fixed", left: "50vw", top: "35vh" }}
+  />
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -49,7 +61,7 @@ const signedUsersSnapshot=await getDocs(postsQuery)
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map((user) => (
+          {data.map((user: any) => (
             <TableRow key={user.email}>
               <TableCell>{user.email? user.email :"User didn't give email"}</TableCell>
               <TableCell>{user.name}</TableCell>

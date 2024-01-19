@@ -11,7 +11,6 @@ import { getFirestore, doc,  addDoc,getDocs,increment,updateDoc, setDoc, collect
 import { boostedLinksQuery } from "../../../firebase/firestore/queries";
 import firebase_app from "../../../firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
-import { InstagramLogin } from '@amraneze/react-instagram-login';
 import { useLinkedIn } from 'react-linkedin-login-oauth2';
 // You can use provided image shipped by this package or using your own
 import linkedin from 'react-linkedin-login-oauth2/assets/linkedin.png';
@@ -180,7 +179,9 @@ setDoc(docRef,{...signedUserData,
   return (
     <div>
       {loading ? (
-        <CircularProgress />
+        <CircularProgress 
+        style={{ position: "fixed", left: "50vw", top: "35vh" }}
+        />
       ) : (
         <>       
           {/* Social media login buttons */}
@@ -198,12 +199,7 @@ width: 'fit-content'
             <Button startIcon={<InstagramIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Instagram</Button>
             <Button startIcon={<LinkedInIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with LinkedIn</Button>
 </Stack>
-            {/* <InstagramLogin
-    clientId="CLIENT_ID"
-    buttonText="Login"
-    onSuccess={responseInstagram}
-    onFailure={responseInstagram}
-  /> */}
+          
   {/* <img
       onClick={linkedInLogin}
     // @ts-expect-error

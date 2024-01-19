@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "main": "lib/src/index.js",
   "dependencies": {
     "@amraneze/react-instagram-login": "^4.0.0",
     "@emotion/cache": "^11.11.0",
