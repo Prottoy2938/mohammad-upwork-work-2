@@ -22,6 +22,7 @@ const LinkPage = () => {
     const fetchData = async () => {
       setLoading(true)
       try {
+        // @ts-expect-error
 const userDocRef = collection(db, 'boosted-links', linkID, 'signed-users');
 // Query the posts collection, orderBy createdAt, and limit to the first 100 documents
 const postsQuery = query(userDocRef, orderBy('createdAt'), limit(100));

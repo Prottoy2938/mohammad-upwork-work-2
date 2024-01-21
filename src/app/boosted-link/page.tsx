@@ -65,7 +65,7 @@ const BoostedLinkPage = () => {
 
   const searchParams = useSearchParams()
 
-// @ts-expect-error
+
 const id = searchParams.get('id')
 
 
@@ -160,9 +160,10 @@ setDoc(docRef,{...signedUserData,
 
         // setSnackbarMessage('Sign-in successful');
         // setSnackbarOpen(true);
-    signOut(getAuth());
-     // @ts-expect-error
-    window.location.href = boostedLink.url;
+    signOut(getAuth()).then(() =>{
+           // @ts-expect-error
+      window.location.href = boostedLink.url;
+    })
 
 // Twitter Thing
 // REMOVE THE NAVBAR
