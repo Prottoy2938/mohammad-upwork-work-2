@@ -102,11 +102,11 @@ const BoostedLinkPage = ({params}) => {
             } else {
               setSnackbarMessage('Boosted link not found');
               setSnackbarOpen(true);
-            }
-           
-          });
-         
+            }           
+          });                   
         } catch (error) {
+          setLoading(false);
+
           console.error('Error fetching boosted link:', error);
           setSnackbarMessage('Error fetching boosted link');
           setSnackbarOpen(true);
