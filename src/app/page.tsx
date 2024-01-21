@@ -17,10 +17,11 @@ const db = getFirestore(firebase_app);
 const Homepage: FC = () => {
   const [loading, setLoading] = useState(true);
   const [homePageData, setHomePageData] = useState<HomepageData>();
-
   useEffect(() => {
+    console.log("alert, runng here")
     const fetchHomePageData = async () => {
       const docRef = doc(db, "home", "home-page");
+      console.log("HERE 1")
 
       try {
         const docSnap = await getDoc(docRef);
@@ -28,6 +29,7 @@ const Homepage: FC = () => {
         if (docSnap.exists()) {
           // @ts-expect-error
           setHomePageData(docSnap.data());
+          console.log("HERE ")
         } else {
           console.log("No such document exists!");
         }

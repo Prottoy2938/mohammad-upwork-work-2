@@ -88,7 +88,7 @@ export default function NavbarDropDown() {
                     <a href="/create-boosted-link">
                     <MenuItem>Create Boosted Link</MenuItem>
                     </a>
-                    <a href="boosted-link-dashboard">
+                    <a href="b-link-dashboard">
 
                     <MenuItem>My Boosted Link Dashboard</MenuItem>
                     </a>

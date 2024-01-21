@@ -152,7 +152,7 @@ const BoostedLinks = () => {
               <TableCell> <a href={ `${typeof window === 'object' && window.location.origin}/boosted-link/${link.id}`}>{ `${typeof window === 'object' && window.location.origin}/boosted-link/${link.id}`}  </a></TableCell>
             
              
-              <TableCell> <a href={`/boosted-link-details/${link.id}`}><b>Emails: {link.totalEmailGathered}</b> <br /><span style={{borderBottom: "2px solid black", fontSize: "15px", marginTop:"10px"}}>See all emails     </span>         </a></TableCell>
+              <TableCell> <a href={`/b-link-details/${link.id}`}><b>Emails: {link.totalEmailGathered}</b> <br /><span style={{borderBottom: "2px solid black", fontSize: "15px", marginTop:"10px"}}>See all emails     </span>         </a></TableCell>
 
               {/* <TableCell>{}</TableCell> */}
               <TableCell>

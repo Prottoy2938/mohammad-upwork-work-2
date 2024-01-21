@@ -8,8 +8,8 @@ import { Button, CircularProgress, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
 import { getFirestore, doc,  addDoc,getDocs,increment,updateDoc, setDoc, collection , Timestamp} from 'firebase/firestore';
-import { boostedLinksQuery } from "../../../firebase/firestore/queries";
-import firebase_app from "../../../firebase/config";
+import { boostedLinksQuery } from "../../firebase/firestore/queries";
+import firebase_app from "../../firebase/config";
 import { onAuthStateChanged, User } from "firebase/auth";
 import { useLinkedIn } from 'react-linkedin-login-oauth2';
 // You can use provided image shipped by this package or using your own
@@ -20,6 +20,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
+import { useSearchParams } from 'next/navigation'
 
 
 
@@ -55,13 +56,16 @@ interface SignedUser {
   // Add other fields as needed
 }
 
-// @ts-expect-error
-const BoostedLinkPage = ({params}) => {
+const BoostedLinkPage = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [boostedLink, setBoostedLink] = useState<BoostedLink | null>(null);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
+
+  const searchParams = useSearchParams()
+// @ts-expect-error
+const {id} = searchParams.get('id')
 
   const responseInstagram = (response: any) => {
     console.log(response);
@@ -85,7 +89,7 @@ const BoostedLinkPage = ({params}) => {
     signOut(getAuth());
 
     // Get the id from the query parameters
-    const { id } = params;
+    // const { id } = params;
 
     if (id) {
       // Fetch data from Firestore
@@ -121,7 +125,7 @@ const BoostedLinkPage = ({params}) => {
       setSnackbarOpen(true);
       setLoading(false);
     }
-  }, [params.id]);
+  }, [id]);
 
   const handleSignIn = async (provider: GoogleAuthProvider | FacebookAuthProvider | TwitterAuthProvider) => {
     try {

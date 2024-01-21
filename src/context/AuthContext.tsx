@@ -42,8 +42,9 @@ export function AuthContextProvider({
     
 
       } else {
+        console.log(pathName)
         // because if a visitor is in the boosted link page, he doesn't needs to login.
-        if(!pathName.includes("/boosted-link/")){
+        if(!pathName.includes("/boosted-link")){
           if(!pathName.includes("signin")){
             router.push("/signin");  
           }

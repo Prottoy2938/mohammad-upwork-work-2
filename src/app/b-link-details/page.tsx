@@ -4,17 +4,20 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Table, TableContainer, TableHead, TableBody, TableRow, TableCell, Paper } from '@mui/material';
 import { getFirestore,limit, collection, query, where, orderBy, getDocs } from 'firebase/firestore';
-import firebase_app from "../../../firebase/config";
+import firebase_app from "../../firebase/config";
 import CircularProgress from "@mui/material/CircularProgress";
+import { useSearchParams } from 'next/navigation'
 
 
 const db = getFirestore(firebase_app);
 
-const LinkPage = ({ params}: any) => {
-  const {id: linkID}= params
+const LinkPage = (: any) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true)
   const router = useRouter();
+  const searchParams = useSearchParams();
+//   @ts-expect-error
+  const {id: linkID} = searchParams.get('id')
 
   useEffect(() => {
     const fetchData = async () => {
