@@ -64,8 +64,10 @@ const BoostedLinkPage = () => {
   const [snackbarMessage, setSnackbarMessage] = useState('');
 
   const searchParams = useSearchParams()
+
 // @ts-expect-error
-const {id} = searchParams.get('id')
+const id = searchParams.get('id')
+
 
   const responseInstagram = (response: any) => {
     console.log(response);

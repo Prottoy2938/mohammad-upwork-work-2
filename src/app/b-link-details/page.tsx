@@ -16,8 +16,7 @@ const LinkPage = () => {
   const [loading, setLoading] = useState(true)
   const router = useRouter();
   const searchParams = useSearchParams();
-//   @ts-expect-error
-  const {id: linkID} = searchParams.get('id')
+  const linkID = searchParams.get('id')
 
   useEffect(() => {
     const fetchData = async () => {
