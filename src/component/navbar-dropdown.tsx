@@ -85,7 +85,7 @@ export default function NavbarDropDown() {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    <a href="/create-boosted-link">
+                    <a href="/create-b-link">
                     <MenuItem>Create Boosted Link</MenuItem>
                     </a>
                     <a href="b-link-dashboard">

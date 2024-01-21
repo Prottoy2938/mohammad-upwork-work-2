@@ -11,7 +11,7 @@ import { useSearchParams } from 'next/navigation'
 
 const db = getFirestore(firebase_app);
 
-const LinkPage = (: any) => {
+const LinkPage = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true)
   const router = useRouter();
