@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, CircularProgress, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut, GithubAuthProvider } from 'firebase/auth';
 import { getFirestore, doc,  addDoc,getDocs,increment,updateDoc, setDoc, collection , Timestamp} from 'firebase/firestore';
 import { boostedLinksQuery } from "../../firebase/firestore/queries";
 import firebase_app from "../../firebase/config";
@@ -17,11 +17,11 @@ import linkedin from 'react-linkedin-login-oauth2/assets/linkedin.png';
 import Stack from '@mui/material/Stack';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import MicrosoftIcon from '@mui/icons-material/Microsoft';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
 import { useSearchParams } from 'next/navigation'
-
+import axios from 'axios'
 
 
 // Get the Firestore instance
@@ -59,7 +59,7 @@ interface SignedUser {
 const BoostedLinkPage = () => {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
-  const [boostedLink, setBoostedLink] = useState<BoostedLink | null>(null);
+  const [boostedLink, setBoostedLink] = useState<BoostedLink | any>(null);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
 
@@ -69,22 +69,18 @@ const BoostedLinkPage = () => {
 const id = searchParams.get('id')
 
 
-  const responseInstagram = (response: any) => {
-    console.log(response);
-  };
+
+const responseInstagram = async (accessToken: any) => {
+  console.log(accessToken, "<<");
+  const response = await axios.get(`https://graph.instagram.com/v12.0/me?fields=id,username,email&access_token=${accessToken}`);
+    
+  // Extract user information
+  const { id, username, email } = response.data;
+};
 
 
-  
-  const { linkedInLogin } = useLinkedIn({
-    clientId: '867gc5r3st2fnr',
-    redirectUri:`${typeof window === 'object' && window.location.origin}/linkedin`, // for Next.js, you can use `${typeof window === 'object' && window.location.origin}/linkedin`
-    onSuccess: (code) => {
-      console.log(code);
-    },
-    onError: (error) => {
-      console.log(error);
-    },
-  });
+
+
 
   useEffect(() => {
     // Logout user on page load
@@ -144,9 +140,7 @@ const id = searchParams.get('id')
           email: user.email || '',
         };
         
-        // @ts-expect-error
 const docRef = doc(db, "boosted-links", boostedLink.id, 'signed-users',user.uid);
-        // @ts-expect-error
 await updateDoc(doc(db, "boosted-links", boostedLink.id), {
   totalEmailGathered: increment(1)
 });
@@ -154,14 +148,12 @@ await updateDoc(doc(db, "boosted-links", boostedLink.id), {
 setDoc(docRef,{...signedUserData,
   providerId: provider.providerId,
           createdAt: Timestamp.now(),
-   // @ts-expect-error
           boostedLinkId: boostedLink.id
 });
 
         // setSnackbarMessage('Sign-in successful');
         // setSnackbarOpen(true);
     signOut(getAuth()).then(() =>{
-           // @ts-expect-error
       window.location.href = boostedLink.url;
     })
 
@@ -200,20 +192,19 @@ margin: '0 auto',
 marginTop: '150px',
 width: 'fit-content'
             }}>
-          <Button startIcon={<GoogleIcon />} variant="outlined" onClick={() => handleSignIn(new GoogleAuthProvider())}>Sign in with Google</Button>
-            <Button startIcon={<FacebookIcon />} variant="outlined" onClick={() => handleSignIn(new FacebookAuthProvider())}>Sign in with Facebook</Button>
-            <Button startIcon={<TwitterIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Twitter</Button>
-            <Button startIcon={<InstagramIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Instagram</Button>
-            <Button startIcon={<LinkedInIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with LinkedIn</Button>
+              {boostedLink.providers.includes('Google')?<Button startIcon={<GoogleIcon />} variant="outlined" onClick={() => handleSignIn(new GoogleAuthProvider())}>Sign in with Google</Button> :""}
+              {boostedLink.providers.includes('Facebook')?<Button startIcon={<FacebookIcon />} variant="outlined" onClick={() => handleSignIn(new FacebookAuthProvider())}>Sign in with Facebook</Button> :""}
+              {boostedLink.providers.includes('Twitter')? <Button startIcon={<TwitterIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Twitter</Button>:""}
+              {boostedLink.providers.includes('Microsoft')?<Button startIcon={<MicrosoftIcon />} variant="outlined" onClick={() => handleSignIn(new GithubAuthProvider())}>Sign in with Github</Button> :""}
+
+          
+            
+            
+            
+            
 </Stack>
           
-  {/* <img
-      onClick={linkedInLogin}
-    // @ts-expect-error
-      src={linkedin}
-      alt="Sign in with Linked In"
-      style={{ maxWidth: '180px', cursor: 'pointer' }}
-    /> */}
+
             {/* Add buttons for other providers as needed */}
           </div>
         </>
