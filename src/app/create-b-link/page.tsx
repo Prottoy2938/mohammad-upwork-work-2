@@ -114,10 +114,10 @@ interface LinkData {
             control={<Checkbox checked={linkData.providers.includes('Google')} onChange={() => handleCheckboxChange('Google')} />}
             label="Google SignIn"
           />
-          <FormControlLabel
-            control={<Checkbox checked={linkData.providers.includes('Instagram')} onChange={() => handleCheckboxChange('Instagram')} />}
-            label="Instagram SignIn"
-          />
+          {/* <FormControlLabel
+            control={<Checkbox checked={linkData.providers.includes('Apple')} onChange={() => handleCheckboxChange('Apple')} />}
+            label="Apple SignIn"
+          /> */}
           <FormControlLabel
             control={<Checkbox checked={linkData.providers.includes('Facebook')} onChange={() => handleCheckboxChange('Facebook')} />}
             label="Facebook SignIn"
@@ -127,8 +127,12 @@ interface LinkData {
             label="Twitter SignIn"
           />
             <FormControlLabel
-            control={<Checkbox checked={linkData.providers.includes('LinkedIn')} onChange={() => handleCheckboxChange('LinkedIn')} />}
-            label="LinkedIn SignIn"
+            control={<Checkbox checked={linkData.providers.includes('Microsoft')} onChange={() => handleCheckboxChange('Microsoft')} />}
+            label="Microsoft SignIn"
+          />
+           <FormControlLabel
+            control={<Checkbox checked={linkData.providers.includes('Github')} onChange={() => handleCheckboxChange('Github')} />}
+            label="Github SignIn"
           />
         </FormGroup>
   

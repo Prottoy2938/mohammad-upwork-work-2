@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Button, CircularProgress, Snackbar } from '@mui/material';
 import MuiAlert, { AlertProps } from '@mui/material/Alert';
-import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut, GithubAuthProvider } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, FacebookAuthProvider, TwitterAuthProvider, signInWithPopup, signOut, GithubAuthProvider,} from 'firebase/auth';
 import { getFirestore, doc,  addDoc,getDocs,increment,updateDoc, setDoc, collection , Timestamp} from 'firebase/firestore';
 import { boostedLinksQuery } from "../../firebase/firestore/queries";
 import firebase_app from "../../firebase/config";
@@ -22,6 +22,8 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import GoogleIcon from '@mui/icons-material/Google';
 import { useSearchParams } from 'next/navigation'
 import axios from 'axios'
+import { OAuthProvider } from "firebase/auth";
+import GithubIcon from '@mui/icons-material/GitHub';
 
 
 // Get the Firestore instance
@@ -195,7 +197,9 @@ width: 'fit-content'
               {boostedLink.providers.includes('Google')?<Button startIcon={<GoogleIcon />} variant="outlined" onClick={() => handleSignIn(new GoogleAuthProvider())}>Sign in with Google</Button> :""}
               {boostedLink.providers.includes('Facebook')?<Button startIcon={<FacebookIcon />} variant="outlined" onClick={() => handleSignIn(new FacebookAuthProvider())}>Sign in with Facebook</Button> :""}
               {boostedLink.providers.includes('Twitter')? <Button startIcon={<TwitterIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Twitter</Button>:""}
-              {boostedLink.providers.includes('Microsoft')?<Button startIcon={<MicrosoftIcon />} variant="outlined" onClick={() => handleSignIn(new GithubAuthProvider())}>Sign in with Github</Button> :""}
+              {boostedLink.providers.includes('Microsoft')?<Button startIcon={<MicrosoftIcon />} variant="outlined" onClick={() => handleSignIn(new OAuthProvider('microsoft.com'))}>Sign in with Microsoft</Button> :""}
+              {boostedLink.providers.includes('Github')?<Button startIcon={<GithubIcon />} variant="outlined" onClick={() => handleSignIn(new GithubAuthProvider)}>Sign in with GitHub</Button> :""}
+
 
           
             
