@@ -156,7 +156,7 @@ const BoostedLinks = () => {
 
               {/* <TableCell>{}</TableCell> */}
               <TableCell>
-                {['Facebook', 'Google', 'Instagram', 'Twitter', 'LinkedIn'].map((provider) => (
+                {['Facebook', 'Google', 'Microsoft', 'Github', 'Twitter'].map((provider) => (
                    <FormControlLabel
                    control={  <Checkbox
     // @ts-expect-error
