@@ -73,6 +73,7 @@ function Page(): JSX.Element {
           </div>
         </form>
       </div>
+      <a href="/signup">Don&lsquo;t Have an Account? Sign Up</a>
     </div>
   );
 }

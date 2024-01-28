@@ -198,14 +198,9 @@ width: 'fit-content'
               {boostedLink.providers.includes('Facebook')?<Button startIcon={<FacebookIcon />} variant="outlined" onClick={() => handleSignIn(new FacebookAuthProvider())}>Sign in with Facebook</Button> :""}
               {boostedLink.providers.includes('Twitter')? <Button startIcon={<TwitterIcon />} variant="outlined" onClick={() => handleSignIn(new TwitterAuthProvider())}>Sign in with Twitter</Button>:""}
               {boostedLink.providers.includes('Microsoft')?<Button startIcon={<MicrosoftIcon />} variant="outlined" onClick={() => handleSignIn(new OAuthProvider('microsoft.com'))}>Sign in with Microsoft</Button> :""}
-              {boostedLink.providers.includes('Github')?<Button startIcon={<GithubIcon />} variant="outlined" onClick={() => handleSignIn(new GithubAuthProvider)}>Sign in with GitHub</Button> :""}
-
-
-          
+              {boostedLink.providers.includes('Github')?<Button startIcon={<GithubIcon />} variant="outlined" onClick={() => handleSignIn(new GithubAuthProvider)}>Sign in with GitHub</Button> :""}                  
             
-            
-            
-            
+                        
 </Stack>
           
 

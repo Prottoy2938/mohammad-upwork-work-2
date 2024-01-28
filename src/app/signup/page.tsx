@@ -68,7 +68,10 @@ function Page(): JSX.Element {
             Sign up
           </button>
         </form>
+      <a href="/signin" style={{marginTop:"15px"}}>Have an Account? Sign In</a>
+
       </div>
+
     </div>
   );
 }
