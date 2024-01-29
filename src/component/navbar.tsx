@@ -99,7 +99,7 @@ function ResponsiveAppBar() {
 
   return (
     <>
-    {pathName.includes("/boosted-link")? null :  <AppBar position="static" color="transparent">
+    {pathName.includes("/l")? null :  <AppBar position="static" color="transparent">
       <Container maxWidth="xl" style={{ justifyContent: "space-around" }}>
         <Toolbar disableGutters style={{ justifyContent: "space-around" }}>
           <Box style={{ display: "flex" }}>

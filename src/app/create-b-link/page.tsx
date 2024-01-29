@@ -92,11 +92,11 @@ interface LinkData {
       setOpenSnackbar(false);
     };
 
-    const boostedLink = `${typeof window === 'object' && window.location.origin}/boosted-link?id=${linkData.id}`;
+    const boostedLink = `${typeof window === 'object' && window.location.origin}/l/${linkData.id}`;
 
   
     return (
-      <Container>
+      <Container style={{marginTop:"70px"}}>
         
   
         <TextField
