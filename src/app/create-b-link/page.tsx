@@ -92,7 +92,7 @@ interface LinkData {
       setOpenSnackbar(false);
     };
 
-    const boostedLink = `${typeof window === 'object' && window.location.origin}/l/${linkData.id}`;
+    const boostedLink = `${typeof window === 'object' && window.location.origin}/l?id=${linkData.id}`;
 
   
     return (

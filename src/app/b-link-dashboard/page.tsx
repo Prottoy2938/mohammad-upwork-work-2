@@ -149,7 +149,7 @@ const BoostedLinks = () => {
               <TableCell>{link.createdAt.toDate().toLocaleString()}</TableCell>
               <TableCell>{link.url}</TableCell>
              
-              <TableCell> <a href={ `${typeof window === 'object' && window.location.origin}/l/${link.id}`}>{ `${typeof window === 'object' && window.location.origin}/l/${link.id}`}  </a></TableCell>
+              <TableCell> <a href={ `${typeof window === 'object' && window.location.origin}/l?id=${link.id}`}>{ `${typeof window === 'object' && window.location.origin}/l?id=${link.id}`}  </a></TableCell>
             
              
               <TableCell> <a href={`/b-link-details?id=${link.id}`}><b>Emails: {link.totalEmailGathered}</b> <br /><span style={{borderBottom: "2px solid black", fontSize: "15px", marginTop:"10px"}}>See all emails     </span>         </a></TableCell>
