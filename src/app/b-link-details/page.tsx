@@ -10,6 +10,7 @@ import { useSearchParams } from 'next/navigation'
 
 // @ts-expect-error
 function exportToCsv(filename, rows) {
+// @ts-expect-error
   var processRow = function (row) {
       var finalVal = '';
       for (var j = 0; j < row.length; j++) {
@@ -33,7 +34,9 @@ function exportToCsv(filename, rows) {
   }
 
   var blob = new Blob([csvFile], { type: 'text/csv;charset=utf-8;' });
+// @ts-expect-error
   if (navigator.msSaveBlob) { // IE 10+
+// @ts-expect-error
       navigator.msSaveBlob(blob, filename);
   } else {
       var link = document.createElement("a");
