@@ -131,16 +131,16 @@ const responseInstagram = async (accessToken: any) => {
     try {
 //  for facebook to get email
       provider.addScope('email');
-      console.log(provider,"<<<<<<<<<<<<<<")
+      // provider.addScope('phone');
       // Sign in with the selected provider
       const result = await signInWithPopup(getAuth(), provider);
       const user = result.user;
       if (user) {
-        console.log(user)
         const signedUserData: SignedUser = {
           name: user.displayName || '',
-          email: user.email || '',
+          email: user.providerData[0].email || '',
         };
+        // console.log(signedUserData, "<<÷")
         
 const docRef = doc(db, "boosted-links", boostedLink.id, 'signed-users',user.uid);
 await updateDoc(doc(db, "boosted-links", boostedLink.id), {
