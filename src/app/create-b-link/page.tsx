@@ -100,7 +100,7 @@ interface LinkData {
         
   
         <TextField
-          label="URL to shorten"
+          label="Target URL"
           variant="outlined"
           name="url"
           value={linkData.url}
