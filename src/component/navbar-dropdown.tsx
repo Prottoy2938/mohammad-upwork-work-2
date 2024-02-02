@@ -59,7 +59,7 @@ export default function NavbarDropDown() {
           style={{marginTop:"15px", color:'black'}}
 
         >
-          Boosted Link
+          Leads
         </Button>
         <Popper
           open={open}
