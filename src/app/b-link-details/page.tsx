@@ -106,10 +106,10 @@ const signedUsersSnapshot=await getDocs(postsQuery)
       return  obj[key]
     })
   )
-
+console.log(excelData)
     exportToCsv(`${linkID}.csv`,  [
       headingOrder,	
-      excelData,    
+      ...excelData,    
     ])
   }
 
