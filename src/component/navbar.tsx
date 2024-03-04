@@ -21,10 +21,10 @@ import { useState, useEffect } from "react";
 import firebase_app from "../firebase/config";
 import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import NavbarDropDown from "./navbar-dropdown"
-import { usePathname } from 'next/navigation';
-
-
+import NavbarDropDown from "./navbar-dropdown";
+import { usePathname } from "next/navigation";
+import TextField from "@mui/material/TextField";
+import FormControl from "@mui/material/FormControl";
 
 // Get the authentication instance using the Firebase app
 const auth = getAuth(firebase_app);
@@ -43,8 +43,14 @@ function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
+  const router = useRouter();
 
   const [user, setUser] = React.useState<any>();
+  const [searchQuery, setSearchQuery] = React.useState<string>("");
+  const handleSearch = (event: any) => {
+    event.preventDefault();
+    router.push(`/search?q=${searchQuery}`);
+  };
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -60,8 +66,6 @@ function ResponsiveAppBar() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  const router = useRouter();
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -94,138 +98,145 @@ function ResponsiveAppBar() {
       });
   };
 
-  const pathName=usePathname()
-
+  const pathName = usePathname();
 
   return (
     <>
-    {pathName.includes("/l")? null :  <AppBar position="static" color="transparent">
-      <Container maxWidth="xl" style={{ justifyContent: "space-around" }}>
-        <Toolbar disableGutters style={{ justifyContent: "space-around" }}>
-          <Box style={{ display: "flex" }}>
-            <img src={logoImage} alt="logo-image" width="74px" height="34px" />
-            <Typography
-              ml={2}
-              variant="h6"
-              noWrap
-              component="a"
-              href="/"
-              sx={{
-                mr: 2,
-                display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
-                fontWeight: 700,
-                letterSpacing: ".3rem",
-                color: "inherit",
-                textDecoration: "none",
-              }}
-            >
-              LOGO
-            </Typography>
-          </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: "block", md: "none" },
-              }}
-            >
-              {pages.map((page) => (
-                <a
-                  key={uuidv4()}
-                  style={{ textDecoration: "none", color: "black" }}
-                  href={page.url}
+      {pathName.includes("/l") ? null : (
+        <AppBar position="static" color="transparent">
+          <Container maxWidth="xl" style={{ justifyContent: "space-around" }}>
+            <Toolbar disableGutters style={{ justifyContent: "space-around" }}>
+              <Box style={{ display: "flex" }}>
+                <img
+                  src={logoImage}
+                  alt="logo-image"
+                  width="74px"
+                  height="34px"
+                />
+                <Typography
+                  ml={2}
+                  variant="h6"
+                  noWrap
+                  component="a"
+                  href="/"
+                  sx={{
+                    mr: 2,
+                    display: { xs: "none", md: "flex" },
+                    fontFamily: "monospace",
+                    fontWeight: 700,
+                    letterSpacing: ".3rem",
+                    color: "inherit",
+                    textDecoration: "none",
+                  }}
                 >
-                  <MenuItem key={page.url} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page.name}</Typography>
-                  </MenuItem>
-                </a>
-              ))}
-              <NavbarDropDown />
-              {user ? (
-                <Button onClick={handleLogout}>
-                  <Typography textAlign="center">LogOut</Typography>
-                </Button>
-              ) : (
-                <a
-                  style={{ textDecoration: "none", color: "black" }}
-                  href={"/signin"}
+                  LOGO
+                </Typography>
+              </Box>
+              <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="account of current user"
+                  aria-controls="menu-appbar"
+                  aria-haspopup="true"
+                  onClick={handleOpenNavMenu}
+                  color="inherit"
                 >
-                  <Button>
-                    <Typography textAlign="center">Login</Typography>
-                  </Button>
-                </a>
-              )}
-            </Menu>
-          </Box>
-          <Box style={{ justifyContent: "space-around" }}>
-            <Box>
-              <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-              <Typography
-                variant="h5"
-                noWrap
-                component="a"
-                href="#app-bar-with-responsive-menu"
-                sx={{
-                  mr: 2,
-                  display: { xs: "flex", md: "none" },
-                  flexGrow: 1,
-                  fontFamily: "monospace",
-                  fontWeight: 700,
-                  letterSpacing: ".3rem",
-                  color: "inherit",
-                  textDecoration: "none",
-                }}
-              >
-                LOGO
-              </Typography>
-            </Box>
-            <Box
-              sx={{
-                flexGrow: 1,
-                justifyContent: "flex-end",
-                display: { xs: "none", md: "flex" },
-              }}
-            >
-              {pages.map((page) => (
-                <a
-                  href={page.url}
-                  key={uuidv4()}
-                  style={{ textDecoration: "none" }}
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: "bottom",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: "block", md: "none" },
+                  }}
                 >
-                  <Button
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, color: "black", display: "block" }}
+                  {pages.map((page) => (
+                    <a
+                      key={uuidv4()}
+                      style={{ textDecoration: "none", color: "black" }}
+                      href={page.url}
+                    >
+                      <MenuItem key={page.url} onClick={handleCloseNavMenu}>
+                        <Typography textAlign="center">{page.name}</Typography>
+                      </MenuItem>
+                    </a>
+                  ))}
+                  <NavbarDropDown />
+                  {user ? (
+                    <Button onClick={handleLogout}>
+                      <Typography textAlign="center">LogOut</Typography>
+                    </Button>
+                  ) : (
+                    <a
+                      style={{ textDecoration: "none", color: "black" }}
+                      href={"/signin"}
+                    >
+                      <Button>
+                        <Typography textAlign="center">Login</Typography>
+                      </Button>
+                    </a>
+                  )}
+                </Menu>
+              </Box>
+              <Box style={{ justifyContent: "space-around" }}>
+                <Box>
+                  <AdbIcon
+                    sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+                  />
+                  <Typography
+                    variant="h5"
+                    noWrap
+                    component="a"
+                    href="#app-bar-with-responsive-menu"
+                    sx={{
+                      mr: 2,
+                      display: { xs: "flex", md: "none" },
+                      flexGrow: 1,
+                      fontFamily: "monospace",
+                      fontWeight: 700,
+                      letterSpacing: ".3rem",
+                      color: "inherit",
+                      textDecoration: "none",
+                    }}
                   >
-                    {page.name}
-                  </Button>
-                </a>
-              ))}
-              <NavbarDropDown />
-           
-               {/* <Menu
+                    LOGO
+                  </Typography>
+                </Box>
+                <Box
+                  sx={{
+                    flexGrow: 1,
+                    justifyContent: "flex-end",
+                    display: { xs: "none", md: "flex" },
+                  }}
+                >
+                  {pages.map((page) => (
+                    <a
+                      href={page.url}
+                      key={uuidv4()}
+                      style={{ textDecoration: "none" }}
+                    >
+                      <Button
+                        onClick={handleCloseNavMenu}
+                        sx={{ my: 2, color: "black", display: "block" }}
+                      >
+                        {page.name}
+                      </Button>
+                    </a>
+                  ))}
+                  <NavbarDropDown />
+
+                  {/* <Menu
         id="simple-menu"
         anchorEl={anchorEl}
         keepMounted
@@ -236,29 +247,40 @@ function ResponsiveAppBar() {
         <MenuItem onClick={handleClose}>Option 2</MenuItem>
         <MenuItem onClick={handleClose}>Option 3</MenuItem>
       </Menu> */}
-              {user ? (
-                <Button
-                  onClick={handleLogout}
-                  sx={{ my: 2, color: "black", display: "block" }}
-                >
-                  LogOut
-                </Button>
-              ) : (
-                <a
-                  style={{ textDecoration: "none", color: "black" }}
-                  href={"/signin"}
-                >
-                  <Button sx={{ my: 2, color: "black", display: "block" }}>
-                    Login
-                  </Button>
-                </a>
-              )}
-            </Box>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>}
-   
+
+                  {user ? (
+                    <Button
+                      onClick={handleLogout}
+                      sx={{ my: 2, color: "black", display: "block" }}
+                    >
+                      LogOut
+                    </Button>
+                  ) : (
+                    <a
+                      style={{ textDecoration: "none", color: "black" }}
+                      href={"/signin"}
+                    >
+                      <Button sx={{ my: 2, color: "black", display: "block" }}>
+                        Login
+                      </Button>
+                    </a>
+                  )}
+                  <form onSubmit={handleSearch}>
+                    <TextField
+                      id="filled-basic"
+                      label="Search"
+                      variant="filled"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      size="small"
+                    />
+                  </form>
+                </Box>
+              </Box>
+            </Toolbar>
+          </Container>
+        </AppBar>
+      )}
     </>
   );
 }

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Alert } from "@material-ui/lab";
 import signIn from "@/firebase/auth/signIn";
 
+
 function Page(): JSX.Element {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
