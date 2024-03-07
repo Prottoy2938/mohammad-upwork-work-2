@@ -1,20 +1,26 @@
-import { AuthContextProvider } from '@/context/AuthContext';
-import { Inter } from 'next/font/google';
-import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
-import Navbar from "../component/navbar"
-import './globals.css';
+import { AuthContextProvider } from "@/context/AuthContext";
+import { Inter } from "next/font/google";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
+import Navbar from "../component/navbar";
+import Footer from "../component/footer";
+import Navbar2 from "../component/navbar-2";
+import "./globals.css";
 
 // Load the Inter font with 'latin' subset
-const inter = Inter( { subsets: [ 'latin' ] } );
+const inter = Inter({ subsets: ["latin"] });
 
 // Metadata for the application
 export const metadata = {
-  title: 'Boosted Link',
-  description: 'Boosted Link Websites',
+  title: "Boosted Link",
+  description: "Boosted Link Websites",
 };
 
 // Root layout component for the application
-export default function RootLayout( { children }: { children: React.ReactNode } ): JSX.Element {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}): JSX.Element {
   return (
     <html lang="en">
       {/*
@@ -26,8 +32,9 @@ export default function RootLayout( { children }: { children: React.ReactNode } 
       <body>
         {/* Wrap the children with the AuthContextProvider to provide authentication context */}
         <AuthContextProvider>
-          <Navbar />
+          <Navbar2 />
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+          <Footer />
         </AuthContextProvider>
       </body>
     </html>

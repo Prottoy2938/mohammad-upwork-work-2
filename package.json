@@ -12,10 +12,11 @@
   "dependencies": {
     "@amraneze/react-instagram-login": "^4.0.0",
     "@emotion/cache": "^11.11.0",
-    "@emotion/react": "^11.11.3",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
     "@material-ui/lab": "^4.0.0-alpha.61",
-    "@mui/icons-material": "^5.15.3",
+    "@mui/icons-material": "^5.15.12",
+    "@mui/material": "^5.15.12",
     "@mui/material-nextjs": "^5.15.3",
     "@types/node": "20.8.10",
     "@types/react": "18.2.46",
