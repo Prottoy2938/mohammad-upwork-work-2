@@ -28,11 +28,11 @@ const Footer: React.FC = () => {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6}>
             <Typography variant="body1">
-              © {new Date().getFullYear()} My Website. All rights reserved.
+              © {new Date().getFullYear()} Boosted Link. All rights reserved.
             </Typography>
           </Grid>
           <Grid item xs={12} sm={6}>
-            <Typography variant="body1" align="right">
+            {/* <Typography variant="body1" align="right">
               Made with love by{" "}
               <Link
                 href="https://www.example.com"
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
               >
                 Your Name
               </Link>
-            </Typography>
+            </Typography> */}
           </Grid>
         </Grid>
       </Container>

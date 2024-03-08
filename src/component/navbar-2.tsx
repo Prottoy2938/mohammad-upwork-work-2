@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   AppBar,
   Toolbar,
@@ -15,6 +15,13 @@ import {
 import { makeStyles, fade } from "@material-ui/core/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
+import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import firebase_app from "../firebase/config";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+
+const auth = getAuth(firebase_app);
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -72,6 +79,48 @@ const useStyles = makeStyles((theme) => ({
 const Navbar: React.FC = () => {
   const classes: any = useStyles();
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+  const [user, setUser] = React.useState<any>();
+  const [searchQuery, setSearchQuery] = React.useState<string>("");
+
+  const router = useRouter();
+
+  const handleLogout = () => {
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        router.push("/");
+        console.log("Signed out successfully");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
+
+  const pathName = usePathname();
+
+  const handleSearch = (event: any) => {
+    event.preventDefault();
+    router.push(`/search?q=${searchQuery}`);
+  };
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        const uid = user.uid;
+        // ...
+        console.log("uid", uid);
+        setUser(uid);
+      } else {
+        // User is signed out
+        // ...
+        console.log("user is logged out");
+        setUser(null);
+      }
+    });
+  }, []);
 
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
@@ -127,13 +176,45 @@ const Navbar: React.FC = () => {
           <List>
             {/* Add your drawer items here */}
             <ListItem button>
-              <ListItemIcon>{/* Add your icon here */}</ListItemIcon>
-              <ListItemText primary="Drawer Item 1" />
+              <a href="/">
+                <ListItemIcon>{/* Add your icon here */}</ListItemIcon>
+                <ListItemText primary="Home" />
+              </a>
             </ListItem>
             <ListItem button>
-              <ListItemIcon>{/* Add your icon here */}</ListItemIcon>
-              <ListItemText primary="Drawer Item 2" />
+              <a href="/ai-article-writer">
+                <ListItemIcon>{/* Add your icon here */}</ListItemIcon>
+                <ListItemText primary="Article Wrtier" />
+              </a>
             </ListItem>
+            <ListItem button>
+              <a href="/articles">
+                <ListItemIcon>{/* Add your icon here */}</ListItemIcon>
+                <ListItemText primary="Articles" />
+              </a>
+            </ListItem>
+            <ListItem button>
+              <a href="/about-us">
+                <ListItemIcon>{/* Add your icon here */}</ListItemIcon>
+                <ListItemText primary="About Us" />
+              </a>
+            </ListItem>
+
+            {user ? (
+              <ListItem button onClick={handleLogout}>
+                <div>
+                  <ListItemIcon>{/* Add your icon here */}</ListItemIcon>
+                  <ListItemText primary="LogOut" />
+                </div>
+              </ListItem>
+            ) : (
+              <ListItem button onClick={handleLogout}>
+                <a href="/signin">
+                  <ListItemIcon>{/* Add your icon here */}</ListItemIcon>
+                  <ListItemText primary="Login" />
+                </a>
+              </ListItem>
+            )}
           </List>
         </div>
       </Drawer>
