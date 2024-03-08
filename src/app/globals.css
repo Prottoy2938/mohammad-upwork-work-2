@@ -1,6 +1,10 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+.body div {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+}
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
