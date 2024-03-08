@@ -1,12 +1,13 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Grow from '@mui/material/Grow';
-import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
-import MenuItem from '@mui/material/MenuItem';
-import MenuList from '@mui/material/MenuList';
-import Stack from '@mui/material/Stack';
+"use client";
+import React, { useState, useEffect } from "react";
+import Button from "@mui/material/Button";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import Stack from "@mui/material/Stack";
 
 export default function NavbarDropDown() {
   const [open, setOpen] = React.useState(false);
@@ -28,10 +29,10 @@ export default function NavbarDropDown() {
   };
 
   function handleListKeyDown(event: React.KeyboardEvent) {
-    if (event.key === 'Tab') {
+    if (event.key === "Tab") {
       event.preventDefault();
       setOpen(false);
-    } else if (event.key === 'Escape') {
+    } else if (event.key === "Escape") {
       setOpen(false);
     }
   }
@@ -47,58 +48,54 @@ export default function NavbarDropDown() {
   }, [open]);
 
   return (
-   
-      <div>
-        <Button
-          ref={anchorRef}
-          id="composition-button"
-          aria-controls={open ? 'composition-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-          style={{marginTop:"15px", color:'black'}}
-
-        >
-          Leads
-        </Button>
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          role={undefined}
-          placement="bottom-start"
-          transition
-          disablePortal
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === 'bottom-start' ? 'left top' : 'left bottom',
-              }}
-            >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id="composition-menu"
-                    aria-labelledby="composition-button"
-                    onKeyDown={handleListKeyDown}
-                  >
-                    <a href="/create-b-link">
+    <div>
+      <Button
+        ref={anchorRef}
+        id="composition-button"
+        aria-controls={open ? "composition-menu" : undefined}
+        aria-expanded={open ? "true" : undefined}
+        aria-haspopup="true"
+        onClick={handleToggle}
+        style={{ marginTop: "15px", color: "black" }}
+      >
+        Leads
+      </Button>
+      <Popper
+        open={open}
+        anchorEl={anchorRef.current}
+        role={undefined}
+        placement="bottom-start"
+        transition
+        disablePortal
+      >
+        {({ TransitionProps, placement }) => (
+          <Grow
+            {...TransitionProps}
+            style={{
+              transformOrigin:
+                placement === "bottom-start" ? "left top" : "left bottom",
+            }}
+          >
+            <Paper>
+              <ClickAwayListener onClickAway={handleClose}>
+                <MenuList
+                  autoFocusItem={open}
+                  id="composition-menu"
+                  aria-labelledby="composition-button"
+                  onKeyDown={handleListKeyDown}
+                >
+                  <a href="/create-b-link">
                     <MenuItem>Create Boosted Link</MenuItem>
-                    </a>
-                    <a href="b-link-dashboard">
-
+                  </a>
+                  <a href="b-link-dashboard">
                     <MenuItem>My Boosted Link Dashboard</MenuItem>
-                    </a>
-
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-      </div>
+                  </a>
+                </MenuList>
+              </ClickAwayListener>
+            </Paper>
+          </Grow>
+        )}
+      </Popper>
+    </div>
   );
 }
