@@ -2,8 +2,6 @@ import { AuthContextProvider } from "@/context/AuthContext";
 import { Inter } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Navbar from "../component/navbar";
-import Footer from "../component/footer";
-import Navbar2 from "../component/navbar-2";
 import "./globals.css";
 
 // Load the Inter font with 'latin' subset
@@ -32,9 +30,7 @@ export default function RootLayout({
       <body>
         {/* Wrap the children with the AuthContextProvider to provide authentication context */}
         <AuthContextProvider>
-          <Navbar2 />
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
-          <Footer />
         </AuthContextProvider>
       </body>
     </html>

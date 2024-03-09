@@ -2,8 +2,8 @@
 import signUp from "@/firebase/auth/signup";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { TextField, Button } from "@material-ui/core";
-import { Alert } from "@material-ui/lab";
+import { TextField, Button } from "@mui/material";
+import { Alert } from "@mui/lab";
 
 function Page(): JSX.Element {
   const [email, setEmail] = useState("");
