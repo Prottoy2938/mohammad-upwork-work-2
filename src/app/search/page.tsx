@@ -1,7 +1,7 @@
 "use client"; // This is a client component 👈🏽
 
 import { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import { useSearchParams } from "next/navigation";
 import { initializeApp } from "firebase/app";
 import {
   getFirestore,
@@ -19,7 +19,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { articlesBannerImage } from "../../constants/img-src";
 
 export default function SearchPage() {
-  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [searchQuery, setSearchQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [articles, setArticles] = useState<ArticlesData[]>([]);
@@ -46,11 +47,13 @@ export default function SearchPage() {
   }, [searchQuery]);
 
   useEffect(() => {
-    const { q } = router.query;
+    // @ts-expect-error
+    const { q } = searchParams.get("q");
+
     if (q) {
       setSearchQuery(q.toString());
     }
-  }, [router.query]);
+  }, [searchParams]);
 
   return (
     <Box p={5}>
