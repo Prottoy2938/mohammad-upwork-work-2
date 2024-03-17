@@ -231,9 +231,9 @@ const Articles: FC = () => {
           </Box>
         )}
       </Box>
-      <ThemeProvider theme={defaultTheme}>
+      <Box p={10}>
         <CssBaseline />
-        <Container maxWidth="lg">
+        <Box>
           <Header title="Blog" sections={sections} />
           <main>
             <MainFeaturedPost post={mainFeaturedPost} />
@@ -252,12 +252,12 @@ const Articles: FC = () => {
               />
             </Grid>
           </main>
-        </Container>
+        </Box>
         <Footer
           title="Footer"
           description="Something here to give the footer a purpose!"
         />
-      </ThemeProvider>
+      </Box>
     </>
   );
 };
