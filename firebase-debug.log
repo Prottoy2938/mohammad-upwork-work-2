@@ -964,3 +964,805 @@ npm ERR! A complete log of this run can be found in: /www-data-home/.npm/_logs/2
     at async handle (/usr/local/share/nvm/versions/node/v20.11.1/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:88:17)
 [error] 
 [error] Error: There was an error deploying functions
+[debug] [2024-03-09T19:33:11.921Z] ----------------------------------------------------------------------
+[debug] [2024-03-09T19:33:11.923Z] Command:       /usr/local/share/nvm/versions/node/v20.11.1/bin/node /home/codespace/nvm/current/bin/firebase deploy --only hosting
+[debug] [2024-03-09T19:33:11.924Z] CLI Version:   13.4.1
+[debug] [2024-03-09T19:33:11.924Z] Platform:      linux
+[debug] [2024-03-09T19:33:11.924Z] Node Version:  v20.11.1
+[debug] [2024-03-09T19:33:11.924Z] Time:          Sat Mar 09 2024 19:33:11 GMT+0000 (Coordinated Universal Time)
+[debug] [2024-03-09T19:33:11.924Z] Env Overrides: GITHUB_API_URL
+[debug] [2024-03-09T19:33:11.924Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-09T19:33:12.001Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-09T19:33:12.002Z] > authorizing via signed-in user (alred487@gmail.com)
+[debug] [2024-03-09T19:33:12.002Z] [iam] checking project compassfile-dev for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-03-09T19:33:12.003Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions [none]
+[debug] [2024-03-09T19:33:12.004Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:33:12.004Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-03-09T19:33:13.556Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions 200
+[debug] [2024-03-09T19:33:13.557Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-03-09T19:33:13.558Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev [none]
+[debug] [2024-03-09T19:33:14.235Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev 200
+[debug] [2024-03-09T19:33:14.237Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev {"projectId":"compassfile-dev","projectNumber":"124510851885","displayName":"CompassFile-dev","name":"projects/compassfile-dev","resources":{"hostingSite":"compassfile-dev"},"state":"ACTIVE","etag":"1_016b9188-9945-4d93-b9e2-9569bb2585cd"}
+[debug] [2024-03-09T19:33:16.197Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites pageToken=&pageSize=10
+[debug] [2024-03-09T19:33:17.303Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites 200
+[debug] [2024-03-09T19:33:17.303Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites {"sites":[{"name":"projects/compassfile-dev/sites/compassfile-dev","defaultUrl":"https://compassfile-dev.web.app","appId":"1:124510851885:web:09ab2e7a25ab46200bf9a4","type":"DEFAULT_SITE"},{"name":"projects/compassfile-dev/sites/nextjs-version-c354b","defaultUrl":"https://nextjs-version-c354b.web.app","type":"USER_SITE"},{"name":"projects/compassfile-dev/sites/test12111","defaultUrl":"https://test12111.web.app","type":"USER_SITE"}]}
+[debug] [2024-03-09T19:33:17.304Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:124510851885:web:09ab2e7a25ab46200bf9a4/config [none]
+[debug] [2024-03-09T19:33:18.301Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:124510851885:web:09ab2e7a25ab46200bf9a4/config 200
+[debug] [2024-03-09T19:33:18.301Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:124510851885:web:09ab2e7a25ab46200bf9a4/config {"projectId":"compassfile-dev","appId":"1:124510851885:web:09ab2e7a25ab46200bf9a4","storageBucket":"compassfile-dev.appspot.com","apiKey":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","authDomain":"compassfile-dev.firebaseapp.com","messagingSenderId":"124510851885","measurementId":"G-2ENR1NYZN2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-03-09T19:33:22.435Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev [none]
+[debug] [2024-03-09T19:33:22.842Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev 200
+[debug] [2024-03-09T19:33:22.842Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev {"name":"projects/compassfile-dev/sites/compassfile-dev","defaultUrl":"https://compassfile-dev.web.app","appId":"1:124510851885:web:09ab2e7a25ab46200bf9a4","type":"DEFAULT_SITE"}
+[info] - info Loaded env from /workspaces/mohammad-upwork-work-2/.env
+
+[info] - info Creating an optimized production build...
+
+[info] - warn Compiled with warnings
+
+
+[info] ./node_modules/node-fetch/lib/index.js
+Module not found: Can't resolve 'encoding' in '/workspaces/mohammad-upwork-work-2/node_modules/node-fetch/lib'
+
+Import trace for requested module:
+./node_modules/node-fetch/lib/index.js
+./node_modules/@firebase/auth/dist/node-esm/index.js
+./node_modules/firebase/auth/dist/index.mjs
+./src/app/ai-article-writer/page.tsx
+
+[info] 
+
+[info] - info Linting and checking validity of types...
+
+[info] 
+./src/app/articles/page.tsx
+43:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/page.tsx
+58:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+83:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+109:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/app/search/page.tsx
+67:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/component/navbar.tsx
+110:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/AppAppBar.js
+87:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/AppAppBar.tsx
+91:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/Footer.js
+61:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/Footer.tsx
+61:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/LogoCollection.js
+50:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/LogoCollection.tsx
+50:13  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/Testimonials.js
+143:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/components/Testimonials.tsx
+143:17  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/context/AuthContext.tsx
+64:6  Warning: React Hook useEffect has missing dependencies: 'pathName' and 'router'. Either include them or remove the dependency array.  react-hooks/exhaustive-deps
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
+
+[info] - info Collecting page data...
+
+[info] - info Generating static pages (0/17)
+
+[info] - info Generating static pages (4/17)
+
+[info] - info Generating static pages (8/17)
+
+[info] - warn Entire page /b-link-details deopted into client-side rendering. https://nextjs.org/docs/messages/deopted-into-client-rendering /b-link-details
+
+[info] - warn Entire page /l deopted into client-side rendering. https://nextjs.org/docs/messages/deopted-into-client-rendering /l
+
+[info] - info Generating static pages (12/17)
+
+[info] - warn Entire page /search deopted into client-side rendering. https://nextjs.org/docs/messages/deopted-into-client-rendering /search
+
+[info] - info Generating static pages (17/17)
+
+[info] - info Finalizing page optimization...
+
+[info] 
+
+[info] Route (app)                                Size     First Load JS
+┌ ○ /                                      0 B                0 B
+├ ○ /about-us                              172 kB          308 kB
+├ ○ /admin                                 731 B           113 kB
+├ ○ /ai-article-writer                     20.6 kB         273 kB
+├ ○ /articles                              3.1 kB          188 kB
+├ ○ /b-link-dashboard                      1.71 kB         227 kB
+├ ○ /b-link-details                        3.59 kB         196 kB
+├ ○ /create-b-link                         2.57 kB         255 kB
+├ ○ /favicon.ico                           0 B                0 B
+├ ○ /l                                     19.8 kB         250 kB
+├ ○ /p-home                                10.2 kB         140 kB
+├ ○ /search                                3.17 kB         189 kB
+├ ○ /signin                                3.84 kB         150 kB
+├ ○ /signup                                1.37 kB         177 kB
+└ ○ /test                                  30.2 kB         178 kB
++ First Load JS shared by all              78 kB
+  ├ chunks/5769-f106cc874181c2cf.js        25.2 kB
+  ├ chunks/bce60fc1-7ca578e7ad407188.js    50.8 kB
+  ├ chunks/main-app-24179ce6c1f76edf.js    228 B
+  └ chunks/webpack-70d8c9b05bfa9d09.js     1.77 kB
+
+Route (pages)                              Size     First Load JS
+─ ○ /404                                   196 B          75.3 kB
++ First Load JS shared by all              75.1 kB
+  ├ chunks/framework-4498e84bb0ba1830.js   45.1 kB
+  ├ chunks/main-dccc2d183b4f91ff.js        28 kB
+  ├ chunks/pages/_app-8fa61e72220a040a.js  206 B
+  └ chunks/webpack-70d8c9b05bfa9d09.js     1.77 kB
+
+[info] 
+○  (Static)  automatically rendered as static HTML (uses no initial props)
+
+
+[info] Building a Cloud Function to run this application. This is needed due to:
+[info]  • Image Optimization
+[info] 
+[debug] [2024-03-09T19:34:45.142Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev [none]
+[debug] [2024-03-09T19:34:46.080Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev 200
+[debug] [2024-03-09T19:34:46.080Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev {"name":"projects/compassfile-dev/sites/compassfile-dev","defaultUrl":"https://compassfile-dev.web.app","appId":"1:124510851885:web:09ab2e7a25ab46200bf9a4","type":"DEFAULT_SITE"}
+[debug] [2024-03-09T19:35:22.674Z] [web frameworks] effective firebase.json:  {
+  "hosting": [
+    {
+      "source": ".",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "frameworksBackend": {
+        "region": "us-central1"
+      },
+      "site": "compassfile-dev",
+      "rewrites": [
+        {
+          "source": "**",
+          "function": {
+            "functionId": "ssrcompassfiledev",
+            "region": "us-central1",
+            "pinTag": true
+          }
+        }
+      ],
+      "redirects": [],
+      "headers": [
+        {
+          "source": "/favicon.ico",
+          "headers": [
+            {
+              "key": "cache-control",
+              "value": "public, max-age=0, must-revalidate"
+            },
+            {
+              "key": "content-type",
+              "value": "image/x-icon"
+            },
+            {
+              "key": "x-next-cache-tags",
+              "value": "/favicon.ico/route"
+            }
+          ]
+        },
+        {
+          "source": "/about-us",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/about-us/page"
+            }
+          ]
+        },
+        {
+          "source": "/admin",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/admin/page"
+            }
+          ]
+        },
+        {
+          "source": "/ai-article-writer",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/ai-article-writer/page"
+            }
+          ]
+        },
+        {
+          "source": "/articles",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/articles/page"
+            }
+          ]
+        },
+        {
+          "source": "/b-link-details",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/b-link-details/page"
+            }
+          ]
+        },
+        {
+          "source": "/b-link-dashboard",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/b-link-dashboard/page"
+            }
+          ]
+        },
+        {
+          "source": "/p-home",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/p-home/page"
+            }
+          ]
+        },
+        {
+          "source": "/create-b-link",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/create-b-link/page"
+            }
+          ]
+        },
+        {
+          "source": "/signin",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/signin/page"
+            }
+          ]
+        },
+        {
+          "source": "/signup",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/signup/page"
+            }
+          ]
+        },
+        {
+          "source": "/test",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/test/page"
+            }
+          ]
+        },
+        {
+          "source": "/l",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/l/page"
+            }
+          ]
+        },
+        {
+          "source": "/search",
+          "headers": [
+            {
+              "key": "x-next-cache-tags",
+              "value": "/search/page"
+            }
+          ]
+        },
+        {
+          "source": "**/*.[jt]s",
+          "headers": [
+            {
+              "key": "Set-Cookie",
+              "value": "__FIREBASE_DEFAULTS__=eyJjb25maWciOnsicHJvamVjdElkIjoiY29tcGFzc2ZpbGUtZGV2IiwiYXBwSWQiOiIxOjEyNDUxMDg1MTg4NTp3ZWI6MDlhYjJlN2EyNWFiNDYyMDBiZjlhNCIsInN0b3JhZ2VCdWNrZXQiOiJjb21wYXNzZmlsZS1kZXYuYXBwc3BvdC5jb20iLCJhcGlLZXkiOiJBSXphU3lEbFFaLVhidFlFeWRsLXBtNm1pTTZaaUVhTTQ1Snc3SGsiLCJhdXRoRG9tYWluIjoiY29tcGFzc2ZpbGUtZGV2LmZpcmViYXNlYXBwLmNvbSIsIm1lc3NhZ2luZ1NlbmRlcklkIjoiMTI0NTEwODUxODg1IiwibWVhc3VyZW1lbnRJZCI6IkctMkVOUjFOWVpOMiJ9LCJfYXV0aFRva2VuU3luY1VSTCI6Ii9fX3Nlc3Npb24ifQ; SameSite=Strict; Expires=2026-02-02T06:15:22.674Z; Path=/;"
+            }
+          ]
+        }
+      ],
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "public": ".firebase/compassfile-dev/hosting",
+      "webFramework": "next_ssr"
+    }
+  ],
+  "functions": [
+    {
+      "source": ".",
+      "ignore": [
+        ".firebase/**",
+        ".firebaserc",
+        "firebase.json",
+        "**/node_modules/**",
+        "**/public/**"
+      ],
+      "runtime": "nodejs18"
+    },
+    {
+      "source": ".firebase/compassfile-dev/functions",
+      "codebase": "firebase-frameworks-compassfile-dev"
+    }
+  ]
+}
+[debug] [2024-03-09T19:35:22.675Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-09T19:35:22.675Z] > authorizing via signed-in user (alred487@gmail.com)
+[debug] [2024-03-09T19:35:22.675Z] [iam] checking project compassfile-dev for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2024-03-09T19:35:22.675Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions [none]
+[debug] [2024-03-09T19:35:22.676Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:35:22.676Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-03-09T19:35:24.072Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions 200
+[debug] [2024-03-09T19:35:24.072Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2024-03-09T19:35:24.073Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/compassfile-dev/locations/-/functions [none]
+[debug] [2024-03-09T19:35:26.940Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/compassfile-dev/locations/-/functions 200
+[debug] [2024-03-09T19:35:26.940Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/compassfile-dev/locations/-/functions {}
+[debug] [2024-03-09T19:35:26.941Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2024-03-09T19:35:27.528Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/-/functions 200
+[debug] [2024-03-09T19:35:27.529Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/-/functions {"functions":[{"name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"build":"projects/124510851885/locations/us-central1/builds/2a669806-4995-4971-a512-d959c26c3bca","runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","updateTime":"2024-03-09T19:02:02.401651078Z","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"e0d557bc2ae98ad6d39c6625d3a71f257004f6df"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev","createTime":"2024-01-19T07:37:51.712795002Z"},{"name":"projects/compassfile-dev/locations/us-central1/functions/ssrnextjsversionc354b","buildConfig":{"build":"projects/124510851885/locations/us-central1/builds/234239ab-9182-4924-8184-5ba12ba1e5b5","runtime":"nodejs20","entryPoint":"ssrnextjsversionc354b","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrnextjsversionc354b/function-source.zip","generation":"1704875787224597"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrnextjsversionc354b/function-source.zip","generation":"1704875787224597"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrnextjsversionc354b","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrnextjsversionc354b","FUNCTION_TARGET":"ssrnextjsversionc354b"},"maxInstanceCount":100,"ingressSettings":"ALLOW_ALL","uri":"https://ssrnextjsversionc354b-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrnextjsversionc354b-00003-nar","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","updateTime":"2024-01-10T08:44:13.845531553Z","labels":{"firebase-functions-hash":"21082bed77a90a8982b32092e41c6c56a1fb65cb","deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-nextjs-version-c354b"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrnextjsversionc354b","createTime":"2024-01-08T20:17:31.492193482Z"}]}
+[info] i  hosting: The following function(s) are pinned to site compassfile-dev and will be deployed as well: ssrcompassfiledev 
+[info] 
+[info] === Deploying to 'compassfile-dev'...
+[info] 
+[info] i  deploying functions, hosting 
+[debug] [2024-03-09T19:35:27.533Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev [none]
+[debug] [2024-03-09T19:35:28.183Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev 200
+[debug] [2024-03-09T19:35:28.183Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev {"projectId":"compassfile-dev","projectNumber":"124510851885","displayName":"CompassFile-dev","name":"projects/compassfile-dev","resources":{"hostingSite":"compassfile-dev"},"state":"ACTIVE","etag":"1_016b9188-9945-4d93-b9e2-9569bb2585cd"}
+[info] i  functions: preparing codebase firebase-frameworks-compassfile-dev for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2024-03-09T19:35:28.185Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/cloudfunctions.googleapis.com [none]
+[debug] [2024-03-09T19:35:28.185Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:35:28.188Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/runtimeconfig.googleapis.com [none]
+[debug] [2024-03-09T19:35:28.188Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:35:28.189Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/cloudbuild.googleapis.com [none]
+[debug] [2024-03-09T19:35:28.189Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/cloudbuild.googleapis.com x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:35:28.190Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/artifactregistry.googleapis.com [none]
+[debug] [2024-03-09T19:35:28.190Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/artifactregistry.googleapis.com x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:35:30.018Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/runtimeconfig.googleapis.com 200
+[debug] [2024-03-09T19:35:30.018Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2024-03-09T19:35:30.031Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/cloudbuild.googleapis.com 200
+[debug] [2024-03-09T19:35:30.031Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2024-03-09T19:35:30.062Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/cloudfunctions.googleapis.com 200
+[debug] [2024-03-09T19:35:30.062Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2024-03-09T19:35:30.069Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/artifactregistry.googleapis.com 200
+[debug] [2024-03-09T19:35:30.069Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2024-03-09T19:35:30.070Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev/adminSdkConfig [none]
+[debug] [2024-03-09T19:35:30.402Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev/adminSdkConfig 200
+[debug] [2024-03-09T19:35:30.403Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev/adminSdkConfig {"projectId":"compassfile-dev","storageBucket":"compassfile-dev.appspot.com"}
+[debug] [2024-03-09T19:35:30.403Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/compassfile-dev/configs [none]
+[debug] [2024-03-09T19:35:30.904Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/compassfile-dev/configs 200
+[debug] [2024-03-09T19:35:30.904Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/compassfile-dev/configs {}
+[debug] [2024-03-09T19:35:30.906Z] Validating nodejs source
+[warn] ⚠  functions: package.json indicates an outdated version of firebase-functions. Please upgrade using npm install --save firebase-functions@latest in your functions directory. 
+[debug] [2024-03-09T19:35:31.573Z] > [functions] package.json contents: {
+  "name": "nextjs-13-firebase-starter",
+  "version": "0.1.0",
+  "private": true,
+  "main": "server.js",
+  "dependencies": {
+    "@amraneze/react-instagram-login": "^4.0.0",
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/lab": "^5.0.0-alpha.167",
+    "@mui/icons-material": "^5.15.12",
+    "@mui/material": "^5.15.12",
+    "@mui/material-nextjs": "^5.15.3",
+    "@mui/styles": "^5.15.12",
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.46",
+    "@types/react-dom": "18.2.18",
+    "autoprefixer": "10.4.16",
+    "axios": "^1.6.5",
+    "eslint": "8.48.0",
+    "eslint-config-next": "14.0.3",
+    "file-saver": "^2.0.5",
+    "firebase": "^10.4.0",
+    "firebase-functions": "^4.6.0",
+    "next": "13.4.7",
+    "openai": "^4.24.1",
+    "postcss": "8.4.31",
+    "react": "18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "18.2.0",
+    "react-linkedin-login-oauth2": "^2.0.1",
+    "tailwindcss": "3.4.0",
+    "typescript": "5.3.3",
+    "uuid": "^9.0.1",
+    "sharp": "^0.32.1",
+    "firebase-frameworks": "^0.11.0",
+    "firebase-admin": "^11.11.1"
+  },
+  "engines": {
+    "node": "20"
+  }
+}
+[debug] [2024-03-09T19:35:31.573Z] Building nodejs source
+[info] i  functions: Loading and analyzing source code for codebase firebase-frameworks-compassfile-dev to determine what to deploy 
+[debug] [2024-03-09T19:35:31.574Z] Could not find functions.yaml. Must use http discovery
+[debug] [2024-03-09T19:35:31.578Z] Found firebase-functions binary at '/workspaces/mohammad-upwork-work-2/.firebase/compassfile-dev/functions/node_modules/.bin/firebase-functions'
+[info] Serving at port 8728
+
+[debug] [2024-03-09T19:35:34.744Z] Got response from /__/functions.yaml {"endpoints":{"ssrcompassfiledev":{"availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"concurrency":null,"serviceAccountEmail":null,"vpc":null,"platform":"gcfv2","region":["us-central1"],"labels":{},"httpsTrigger":{},"entryPoint":"ssrcompassfiledev"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[info] i  functions: Loaded environment variables from .env. 
+[info] i  functions: preparing .firebase/compassfile-dev/functions directory for uploading... 
+[info] i  functions: packaged /workspaces/mohammad-upwork-work-2/.firebase/compassfile-dev/functions (174.87 MB) for uploading 
+[info] i  functions: ensuring required API run.googleapis.com is enabled... 
+[info] i  functions: ensuring required API eventarc.googleapis.com is enabled... 
+[info] i  functions: ensuring required API pubsub.googleapis.com is enabled... 
+[info] i  functions: ensuring required API storage.googleapis.com is enabled... 
+[debug] [2024-03-09T19:35:58.026Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/run.googleapis.com [none]
+[debug] [2024-03-09T19:35:58.026Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/run.googleapis.com x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:35:58.031Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/eventarc.googleapis.com [none]
+[debug] [2024-03-09T19:35:58.031Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/eventarc.googleapis.com x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:35:58.033Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/pubsub.googleapis.com [none]
+[debug] [2024-03-09T19:35:58.033Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/pubsub.googleapis.com x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:35:58.035Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/storage.googleapis.com [none]
+[debug] [2024-03-09T19:35:58.035Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/storage.googleapis.com x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T19:35:59.790Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/eventarc.googleapis.com 200
+[debug] [2024-03-09T19:35:59.791Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/eventarc.googleapis.com [omitted]
+[info] ✔  functions: required API eventarc.googleapis.com is enabled 
+[debug] [2024-03-09T19:35:59.792Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/pubsub.googleapis.com 200
+[debug] [2024-03-09T19:35:59.792Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/pubsub.googleapis.com [omitted]
+[info] ✔  functions: required API pubsub.googleapis.com is enabled 
+[debug] [2024-03-09T19:35:59.818Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/storage.googleapis.com 200
+[debug] [2024-03-09T19:35:59.818Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/storage.googleapis.com [omitted]
+[info] ✔  functions: required API storage.googleapis.com is enabled 
+[debug] [2024-03-09T19:35:59.870Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/run.googleapis.com 200
+[debug] [2024-03-09T19:35:59.870Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/compassfile-dev/services/run.googleapis.com [omitted]
+[info] ✔  functions: required API run.googleapis.com is enabled 
+[info] i  functions: generating the service identity for pubsub.googleapis.com... 
+[info] i  functions: generating the service identity for eventarc.googleapis.com... 
+[debug] [2024-03-09T19:35:59.871Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/124510851885/services/pubsub.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-03-09T19:35:59.871Z] >>> [apiv2][query] POST https://serviceusage.googleapis.com/v1beta1/projects/124510851885/services/eventarc.googleapis.com:generateServiceIdentity [none]
+[debug] [2024-03-09T19:36:00.384Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/124510851885/services/pubsub.googleapis.com:generateServiceIdentity 200
+[debug] [2024-03-09T19:36:00.385Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/124510851885/services/pubsub.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-124510851885@gcp-sa-pubsub.iam.gserviceaccount.com","uniqueId":"109234710909199742108"}}
+[debug] [2024-03-09T19:36:00.532Z] <<< [apiv2][status] POST https://serviceusage.googleapis.com/v1beta1/projects/124510851885/services/eventarc.googleapis.com:generateServiceIdentity 200
+[debug] [2024-03-09T19:36:00.532Z] <<< [apiv2][body] POST https://serviceusage.googleapis.com/v1beta1/projects/124510851885/services/eventarc.googleapis.com:generateServiceIdentity {"name":"operations/finished.DONE_OPERATION","done":true,"response":{"@type":"type.googleapis.com/google.api.serviceusage.v1beta1.ServiceIdentity","email":"service-124510851885@gcp-sa-eventarc.iam.gserviceaccount.com","uniqueId":"112441641058789526313"}}
+[debug] [2024-03-09T19:36:00.535Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev [none]
+[debug] [2024-03-09T19:36:01.127Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev 200
+[debug] [2024-03-09T19:36:01.127Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev {"projectId":"compassfile-dev","projectNumber":"124510851885","displayName":"CompassFile-dev","name":"projects/compassfile-dev","resources":{"hostingSite":"compassfile-dev"},"state":"ACTIVE","etag":"1_016b9188-9945-4d93-b9e2-9569bb2585cd"}
+[debug] [2024-03-09T19:36:01.130Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/compassfile-dev/versions [none]
+[debug] [2024-03-09T19:36:01.131Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/compassfile-dev/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase","firebase-web-framework":"next_ssr"}}
+[debug] [2024-03-09T19:36:02.319Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/compassfile-dev/versions 200
+[debug] [2024-03-09T19:36:02.320Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/compassfile-dev/versions {"name":"projects/124510851885/sites/compassfile-dev/versions/859296546b25dc3f","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase","firebase-web-framework":"next_ssr"}}
+[debug] [2024-03-09T19:36:02.321Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2024-03-09T19:36:03.769Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2024-03-09T19:36:03.769Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/gcf-v2-uploads-124510851885-us-central1/99156a5d-7696-4e13-9cf9-4aaaf9e4c532.zip?GoogleAccessId=service-124510851885@gcf-admin-robot.iam.gserviceaccount.com&Expires=1710014763&Signature=qQmUsuy6El1PPl7Fp2dlIuNIJvidJKOKDf7B0aYrMK1O0OBWiqUfUJ2bMi%2BeYO4cP2gx8cnD2FpTdQbWmvSetorLK2ljVnhq4fZIEUoKotTZ0I6mkMiTqA1LMYMlLnD1258bR9jBCMZhAnPw2Ez50mAuZuuxP830zU567s%2BHlB%2FGhRh%2ByyJ0ox6xVBxAm%2Bzza%2BJU%2BRWkEw9OYr%2FwNGqNiK9b%2BuVGCZJCjK0oTw190%2FxU8%2F21QogZQrESsOelNdZfZL%2FqMjOhcZadPp%2FPXbqn9DIHskvLVZaS9XWyNf%2BfoszxVf%2Bq6Ipe6C9o2KY7C0%2BXTECFrMg2LHh9cLRFrqNKaQ%3D%3D","storageSource":{"bucket":"gcf-v2-uploads-124510851885-us-central1","object":"99156a5d-7696-4e13-9cf9-4aaaf9e4c532.zip"}}
+[debug] [2024-03-09T19:36:03.770Z] >>> [apiv2][query] PUT https://storage.googleapis.com/gcf-v2-uploads-124510851885-us-central1/99156a5d-7696-4e13-9cf9-4aaaf9e4c532.zip GoogleAccessId=service-124510851885%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1710014763&Signature=qQmUsuy6El1PPl7Fp2dlIuNIJvidJKOKDf7B0aYrMK1O0OBWiqUfUJ2bMi%2BeYO4cP2gx8cnD2FpTdQbWmvSetorLK2ljVnhq4fZIEUoKotTZ0I6mkMiTqA1LMYMlLnD1258bR9jBCMZhAnPw2Ez50mAuZuuxP830zU567s%2BHlB%2FGhRh%2ByyJ0ox6xVBxAm%2Bzza%2BJU%2BRWkEw9OYr%2FwNGqNiK9b%2BuVGCZJCjK0oTw190%2FxU8%2F21QogZQrESsOelNdZfZL%2FqMjOhcZadPp%2FPXbqn9DIHskvLVZaS9XWyNf%2BfoszxVf%2Bq6Ipe6C9o2KY7C0%2BXTECFrMg2LHh9cLRFrqNKaQ%3D%3D
+[debug] [2024-03-09T19:36:03.770Z] >>> [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-124510851885-us-central1/99156a5d-7696-4e13-9cf9-4aaaf9e4c532.zip [stream]
+[debug] [2024-03-09T19:36:19.136Z] <<< [apiv2][status] PUT https://storage.googleapis.com/gcf-v2-uploads-124510851885-us-central1/99156a5d-7696-4e13-9cf9-4aaaf9e4c532.zip 200
+[debug] [2024-03-09T19:36:19.136Z] <<< [apiv2][body] PUT https://storage.googleapis.com/gcf-v2-uploads-124510851885-us-central1/99156a5d-7696-4e13-9cf9-4aaaf9e4c532.zip [omitted]
+[info] ✔  functions: .firebase/compassfile-dev/functions folder uploaded successfully 
+[info] i  hosting[compassfile-dev]: beginning deploy... 
+[info] i  hosting[compassfile-dev]: found 82 files in .firebase/compassfile-dev/hosting 
+[debug] [2024-03-09T19:36:19.157Z] [hosting] uploading with 200 concurrency
+[debug] [2024-03-09T19:36:19.628Z] [hosting] hash cache [LmZpcmViYXNlL2NvbXBhc3NmaWxlLWRldi9ob3N0aW5n] stored for 82 files
+[debug] [2024-03-09T19:36:19.629Z] [hosting][hash queue][FINAL] {"max":458,"min":147,"avg":252.9512195121951,"active":0,"complete":82,"success":82,"errored":0,"retried":0,"total":82,"elapsed":464}
+[debug] [2024-03-09T19:36:19.629Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/124510851885/sites/compassfile-dev/versions/859296546b25dc3f:populateFiles [none]
+[debug] [2024-03-09T19:36:19.629Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/124510851885/sites/compassfile-dev/versions/859296546b25dc3f:populateFiles {"files":{"/404.html":"9e9a2f42a4f04ac775447b6a52d8030222e7e15f42e04085ef9c2fda8aeaa757","/admin.html":"c351e2ccb6c7a0019b3bf69208825b5d9061f807054861a0b7c238dfc2290489","/about-us.html":"b3758854d509561a9b570dca07930d9e20c6fe94f84072b542e1fb76597738fd","/b-link-dashboard.html":"1125f1ee8688592c48f7833ff4db8bd2221f966c9baae9b15d764c9f55b6ed5c","/articles.html":"9b1f5cca661e4ab80dcee99ccda7b9cd71dbf6f8357b8e57be476c9bd7fe11bb","/ai-article-writer.html":"375c86b60c06f5e249bb99088f4665217cb9ae8533ce62bb26b785e6c0e65565","/b-link-details.html":"389324d8daafc110c926c0532d34c4472b2ce43507ba9bf95daac08f791bcad3","/create-b-link.html":"abb045953fd57c4a6fda2aae2d2df57b4ceb416e6c10eb71fbc2786414a61b11","/index.html":"c7a32a3c61d58aadc3b82eb4e2c00fcd962f53b62f5a46a808acb6f037b0e8e1","/favicon.ico":"95de7e616394c2ef46c6a2f6a61f2184ac35f10d2934234aa8cf7b597bb24cfb","/l.html":"77900b4d0180211d5741034a4ede583c286ed290e0bacef17a2148c5989f0615","/signin.html":"e6e8913d08080244a096ecee7527c7cb9e5da6801b6eff49399386b1e24bfc51","/search.html":"ea018b0e120e02f0c27ee14e524fcd5cf4c8bcbce51cdb975f1a4d439fb4c776","/p-home.html":"e7f550890696ae93b4ffce645cc40f07526ee230951b3c00a3739e07aa46a968","/vercel.svg":"3d6ef9c43775f4d5d9b78faf980304b4aa503a40bbea54ae6d7dabb6777ba5e8","/signup.html":"5b65c857e02feafb1734b14fa8afc89f7bcf41db6817acdbfacb678e23913bfb","/next.svg":"181fa108bff84137e92c71370f54f0f918257d72471f3f4c396af9773af3da2b","/_next/static/chunks/1081-18ffd9f24df00eef.js":"969cc2942e082fede86667e654a552dafc239ea444b7fcd2dbe17ef7619a7390","/_next/static/chunks/2845-bbfd449c0e106057.js":"6385ac629736ebd24846bbc7e8f6418d7b95f404674810f392ffeabdf9902e26","/_next/static/chunks/288-9b8030b7699f6343.js":"104ab502cd84a6505effb04ffd493cc99867fc80c9ed3723b089ede86618554d","/_next/static/chunks/2938-d00416807222d4e2.js":"347d4f3b9013eeaea6452ca5b5ace481056c5cf2205749e2102de65144ac0e9e","/_next/static/chunks/4125-c86b962aa88de0bc.js":"8d794f0889661a5c0ccfae1269195f11f39c62ce9719336e40a45d098972ea4f","/_next/static/chunks/3009-a68c8ea5051707cf.js":"f52fdfe8e97cbf99b3d04d81e4d9401d988a0b15f0508b03789c3e891fcf63aa","/_next/static/chunks/4996-b5a785dc818b619b.js":"addb3e0512c0dec8652e0b44e9d707e41066fced08f4d5724b9a28faf3f63a74","/_next/static/chunks/4177-c5e9944b7538f233.js":"4c5ef044e36ebdf9e84cfa254806eb4d85d923634f53aaf7c8b08ce50dac9c4f","/_next/static/chunks/1313-b7fc0ff757625d97.js":"b73267e8f11582ecffa548e90e94ec57683125d49eadf110b09384fbfc833465","/_next/static/chunks/6175-2cae132386771de2.js":"32cc0e569798b931eebd65c2008383a45d36e90591fa964879f52036a2ebb7de","/_next/static/chunks/6562-0f380853b0f714ec.js":"ebbe0079fd89b39b42756a8a225e52754742724169650fd3f7bff58cd2734a78","/_next/static/chunks/7045-0efb404fdd7b3a43.js":"4474ee96dcd2875f44477181e429a4af02d386f2da76e5c96044e553b46f072c","/_next/static/chunks/3746-3f57d5a48dbe2050.js":"eb13b7aa6ea95c2c62395c904f5873a416878f201fb30041b6080d1641fd4280","/_next/static/chunks/6954-99b28666a20af9bc.js":"89816a9d0b6de88adb62977406fc4d386022e0355cd4cb29b9c664281b028bbf","/_next/static/chunks/7925-b3b1b12c2cd1a3c0.js":"fc4fe28ce774b69b6088d8ec2242ef8113e7d2807ba1f452ea8e1d0f06fc111c","/_next/static/chunks/9076-a19376976b464584.js":"bd5f7211ffc2d16f3c3e108f5fcfe37b08480b4fa23b4475787b80b38c90e109","/_next/static/chunks/7952-0c6d87f950e92ea8.js":"b31ff5903ac2a8e83068c0751168debba1c04408875ccf1c7ed713540aa8b152","/_next/static/chunks/9268-53715b9238d6e13e.js":"a4d58d2f582a69c3b0458d878efada4e7ca51068db5c635304cc28124323e510","/_next/static/chunks/1711-0f61b7b09893916b.js":"40273d939e4c6c37f8fd7e20d7ec4be9daec6c9d7947524f86d0fbb8346cbac0","/_next/static/chunks/9667-9d36ae2ea6b96c89.js":"cd46d2cdc9be58b59a1fe1385089636f8ac95a64bee26248ef53688c89791252","/_next/static/chunks/2853-3f5ce6d1cf8b6119.js":"db9e3b97d3498ac36d163e607604237272609d8d18ff7e525d3b42e47ddb7404","/_next/static/chunks/6877-487a8168efb39411.js":"8a434826eb84402a7fa7a1af975bc9f64caf39859806b8c578892ec989a71992","/_next/static/chunks/885-5efbdeb3ab0c0e3c.js":"a763ae9eba27e59e6ec1eb5b2e611b7750ec2e14b2a4908ad241ae123064d0b1","/_next/static/chunks/26d4914b-118ea9c3272c4489.js":"5c27c69de7516fc5f54c7d0f0e604f494c57a9fa3949b0b34f113c3675903ef5","/_next/static/chunks/6117-20f81b6deb340ecc.js":"bd34200d04b23122b58e33ad5ab3866864c4668268440e708b38fd46a8e6a8da","/_next/static/chunks/5649-12a850d1ab3531fa.js":"f1f6f3e9f53c4b40c2d213531ef7e175e6a9dd4982c014220bc0f48eab7e8645","/_next/static/chunks/5769-f106cc874181c2cf.js":"b8388395ddc2ae5eaebe196e91a6c261009e6f0908321848e4fdc6a2053fd24f","/_next/static/chunks/main-app-24179ce6c1f76edf.js":"6b733ed599b7859ecd7a3dd07e21f53fe9ef7376297e4931a7020ee26221c064","/_next/static/chunks/webpack-70d8c9b05bfa9d09.js":"8bff1698e7d6b827fe8e89cb231bec8feb8d04e74f4e9f0c7543573023ba4a3b","/_next/static/chunks/app/layout-55555e22cf9f5bf4.js":"fd94ff707f2a97f7d936c162cbe5c8d42bd710ee558f1d474af03b6865780e59","/_next/static/chunks/app/page-61d799cd7045cdf4.js":"acc3f3ca3d8f56df71c883d538f5dd0a7b69ab8b4dde1b38af0d5bdc5d447861","/_next/static/chunks/app/about-us/page-2f3c3eafec2f0af0.js":"396413700cf10cc481b675c6b7dffa4f4a38bc8ce569fae3157f6436e183f93d","/_next/static/chunks/app/admin/page-395a45087b642540.js":"18b4b104eb113254bd7fcf69432f09f1334edc38d367849c5738063b80b12734","/_next/static/chunks/app/ai-article-writer/page-88d1b498f9627f84.js":"81c02dd41a243185a6f8592a345ff1e8892273f9a8d7fe145348fa9bd87fb73a","/_next/static/chunks/app/articles/page-8b7978c7aebab5c2.js":"cf3ffd6d4e726e08a55a50262159eca94f5eac39c3a073579069aa56e58be9a4","/_next/static/chunks/app/b-link-dashboard/page-3d34def52b9cf294.js":"ae273bf08cbb2567371709fec6525837e91be1a52122eadef19134767370bf92","/_next/static/chunks/app/b-link-details/page-6030fe7974cc44a2.js":"1697131e008d6a70b8e2a376203e204bbc2c9689c4578d034923cd05d5e17a65","/_next/static/chunks/app/p-home/page-987d2d9fa07b262c.js":"68131c1a73c4e3985680b16bab71947d921ec531d8c92e1c8583be786f374999","/_next/static/chunks/app/l/page-ee03179dc71f0d0b.js":"323616cd7420fc92d763e5c8af86ae651a65fb1c86e280d4665eab2dbde021cb","/_next/static/chunks/app/create-b-link/page-5668928f7bd7e227.js":"fe6edb15fb3bea27e99ee0da51f13656aad0c5c074dbf2fcaaecfb9787e56d00","/_next/static/chunks/app/search/page-a600c706b4979385.js":"543a2691e436df15482d0d31cd134198be0ef413c62a9545b8f5f6055ce51060","/_next/static/chunks/app/signup/page-9d4e521a955f87eb.js":"3e7ac8f994d1cace015d77d4bc88a7208615ddba2ac2738945fdaccc4b29a549","/_next/static/chunks/app/signin/page-a0650d214622ad30.js":"1661bbb79b85ce809c6d2331d595e3e16bb588b965cff0bd7214d83122be0866","/_next/static/chunks/pages/_app-8fa61e72220a040a.js":"2125b89beb7cd98d5f6da1a520b7de53a7ff940ced9fe8584d88d6e32372c17c","/_next/static/chunks/app/test/page-ff0b05a6d6cafc7f.js":"c5b02e083ddfb26dd634a38e53ef7dad1cee796903999d09462ec9f1d200fe1d","/_next/static/css/25784bfdb0769c44.css":"f91bafe1596bb03fcf7e87a03e8dbb8048a922bd2b7816ac8b4b742d71c0bbcc","/_next/static/chunks/pages/_error-bcb3296e330590f7.js":"c6e94af9f9cd3e90f0c0a095299162b477a7b78e3e6816c2f41291dcb47ca3d5","/_next/static/liNi9WaP3ZpIGtirFjOI_/_buildManifest.js":"7a46514aaa6eb62c20aa71932c6c48be5ea8a8f04a72089bb4c7005f3b50c6d5","/_next/static/liNi9WaP3ZpIGtirFjOI_/_ssgManifest.js":"d8d8790f4e673a23bec506f00699bed8a258ac0e4965bb1ca8598172cfc0ec97","/test.html":"dffdbcda4979463974c4fb80198ec11e5c7faa55839e27df50b32f0063f60ecb","/_next/static/media/05a31a2ca4975f99-s.woff2":"6eb1eb1e48e379b74881b81ac1990e1651414dee46a4bee7fb659ae91d06ad90","/_next/static/media/fd4db3eb5472fc27-s.woff2":"bfcc33bab9906a169a802106f1f629622803879e7c299a540d1a607bfc98be38","/_next/static/media/513657b02c5c193f-s.woff2":"be10fc3d770e9dd746676940b75024b1a4c2c3b11b1a431069e2b3c8dd49ed72","/_next/static/media/51ed15f9841b9f9d-s.woff2":"585c8801ae35e66333d7a41afe79264f4f777e2812e69e29f8da1b15f0608e6f","/_next/static/chunks/main-dccc2d183b4f91ff.js":"b7132c1ccd484800402f0eca62154ab622c1efd439c0ef26af269995720df068","/_next/static/media/ec159349637c90ad-s.woff2":"37e14772c36d34507cc9c9da3f5eda9cf1f55cd1acb7103e4b9fc572352f02bf","/_next/static/chunks/bce60fc1-7ca578e7ad407188.js":"5120a40d9c10612d0a0f91b69fcb369b92124ed92b5836442ff2e089a810455d","/_next/static/media/c9a5bc6a7c948fb0-s.p.woff2":"309416eff3b866cc3b8646fe5c5b2409ce6bd68169113d8b187993090eddb7b9","/_next/static/chunks/cacdea1d-110c6c0fa4c53a27.js":"360cf3f49cbe271d307a48219d8d93e95846af3ba7537c66ed6768d95c65eb7b","/_next/static/chunks/polyfills-78c92fac7aa8fdd8.js":"d171f77ff37b86c9caf9b598738eec4575aaf74cdfcef73e85b8f7c9db864364","/hero-light.png":"2f5fd01485eb814dc0ea6dc103a4c99e8835672ac60ad9accff9eb8901c931f7","/_next/static/chunks/framework-4498e84bb0ba1830.js":"2f7a448f1515d5ee12aa8a983b1261f6ea66855cce32a2feafa8a729e73d5c1b","/_next/static/media/d6b16ce4a6175f26-s.woff2":"99228b3becd8e2c6b278c4dcc1e969b0f123f146536ccb89fc7bc2c4029886f1","/hero-dark.png":"ff328fa983ff1257762ad4de64f1c7f46e3d5c907fd8255eb237669aacfdc999","/_next/static/chunks/9732-eaddfc6d8e70cee6.js":"46543131d5063a1d23979764dcfb26e9285979c0d1bfe74fb5cc467f50594d71"}}
+[debug] [2024-03-09T19:36:22.781Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/124510851885/sites/compassfile-dev/versions/859296546b25dc3f:populateFiles 200
+[debug] [2024-03-09T19:36:22.781Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/124510851885/sites/compassfile-dev/versions/859296546b25dc3f:populateFiles {"uploadRequiredHashes":["77900b4d0180211d5741034a4ede583c286ed290e0bacef17a2148c5989f0615","b3758854d509561a9b570dca07930d9e20c6fe94f84072b542e1fb76597738fd","5b65c857e02feafb1734b14fa8afc89f7bcf41db6817acdbfacb678e23913bfb","c351e2ccb6c7a0019b3bf69208825b5d9061f807054861a0b7c238dfc2290489","e6e8913d08080244a096ecee7527c7cb9e5da6801b6eff49399386b1e24bfc51","375c86b60c06f5e249bb99088f4665217cb9ae8533ce62bb26b785e6c0e65565","e7f550890696ae93b4ffce645cc40f07526ee230951b3c00a3739e07aa46a968","389324d8daafc110c926c0532d34c4472b2ce43507ba9bf95daac08f791bcad3","c7a32a3c61d58aadc3b82eb4e2c00fcd962f53b62f5a46a808acb6f037b0e8e1","dffdbcda4979463974c4fb80198ec11e5c7faa55839e27df50b32f0063f60ecb","9e9a2f42a4f04ac775447b6a52d8030222e7e15f42e04085ef9c2fda8aeaa757","9b1f5cca661e4ab80dcee99ccda7b9cd71dbf6f8357b8e57be476c9bd7fe11bb","ea018b0e120e02f0c27ee14e524fcd5cf4c8bcbce51cdb975f1a4d439fb4c776","1125f1ee8688592c48f7833ff4db8bd2221f966c9baae9b15d764c9f55b6ed5c","abb045953fd57c4a6fda2aae2d2df57b4ceb416e6c10eb71fbc2786414a61b11"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files"}
+[debug] [2024-03-09T19:36:22.784Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/77900b4d0180211d5741034a4ede583c286ed290e0bacef17a2148c5989f0615 [none]
+[debug] [2024-03-09T19:36:22.784Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/77900b4d0180211d5741034a4ede583c286ed290e0bacef17a2148c5989f0615 [stream]
+[debug] [2024-03-09T19:36:22.785Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/b3758854d509561a9b570dca07930d9e20c6fe94f84072b542e1fb76597738fd [none]
+[debug] [2024-03-09T19:36:22.785Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/b3758854d509561a9b570dca07930d9e20c6fe94f84072b542e1fb76597738fd [stream]
+[debug] [2024-03-09T19:36:22.786Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/5b65c857e02feafb1734b14fa8afc89f7bcf41db6817acdbfacb678e23913bfb [none]
+[debug] [2024-03-09T19:36:22.786Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/5b65c857e02feafb1734b14fa8afc89f7bcf41db6817acdbfacb678e23913bfb [stream]
+[debug] [2024-03-09T19:36:22.787Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/c351e2ccb6c7a0019b3bf69208825b5d9061f807054861a0b7c238dfc2290489 [none]
+[debug] [2024-03-09T19:36:22.787Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/c351e2ccb6c7a0019b3bf69208825b5d9061f807054861a0b7c238dfc2290489 [stream]
+[debug] [2024-03-09T19:36:22.788Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/e6e8913d08080244a096ecee7527c7cb9e5da6801b6eff49399386b1e24bfc51 [none]
+[debug] [2024-03-09T19:36:22.788Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/e6e8913d08080244a096ecee7527c7cb9e5da6801b6eff49399386b1e24bfc51 [stream]
+[debug] [2024-03-09T19:36:22.788Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/375c86b60c06f5e249bb99088f4665217cb9ae8533ce62bb26b785e6c0e65565 [none]
+[debug] [2024-03-09T19:36:22.788Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/375c86b60c06f5e249bb99088f4665217cb9ae8533ce62bb26b785e6c0e65565 [stream]
+[debug] [2024-03-09T19:36:22.789Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/e7f550890696ae93b4ffce645cc40f07526ee230951b3c00a3739e07aa46a968 [none]
+[debug] [2024-03-09T19:36:22.789Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/e7f550890696ae93b4ffce645cc40f07526ee230951b3c00a3739e07aa46a968 [stream]
+[debug] [2024-03-09T19:36:22.789Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/389324d8daafc110c926c0532d34c4472b2ce43507ba9bf95daac08f791bcad3 [none]
+[debug] [2024-03-09T19:36:22.789Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/389324d8daafc110c926c0532d34c4472b2ce43507ba9bf95daac08f791bcad3 [stream]
+[debug] [2024-03-09T19:36:22.790Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/c7a32a3c61d58aadc3b82eb4e2c00fcd962f53b62f5a46a808acb6f037b0e8e1 [none]
+[debug] [2024-03-09T19:36:22.790Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/c7a32a3c61d58aadc3b82eb4e2c00fcd962f53b62f5a46a808acb6f037b0e8e1 [stream]
+[debug] [2024-03-09T19:36:22.791Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/dffdbcda4979463974c4fb80198ec11e5c7faa55839e27df50b32f0063f60ecb [none]
+[debug] [2024-03-09T19:36:22.791Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/dffdbcda4979463974c4fb80198ec11e5c7faa55839e27df50b32f0063f60ecb [stream]
+[debug] [2024-03-09T19:36:22.791Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/9e9a2f42a4f04ac775447b6a52d8030222e7e15f42e04085ef9c2fda8aeaa757 [none]
+[debug] [2024-03-09T19:36:22.791Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/9e9a2f42a4f04ac775447b6a52d8030222e7e15f42e04085ef9c2fda8aeaa757 [stream]
+[debug] [2024-03-09T19:36:22.792Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/9b1f5cca661e4ab80dcee99ccda7b9cd71dbf6f8357b8e57be476c9bd7fe11bb [none]
+[debug] [2024-03-09T19:36:22.792Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/9b1f5cca661e4ab80dcee99ccda7b9cd71dbf6f8357b8e57be476c9bd7fe11bb [stream]
+[debug] [2024-03-09T19:36:22.792Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/ea018b0e120e02f0c27ee14e524fcd5cf4c8bcbce51cdb975f1a4d439fb4c776 [none]
+[debug] [2024-03-09T19:36:22.792Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/ea018b0e120e02f0c27ee14e524fcd5cf4c8bcbce51cdb975f1a4d439fb4c776 [stream]
+[debug] [2024-03-09T19:36:22.793Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/1125f1ee8688592c48f7833ff4db8bd2221f966c9baae9b15d764c9f55b6ed5c [none]
+[debug] [2024-03-09T19:36:22.793Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/1125f1ee8688592c48f7833ff4db8bd2221f966c9baae9b15d764c9f55b6ed5c [stream]
+[debug] [2024-03-09T19:36:22.793Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/abb045953fd57c4a6fda2aae2d2df57b4ceb416e6c10eb71fbc2786414a61b11 [none]
+[debug] [2024-03-09T19:36:22.793Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/abb045953fd57c4a6fda2aae2d2df57b4ceb416e6c10eb71fbc2786414a61b11 [stream]
+[debug] [2024-03-09T19:36:22.794Z] [hosting][populate queue][FINAL] {"max":3157,"min":3157,"avg":3157,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":3167}
+[debug] [2024-03-09T19:36:22.794Z] [hosting] uploads queued: 15
+[debug] [2024-03-09T19:36:24.072Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/c351e2ccb6c7a0019b3bf69208825b5d9061f807054861a0b7c238dfc2290489 200
+[debug] [2024-03-09T19:36:24.073Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/c351e2ccb6c7a0019b3bf69208825b5d9061f807054861a0b7c238dfc2290489 [stream]
+[debug] [2024-03-09T19:36:24.091Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/c7a32a3c61d58aadc3b82eb4e2c00fcd962f53b62f5a46a808acb6f037b0e8e1 200
+[debug] [2024-03-09T19:36:24.091Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/c7a32a3c61d58aadc3b82eb4e2c00fcd962f53b62f5a46a808acb6f037b0e8e1 [stream]
+[debug] [2024-03-09T19:36:24.099Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/b3758854d509561a9b570dca07930d9e20c6fe94f84072b542e1fb76597738fd 200
+[debug] [2024-03-09T19:36:24.099Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/b3758854d509561a9b570dca07930d9e20c6fe94f84072b542e1fb76597738fd [stream]
+[debug] [2024-03-09T19:36:24.099Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/77900b4d0180211d5741034a4ede583c286ed290e0bacef17a2148c5989f0615 200
+[debug] [2024-03-09T19:36:24.099Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/77900b4d0180211d5741034a4ede583c286ed290e0bacef17a2148c5989f0615 [stream]
+[debug] [2024-03-09T19:36:24.113Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/e7f550890696ae93b4ffce645cc40f07526ee230951b3c00a3739e07aa46a968 200
+[debug] [2024-03-09T19:36:24.113Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/e7f550890696ae93b4ffce645cc40f07526ee230951b3c00a3739e07aa46a968 [stream]
+[debug] [2024-03-09T19:36:24.147Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/1125f1ee8688592c48f7833ff4db8bd2221f966c9baae9b15d764c9f55b6ed5c 200
+[debug] [2024-03-09T19:36:24.147Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/1125f1ee8688592c48f7833ff4db8bd2221f966c9baae9b15d764c9f55b6ed5c [stream]
+[debug] [2024-03-09T19:36:24.669Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/9b1f5cca661e4ab80dcee99ccda7b9cd71dbf6f8357b8e57be476c9bd7fe11bb 200
+[debug] [2024-03-09T19:36:24.669Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/9b1f5cca661e4ab80dcee99ccda7b9cd71dbf6f8357b8e57be476c9bd7fe11bb [stream]
+[debug] [2024-03-09T19:36:24.726Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/abb045953fd57c4a6fda2aae2d2df57b4ceb416e6c10eb71fbc2786414a61b11 200
+[debug] [2024-03-09T19:36:24.726Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/abb045953fd57c4a6fda2aae2d2df57b4ceb416e6c10eb71fbc2786414a61b11 [stream]
+[debug] [2024-03-09T19:36:24.776Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/ea018b0e120e02f0c27ee14e524fcd5cf4c8bcbce51cdb975f1a4d439fb4c776 200
+[debug] [2024-03-09T19:36:24.776Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/ea018b0e120e02f0c27ee14e524fcd5cf4c8bcbce51cdb975f1a4d439fb4c776 [stream]
+[debug] [2024-03-09T19:36:24.782Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/e6e8913d08080244a096ecee7527c7cb9e5da6801b6eff49399386b1e24bfc51 200
+[debug] [2024-03-09T19:36:24.782Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/e6e8913d08080244a096ecee7527c7cb9e5da6801b6eff49399386b1e24bfc51 [stream]
+[debug] [2024-03-09T19:36:25.223Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/375c86b60c06f5e249bb99088f4665217cb9ae8533ce62bb26b785e6c0e65565 200
+[debug] [2024-03-09T19:36:25.224Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/375c86b60c06f5e249bb99088f4665217cb9ae8533ce62bb26b785e6c0e65565 [stream]
+[debug] [2024-03-09T19:36:25.238Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/389324d8daafc110c926c0532d34c4472b2ce43507ba9bf95daac08f791bcad3 200
+[debug] [2024-03-09T19:36:25.238Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/389324d8daafc110c926c0532d34c4472b2ce43507ba9bf95daac08f791bcad3 [stream]
+[debug] [2024-03-09T19:36:25.343Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/9e9a2f42a4f04ac775447b6a52d8030222e7e15f42e04085ef9c2fda8aeaa757 200
+[debug] [2024-03-09T19:36:25.344Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/9e9a2f42a4f04ac775447b6a52d8030222e7e15f42e04085ef9c2fda8aeaa757 [stream]
+[debug] [2024-03-09T19:36:25.356Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/5b65c857e02feafb1734b14fa8afc89f7bcf41db6817acdbfacb678e23913bfb 200
+[debug] [2024-03-09T19:36:25.356Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/5b65c857e02feafb1734b14fa8afc89f7bcf41db6817acdbfacb678e23913bfb [stream]
+[debug] [2024-03-09T19:36:25.436Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/dffdbcda4979463974c4fb80198ec11e5c7faa55839e27df50b32f0063f60ecb 200
+[debug] [2024-03-09T19:36:25.436Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/compassfile-dev/versions/859296546b25dc3f/files/dffdbcda4979463974c4fb80198ec11e5c7faa55839e27df50b32f0063f60ecb [stream]
+[debug] [2024-03-09T19:36:25.436Z] [hosting][upload queue][FINAL] {"max":2653,"min":1291,"avg":1895.4,"active":0,"complete":15,"success":15,"errored":0,"retried":0,"total":15,"elapsed":2654}
+[info] ✔  hosting[compassfile-dev]: file upload complete 
+[debug] [2024-03-09T19:36:25.437Z] [hosting] deploy completed after 6298ms
+[info] i  functions: updating Node.js 20 (2nd Gen) function firebase-frameworks-compassfile-dev:ssrcompassfiledev(us-central1)... 
+[debug] [2024-03-09T19:36:25.440Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev updateMask=name%2CbuildConfig.runtime%2CbuildConfig.entryPoint%2CbuildConfig.source.storageSource.bucket%2CbuildConfig.source.storageSource.object%2CbuildConfig.environmentVariables%2CbuildConfig.sourceToken%2CserviceConfig.environmentVariables%2CserviceConfig.ingressSettings%2CserviceConfig.timeoutSeconds%2CserviceConfig.serviceAccountEmail%2CserviceConfig.availableMemory%2CserviceConfig.minInstanceCount%2CserviceConfig.maxInstanceCount%2CserviceConfig.maxInstanceRequestConcurrency%2CserviceConfig.availableCpu%2CserviceConfig.vpcConnector%2CserviceConfig.vpcConnectorEgressSettings%2Clabels%2CbuildConfig.buildEnvironmentVariables
+[debug] [2024-03-09T19:36:25.440Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev {"name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-uploads-124510851885-us-central1","object":"99156a5d-7696-4e13-9cf9-4aaaf9e4c532.zip"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""}},"serviceConfig":{"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":null,"timeoutSeconds":null,"serviceAccountEmail":null,"availableMemory":"256Mi","minInstanceCount":null,"maxInstanceCount":null,"maxInstanceRequestConcurrency":80,"availableCpu":"1","vpcConnector":null,"vpcConnectorEgressSettings":null},"labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"}}
+[debug] [2024-03-09T19:36:27.806Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev 200
+[debug] [2024-03-09T19:36:27.806Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2"},"done":false}
+[debug] [2024-03-09T19:36:27.807Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:36:29.076Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:36:29.077Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:36:29.577Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:36:29.578Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:36:29.873Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:36:29.873Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:36:30.874Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:36:30.874Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:36:32.132Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:36:32.132Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:36:34.134Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:36:34.134Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:36:35.401Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:36:35.402Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:36:39.402Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:36:39.403Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:36:40.649Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:36:40.649Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:36:48.652Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:36:48.653Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:36:49.988Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:36:49.989Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:36:59.994Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:36:59.995Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:37:01.330Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:37:01.330Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:37:11.334Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:37:11.335Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:37:12.653Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:37:12.654Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:37:22.658Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:37:22.659Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:37:23.996Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:37:23.996Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:37:33.999Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:37:33.999Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:37:35.332Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:37:35.332Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:37:45.337Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:37:45.338Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:37:46.681Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:37:46.681Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:37:56.686Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:37:56.686Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:37:58.016Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:37:58.017Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:38:08.019Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:38:08.023Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:38:09.360Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:38:09.360Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"BUILD","message":"Build in progress","state":"IN_PROGRESS","resource":"projects/124510851885/locations/us-central1/builds/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b","resourceUri":"https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885"},{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":false}
+[debug] [2024-03-09T19:38:19.365Z] [update-firebase-frameworks-compassfile-dev-us-central1-ssrcompassfiledev] Retrying task index 0
+[debug] [2024-03-09T19:38:19.365Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 [none]
+[debug] [2024-03-09T19:38:20.698Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 200
+[debug] [2024-03-09T19:38:20.698Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01 {"name":"projects/compassfile-dev/locations/us-central1/operations/operation-1710012986729-6133f6ca2a3b7-c9864993-ffedde01","metadata":{"@type":"type.googleapis.com/google.cloud.functions.v2.OperationMetadata","createTime":"2024-03-09T19:36:27.750214213Z","endTime":"2024-03-09T19:38:10.509800645Z","target":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","verb":"update","cancelRequested":false,"apiVersion":"v2","requestResource":{"@type":"type.googleapis.com/google.cloud.functions.v2.Function","name":"projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev","buildConfig":{"runtime":"nodejs20","entryPoint":"ssrcompassfiledev","source":{"storageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1710012987702259"}},"environmentVariables":{"GOOGLE_NODE_RUN_SCRIPTS":""},"dockerRepository":"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts","sourceProvenance":{"resolvedStorageSource":{"bucket":"gcf-v2-sources-124510851885-us-central1","object":"ssrcompassfiledev/function-source.zip","generation":"1706854823854210"}},"dockerRegistry":"ARTIFACT_REGISTRY"},"serviceConfig":{"service":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","timeoutSeconds":60,"environmentVariables":{"NEXT_PUBLIC_FIREBASE_API_KEY":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN":"compassfile-dev.firebaseapp.com","NEXT_PUBLIC_FIREBASE_PROJECT_ID":"compassfile-dev","NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET":"compassfile-dev.appspot.com","NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID":"124510851885","NEXT_PUBLIC_FIREBASE_APP_ID":"1:124510851885:web:09ab2e7a25ab46200bf9a4","VERCEL_URL":"compassfile-dev.web.app","__FIREBASE_FRAMEWORKS_ENTRY__":"next.js","__FIREBASE_DEFAULTS__":"{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}","FIREBASE_CONFIG":"{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}","GCLOUD_PROJECT":"compassfile-dev","EVENTARC_CLOUD_EVENT_SOURCE":"projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev","FUNCTION_TARGET":"ssrcompassfiledev"},"ingressSettings":"ALLOW_ALL","uri":"https://ssrcompassfiledev-ak6yu7nlja-uc.a.run.app","serviceAccountEmail":"124510851885-compute@developer.gserviceaccount.com","availableMemory":"256Mi","allTrafficOnLatestRevision":true,"revision":"ssrcompassfiledev-00069-vur","maxInstanceRequestConcurrency":80,"availableCpu":"1"},"state":"ACTIVE","labels":{"deployment-tool":"cli-firebase","firebase-functions-codebase":"firebase-frameworks-compassfile-dev","firebase-functions-hash":"df2bf1a7478a084be007624f49b40c0b0ee29e25"},"environment":"GEN_2","url":"https://us-central1-compassfile-dev.cloudfunctions.net/ssrcompassfiledev"},"stages":[{"name":"SERVICE","state":"NOT_STARTED"}],"operationType":"UPDATE_FUNCTION"},"done":true,"error":{"code":3,"message":"Build failed with status: FAILURE and message: npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE could not resolve\nnpm ERR! \nnpm ERR! While resolving: @mui/styles@5.15.12\nnpm ERR! Found: react@18.2.0\nnpm ERR! node_modules/react\nnpm ERR!   react@\"18.2.0\" from the root project\nnpm ERR!   peer react@\"^18.2.0\" from @amraneze/react-instagram-login@4.0.0\nnpm ERR!   node_modules/@amraneze/react-instagram-login\nnpm ERR!     @amraneze/react-instagram-login@\"^4.0.0\" from the root project\nnpm ERR!   19 more (@emotion/react, @emotion/styled, ...)\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer react@\"^17.0.0\" from @mui/styles@5.15.12\nnpm ERR! node_modules/@mui/styles\nnpm ERR!   @mui/styles@\"^5.15.12\" from the root project\nnpm ERR! \nnpm ERR! Conflicting peer dependency: react@17.0.2\nnpm ERR! node_modules/react\nnpm ERR!   peer react@\"^17.0.0\" from @mui/styles@5.15.12\nnpm ERR!   node_modules/@mui/styles\nnpm ERR!     @mui/styles@\"^5.15.12\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! \nnpm ERR! For a full report see:\nnpm ERR! /www-data-home/.npm/_logs/2024-03-09T19_37_51_554Z-eresolve-report.txt\n\nnpm ERR! A complete log of this run can be found in: /www-data-home/.npm/_logs/2024-03-09T19_37_51_554Z-debug-0.log. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885."}}
+[debug] [2024-03-09T19:38:20.699Z] Got source token undefined for region us-central1
+[error] Build failed with status: FAILURE and message: npm ERR! code ERESOLVE
+npm ERR! ERESOLVE could not resolve
+npm ERR! 
+npm ERR! While resolving: @mui/styles@5.15.12
+npm ERR! Found: react@18.2.0
+npm ERR! node_modules/react
+npm ERR!   react@"18.2.0" from the root project
+npm ERR!   peer react@"^18.2.0" from @amraneze/react-instagram-login@4.0.0
+npm ERR!   node_modules/@amraneze/react-instagram-login
+npm ERR!     @amraneze/react-instagram-login@"^4.0.0" from the root project
+npm ERR!   19 more (@emotion/react, @emotion/styled, ...)
+npm ERR! 
+npm ERR! Could not resolve dependency:
+npm ERR! peer react@"^17.0.0" from @mui/styles@5.15.12
+npm ERR! node_modules/@mui/styles
+npm ERR!   @mui/styles@"^5.15.12" from the root project
+npm ERR! 
+npm ERR! Conflicting peer dependency: react@17.0.2
+npm ERR! node_modules/react
+npm ERR!   peer react@"^17.0.0" from @mui/styles@5.15.12
+npm ERR!   node_modules/@mui/styles
+npm ERR!     @mui/styles@"^5.15.12" from the root project
+npm ERR! 
+npm ERR! Fix the upstream dependency conflict, or retry
+npm ERR! this command with --force or --legacy-peer-deps
+npm ERR! to accept an incorrect (and potentially broken) dependency resolution.
+npm ERR! 
+npm ERR! 
+npm ERR! For a full report see:
+npm ERR! /www-data-home/.npm/_logs/2024-03-09T19_37_51_554Z-eresolve-report.txt
+
+npm ERR! A complete log of this run can be found in: /www-data-home/.npm/_logs/2024-03-09T19_37_51_554Z-debug-0.log. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885.
+[debug] [2024-03-09T19:38:20.703Z] Total Function Deployment time: 115261
+[debug] [2024-03-09T19:38:20.703Z] 1 Functions Deployed
+[debug] [2024-03-09T19:38:20.704Z] 1 Functions Errored
+[debug] [2024-03-09T19:38:20.704Z] 0 Function Deployments Aborted
+[debug] [2024-03-09T19:38:20.704Z] Average Function Deployment time: 115260
+[info] 
+[info] Functions deploy had errors with the following functions:
+	firebase-frameworks-compassfile-dev:ssrcompassfiledev(us-central1)
+[debug] [2024-03-09T19:38:20.842Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2024-03-09T19:38:20.843Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts/packages/ssrcompassfiledev [none]
+[debug] [2024-03-09T19:38:20.844Z] >>> [apiv2][query] GET https://us.gcr.io/v2/compassfile-dev/gcf/us-central1/tags/list [none]
+[debug] [2024-03-09T19:38:21.420Z] <<< [apiv2][status] GET https://us.gcr.io/v2/compassfile-dev/gcf/us-central1/tags/list 200
+[debug] [2024-03-09T19:38:21.420Z] <<< [apiv2][body] GET https://us.gcr.io/v2/compassfile-dev/gcf/us-central1/tags/list {"child":[],"manifest":{},"name":"compassfile-dev/gcf/us-central1","tags":[]}
+[debug] [2024-03-09T19:38:21.421Z] Could not find image for function projects/compassfile-dev/locations/us-central1/functions/ssrcompassfiledev
+[debug] [2024-03-09T19:38:22.234Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts/packages/ssrcompassfiledev 404
+[debug] [2024-03-09T19:38:22.234Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts/packages/ssrcompassfiledev {"error":{"code":404,"message":"Package \"projects/compassfile-dev/locations/us-central1/repositories/gcf-artifacts/packages/ssrcompassfiledev\" was not found.","status":"NOT_FOUND"}}
+[debug] [2024-03-09T19:38:22.235Z] Functions deploy failed.
+[debug] [2024-03-09T19:38:22.235Z] {
+  "endpoint": {
+    "id": "ssrcompassfiledev",
+    "project": "compassfile-dev",
+    "region": "us-central1",
+    "entryPoint": "ssrcompassfiledev",
+    "platform": "gcfv2",
+    "runtime": "nodejs20",
+    "httpsTrigger": {},
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    },
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "serviceAccount": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "concurrency": 80,
+    "vpc": null,
+    "environmentVariables": {
+      "NEXT_PUBLIC_FIREBASE_API_KEY": "AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk",
+      "NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN": "compassfile-dev.firebaseapp.com",
+      "NEXT_PUBLIC_FIREBASE_PROJECT_ID": "compassfile-dev",
+      "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET": "compassfile-dev.appspot.com",
+      "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "124510851885",
+      "NEXT_PUBLIC_FIREBASE_APP_ID": "1:124510851885:web:09ab2e7a25ab46200bf9a4",
+      "VERCEL_URL": "compassfile-dev.web.app",
+      "__FIREBASE_FRAMEWORKS_ENTRY__": "next.js",
+      "__FIREBASE_DEFAULTS__": "{\"config\":{\"projectId\":\"compassfile-dev\",\"appId\":\"1:124510851885:web:09ab2e7a25ab46200bf9a4\",\"storageBucket\":\"compassfile-dev.appspot.com\",\"apiKey\":\"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk\",\"authDomain\":\"compassfile-dev.firebaseapp.com\",\"messagingSenderId\":\"124510851885\",\"measurementId\":\"G-2ENR1NYZN2\"},\"_authTokenSyncURL\":\"/__session\"}",
+      "FIREBASE_CONFIG": "{\"projectId\":\"compassfile-dev\",\"storageBucket\":\"compassfile-dev.appspot.com\"}",
+      "GCLOUD_PROJECT": "compassfile-dev",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/compassfile-dev/locations/us-central1/services/ssrcompassfiledev"
+    },
+    "codebase": "firebase-frameworks-compassfile-dev",
+    "cpu": 1,
+    "securityLevel": "SECURE_ALWAYS",
+    "targetedByOnly": true,
+    "hash": "df2bf1a7478a084be007624f49b40c0b0ee29e25"
+  },
+  "op": "update",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "exit": 1,
+    "message": "Build failed with status: FAILURE and message: npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE could not resolve\nnpm ERR! \nnpm ERR! While resolving: @mui/styles@5.15.12\nnpm ERR! Found: react@18.2.0\nnpm ERR! node_modules/react\nnpm ERR!   react@\"18.2.0\" from the root project\nnpm ERR!   peer react@\"^18.2.0\" from @amraneze/react-instagram-login@4.0.0\nnpm ERR!   node_modules/@amraneze/react-instagram-login\nnpm ERR!     @amraneze/react-instagram-login@\"^4.0.0\" from the root project\nnpm ERR!   19 more (@emotion/react, @emotion/styled, ...)\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer react@\"^17.0.0\" from @mui/styles@5.15.12\nnpm ERR! node_modules/@mui/styles\nnpm ERR!   @mui/styles@\"^5.15.12\" from the root project\nnpm ERR! \nnpm ERR! Conflicting peer dependency: react@17.0.2\nnpm ERR! node_modules/react\nnpm ERR!   peer react@\"^17.0.0\" from @mui/styles@5.15.12\nnpm ERR!   node_modules/@mui/styles\nnpm ERR!     @mui/styles@\"^5.15.12\" from the root project\nnpm ERR! \nnpm ERR! Fix the upstream dependency conflict, or retry\nnpm ERR! this command with --force or --legacy-peer-deps\nnpm ERR! to accept an incorrect (and potentially broken) dependency resolution.\nnpm ERR! \nnpm ERR! \nnpm ERR! For a full report see:\nnpm ERR! /www-data-home/.npm/_logs/2024-03-09T19_37_51_554Z-eresolve-report.txt\n\nnpm ERR! A complete log of this run can be found in: /www-data-home/.npm/_logs/2024-03-09T19_37_51_554Z-debug-0.log. For more details see the logs at https://console.cloud.google.com/cloud-build/builds;region=us-central1/fa6eece9-3bb7-41fb-9d95-f745e87d3e2b?project=124510851885.",
+    "status": 3,
+    "code": 3
+  }
+}
+[debug] [2024-03-09T19:38:22.302Z] Error: Failed to update function ssrcompassfiledev in region us-central1
+    at /usr/local/share/nvm/versions/node/v20.11.1/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:392:19
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Fabricator.updateV2Function (/usr/local/share/nvm/versions/node/v20.11.1/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:383:32)
+    at async Fabricator.updateEndpoint (/usr/local/share/nvm/versions/node/v20.11.1/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:154:13)
+    at async handle (/usr/local/share/nvm/versions/node/v20.11.1/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:88:17)
+[error] 
+[error] Error: There was an error deploying functions
+[debug] [2024-03-09T20:06:57.038Z] ----------------------------------------------------------------------
+[debug] [2024-03-09T20:06:57.039Z] Command:       /usr/local/share/nvm/versions/node/v20.11.1/bin/node /home/codespace/nvm/current/bin/firebase deploy --only hosting -f
+[debug] [2024-03-09T20:06:57.040Z] CLI Version:   13.4.1
+[debug] [2024-03-09T20:06:57.040Z] Platform:      linux
+[debug] [2024-03-09T20:06:57.040Z] Node Version:  v20.11.1
+[debug] [2024-03-09T20:06:57.040Z] Time:          Sat Mar 09 2024 20:06:57 GMT+0000 (Coordinated Universal Time)
+[debug] [2024-03-09T20:06:57.040Z] Env Overrides: GITHUB_API_URL
+[debug] [2024-03-09T20:06:57.040Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-09T20:06:57.115Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-03-09T20:06:57.115Z] > authorizing via signed-in user (alred487@gmail.com)
+[debug] [2024-03-09T20:06:57.115Z] [iam] checking project compassfile-dev for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2024-03-09T20:06:57.116Z] > refreshing access token with scopes: []
+[debug] [2024-03-09T20:06:57.118Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-03-09T20:06:57.118Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-03-09T20:06:57.336Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2024-03-09T20:06:57.336Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-03-09T20:06:57.366Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions [none]
+[debug] [2024-03-09T20:06:57.366Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions x-goog-quota-user=projects/compassfile-dev
+[debug] [2024-03-09T20:06:57.367Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-03-09T20:06:58.834Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions 200
+[debug] [2024-03-09T20:06:58.835Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/compassfile-dev:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2024-03-09T20:06:58.836Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev [none]
+[debug] [2024-03-09T20:06:59.493Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev 200
+[debug] [2024-03-09T20:06:59.493Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/compassfile-dev {"projectId":"compassfile-dev","projectNumber":"124510851885","displayName":"CompassFile-dev","name":"projects/compassfile-dev","resources":{"hostingSite":"compassfile-dev"},"state":"ACTIVE","etag":"1_016b9188-9945-4d93-b9e2-9569bb2585cd"}
+[debug] [2024-03-09T20:07:01.464Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites pageToken=&pageSize=10
+[debug] [2024-03-09T20:07:02.657Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites 200
+[debug] [2024-03-09T20:07:02.657Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites {"sites":[{"name":"projects/compassfile-dev/sites/compassfile-dev","defaultUrl":"https://compassfile-dev.web.app","appId":"1:124510851885:web:09ab2e7a25ab46200bf9a4","type":"DEFAULT_SITE"},{"name":"projects/compassfile-dev/sites/nextjs-version-c354b","defaultUrl":"https://nextjs-version-c354b.web.app","type":"USER_SITE"},{"name":"projects/compassfile-dev/sites/test12111","defaultUrl":"https://test12111.web.app","type":"USER_SITE"}]}
+[debug] [2024-03-09T20:07:02.657Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:124510851885:web:09ab2e7a25ab46200bf9a4/config [none]
+[debug] [2024-03-09T20:07:03.907Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:124510851885:web:09ab2e7a25ab46200bf9a4/config 200
+[debug] [2024-03-09T20:07:03.908Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/-/webApps/1:124510851885:web:09ab2e7a25ab46200bf9a4/config {"projectId":"compassfile-dev","appId":"1:124510851885:web:09ab2e7a25ab46200bf9a4","storageBucket":"compassfile-dev.appspot.com","apiKey":"AIzaSyDlQZ-XbtYEydl-pm6miM6ZiEaM45Jw7Hk","authDomain":"compassfile-dev.firebaseapp.com","messagingSenderId":"124510851885","measurementId":"G-2ENR1NYZN2"}
+[info] 
+   Thank you for trying our early preview of Next.js support on Firebase Hosting.
+   During the preview, support is best-effort and breaking changes can be expected. Proceed with caution.
+
+   Documentation: https://firebase.google.com/docs/hosting/frameworks/nextjs
+   File a bug: https://github.com/firebase/firebase-tools/issues/new?template=bug_report.md
+   Submit a feature request: https://github.com/firebase/firebase-tools/issues/new?template=feature_request.md
+
+   We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
+
+[debug] [2024-03-09T20:07:07.821Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev [none]
+[debug] [2024-03-09T20:07:08.210Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev 200
+[debug] [2024-03-09T20:07:08.210Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev {"name":"projects/compassfile-dev/sites/compassfile-dev","defaultUrl":"https://compassfile-dev.web.app","appId":"1:124510851885:web:09ab2e7a25ab46200bf9a4","type":"DEFAULT_SITE"}
+[info] - info Loaded env from /workspaces/mohammad-upwork-work-2/.env
+
+[info] - info Creating an optimized production build...
+
