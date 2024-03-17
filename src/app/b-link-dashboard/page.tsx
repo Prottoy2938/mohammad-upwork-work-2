@@ -115,7 +115,9 @@ const BoostedLinks = () => {
       const updatedProviders = { ...prevSelectedProviders };
       // @ts-expect-error
       updatedProviders[linkId] = {
+        // @ts-expect-error
         ...updatedProviders[linkId],
+        // @ts-expect-error
         [provider]: !updatedProviders[linkId][provider],
       };
       return updatedProviders;
@@ -127,9 +129,10 @@ const BoostedLinks = () => {
     const linkRef = doc(db, "boosted-links", linkId);
 
     try {
-      // @ts-expect-error
       await updateDoc(linkRef, {
+        // @ts-expect-error
         providers: Object.keys(selectedProviders[linkId]).filter(
+          // @ts-expect-error
           (provider) => selectedProviders[linkId][provider]
         ),
       });
@@ -240,8 +243,8 @@ const BoostedLinks = () => {
                       <FormControlLabel
                         control={
                           <Checkbox
-                            // @ts-expect-error
                             checked={
+                              // @ts-expect-error
                               selectedProviders[link.id]?.[provider] || false
                             }
                             onChange={() =>
