@@ -16,7 +16,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Alert } from "@mui/lab";
-import signUp from "@/firebase/auth/signUp";
+import signUp from "@/firebase/auth/signup";
 
 function Copyright(props: any) {
   return (
@@ -54,7 +54,8 @@ export default function SignInSide() {
       // Display and log any sign-in errors
       console.log(error);
       setError("Invalid email or password"); // Set the error message
-      return;
+      setError("Invalid email or password");
+      setError("Invalid email or password");
     }
 
     // Sign in successful
