@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import Navbar from "../component/navbar";
 import "./globals.css";
+import AppAppBar from "../components/AppAppBar";
+import Divider from "@mui/material/Divider";
+import Footer from "../components/Footer";
 
 // Load the Inter font with 'latin' subset
 const inter = Inter({ subsets: ["latin"] });
@@ -19,6 +22,12 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }): JSX.Element {
+  const toggleColorMode = () => {
+    console.log(
+      "Theme changed. Look into the test.tsx file to see the implementation."
+    );
+  };
+
   return (
     <html lang="en">
       {/*
@@ -31,7 +40,10 @@ export default function RootLayout({
         {/* Wrap the children with the AuthContextProvider to provide authentication context */}
         <AuthContextProvider>
           <Navbar />
+          <AppAppBar mode={"light"} toggleColorMode={toggleColorMode} />
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
+          <Divider />
+          <Footer />
         </AuthContextProvider>
       </body>
     </html>
