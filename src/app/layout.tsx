@@ -22,12 +22,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }): JSX.Element {
-  const toggleColorMode = () => {
-    console.log(
-      "Theme changed. Look into the test.tsx file to see the implementation."
-    );
-  };
-
   return (
     <html lang="en">
       {/*
@@ -40,7 +34,7 @@ export default function RootLayout({
         {/* Wrap the children with the AuthContextProvider to provide authentication context */}
         <AuthContextProvider>
           <Navbar />
-          <AppAppBar mode={"light"} toggleColorMode={toggleColorMode} />
+          <AppAppBar mode={"light"} />
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
           <Divider />
           <Footer />

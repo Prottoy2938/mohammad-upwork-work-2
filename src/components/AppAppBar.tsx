@@ -21,11 +21,16 @@ const logoStyle = {
 
 interface AppAppBarProps {
   mode: PaletteMode;
-  toggleColorMode: () => void;
+  // toggleColorMode: () => void;
 }
 
-function AppAppBar({ mode, toggleColorMode }: AppAppBarProps) {
+function AppAppBar({ mode }: AppAppBarProps) {
   const [open, setOpen] = React.useState(false);
+  const toggleColorMode = () => {
+    console.log(
+      "Theme changed. Look into the test.tsx file to see the implementation."
+    );
+  };
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
