@@ -1,118 +1,105 @@
-"use client"; // This is a client component 👈🏽
+"use client";
+import React, { useState } from "react";
+import { PaletteMode } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import { ThemeProvider } from "@mui/styles";
+import { createTheme } from "@mui/material/styles";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
+import AutoAwesomeRoundedIcon from "@mui/icons-material/AutoAwesomeRounded";
+import AppAppBar from "../components/AppAppBar";
+import Hero from "../components/Hero";
+import LogoCollection from "../components/LogoCollection";
+import Highlights from "../components/Highlights";
+import Pricing from "../components/Pricing";
+import Features from "../components/Features";
+import Testimonials from "../components/Testimonials";
+import FAQ from "../components/FAQ";
+import Footer from "../components/Footer";
+import getLPTheme from "../getLPTheme";
 
-import { FC, useState, useEffect } from "react";
-// Importing MUI
-import { Box, Button, Link, Grid, Typography, Stack } from "@mui/material";
-import { getDoc, doc } from "firebase/firestore";
-import { HomepageData } from "../types/firestore";
-import CircularProgress from "@mui/material/CircularProgress";
-import { image2, image3, image4 } from "../constants/img-src";
+interface ToggleCustomThemeProps {
+  showCustomTheme: Boolean;
+  toggleCustomTheme: () => void;
+}
 
-import firebase_app from "../firebase/config";
-import { getFirestore } from "firebase/firestore";
-
-// Get the Firestore instance
-const db = getFirestore(firebase_app);
-
-const Homepage: FC = () => {
-  const [loading, setLoading] = useState(true);
-  const [homePageData, setHomePageData] = useState<HomepageData>();
-  useEffect(() => {
-    console.log("alert, runng here")
-    const fetchHomePageData = async () => {
-      const docRef = doc(db, "home", "home-page");
-      console.log("HERE 1")
-
-      try {
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-          // @ts-expect-error
-          setHomePageData(docSnap.data());
-          console.log("HERE ")
-        } else {
-          console.log("No such document exists!");
-        }
-      } catch (error) {
-        console.error("Error getting document:", error);
-      }
-
-      setLoading(false);
-    };
-
-    fetchHomePageData();
-  }, []);
-
+function ToggleCustomTheme({
+  showCustomTheme,
+  toggleCustomTheme,
+}: ToggleCustomThemeProps) {
   return (
-    <Box mt={5}>
-      <div>
-        {loading && (
-          <CircularProgress
-            style={{ position: "fixed", left: "50vw", top: "35vh" }}
-          />
-        )}
-        {!loading && homePageData && (
-          <Stack spacing={10} padding={5}>
-            <Grid container spacing={2}>
-              <Grid item xs={5}>
-                <img src={image2} alt="image-2" width={300} height={150} />
-              </Grid>
-              <Grid item xs={7}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <Typography>{homePageData.mainLine1}</Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Typography variant="h5">
-                      {homePageData.mainLine2}
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Typography>{homePageData.mainLine3}</Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-
-            <Typography textAlign={"center"}>
-              {homePageData.mainLine4}
-            </Typography>
-
-            <Grid container spacing={2}>
-              <Grid item xs={5}>
-                <img src={image3} alt="image-3" width={300} height={150} />
-              </Grid>
-              <Grid item xs={7}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <Typography>{homePageData.mainLine5}</Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Typography>{homePageData.mainLine6}</Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Grid>
-
-            <Grid container spacing={2}>
-              <Grid item xs={7}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <Typography>{homePageData.mainLine7}</Typography>
-                  </Grid>
-                  <Grid item xs={12}>
-                    <Typography>{homePageData.mainLine8}</Typography>
-                  </Grid>
-                </Grid>
-              </Grid>
-              <Grid item xs={5}>
-                <img src={image4} alt="image-4" width={300} height={150} />
-              </Grid>
-            </Grid>
-          </Stack>
-        )}
-      </div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        width: "100dvw",
+        position: "fixed",
+        bottom: 24,
+      }}
+    >
+      <ToggleButtonGroup
+        color="primary"
+        exclusive
+        value={showCustomTheme}
+        onChange={toggleCustomTheme}
+        aria-label="Platform"
+        sx={{
+          backgroundColor: "background.default",
+          "& .Mui-selected": {
+            pointerEvents: "none",
+          },
+        }}
+      >
+        <ToggleButton value>
+          <AutoAwesomeRoundedIcon sx={{ fontSize: "20px", mr: 1 }} />
+          Custom theme
+        </ToggleButton>
+        <ToggleButton value={false}>Material Design 2</ToggleButton>
+      </ToggleButtonGroup>
     </Box>
   );
-};
-export default Homepage;
+}
+
+export default function LandingPage() {
+  const [mode, setMode] = React.useState<PaletteMode>("light");
+  const [showCustomTheme, setShowCustomTheme] = React.useState(true);
+  const LPtheme = createTheme(getLPTheme(mode));
+  const defaultTheme = createTheme({ palette: { mode } });
+
+  const toggleColorMode = () => {
+    setMode((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
+  const toggleCustomTheme = () => {
+    setShowCustomTheme((prev) => !prev);
+  };
+
+  return (
+    <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
+      <CssBaseline />
+      {/* <AppAppBar mode={mode} toggleColorMode={toggleColorMode} /> */}
+      <Hero />
+      <Box sx={{ bgcolor: "background.default" }}>
+        <LogoCollection />
+        <Features />
+        <Divider />
+        <Testimonials />
+        <Divider />
+        <Highlights />
+        <Divider />
+        <Pricing />
+        <Divider />
+        <FAQ />
+        <Divider />
+        {/* <Footer /> */}
+      </Box>
+      <ToggleCustomTheme
+        showCustomTheme={showCustomTheme}
+        toggleCustomTheme={toggleCustomTheme}
+      />
+    </ThemeProvider>
+  );
+}
