@@ -36,7 +36,6 @@ export default function RootLayout({
           {/* <Navbar /> */}
           <AppAppBar mode={"light"} />
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
-          <Divider />
           <Footer />
         </AuthContextProvider>
       </body>

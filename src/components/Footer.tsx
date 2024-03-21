@@ -12,6 +12,8 @@ import Typography from "@mui/material/Typography";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/X";
+import { usePathname } from "next/navigation";
+
 
 const logoStyle = {
   width: "140px",
@@ -29,7 +31,12 @@ function Copyright() {
 }
 
 export default function Footer() {
+  const pathName = usePathname();
+
   return (
+    <>
+      {pathName.includes("/l") ? null : (
+
     <Container
       sx={{
         display: "flex",
@@ -218,5 +225,7 @@ export default function Footer() {
         </Stack>
       </Box>
     </Container>
+    )}
+    </>
   );
 }
