@@ -33,7 +33,7 @@ export default function RootLayout({
       <body>
         {/* Wrap the children with the AuthContextProvider to provide authentication context */}
         <AuthContextProvider>
-          <Navbar />
+          {/* <Navbar /> */}
           <AppAppBar mode={"light"} />
           <AppRouterCacheProvider>{children}</AppRouterCacheProvider>
           <Divider />

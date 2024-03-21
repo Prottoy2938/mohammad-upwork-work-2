@@ -80,7 +80,7 @@ export default function LandingPage() {
   return (
     <ThemeProvider theme={showCustomTheme ? LPtheme : defaultTheme}>
       <CssBaseline />
-      <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
+      <AppAppBar mode={mode} />
       <Hero />
       <Box sx={{ bgcolor: "background.default" }}>
         <LogoCollection />

@@ -93,13 +93,7 @@ function AppAppBar({ mode }: AppAppBarProps) {
                 px: 0,
               }}
             >
-              <img
-                src={
-                  "https://assets-global.website-files.com/61ed56ae9da9fd7e0ef0a967/61f12e6faf73568658154dae_SitemarkDefault.svg"
-                }
-                style={logoStyle}
-                alt="logo of sitemark"
-              />
+              <img src={"/logo.png"} style={logoStyle} alt="logo of sitemark" />
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <a style={{ textDecoration: "none" }} href="/articles">
                   <MenuItem sx={{ py: "6px", px: "12px" }}>
@@ -108,13 +102,7 @@ function AppAppBar({ mode }: AppAppBarProps) {
                     </Typography>
                   </MenuItem>
                 </a>
-                <a style={{ textDecoration: "none" }} href="/about-us">
-                  <MenuItem sx={{ py: "6px", px: "12px" }}>
-                    <Typography variant="body2" color="text.primary">
-                      About Us
-                    </Typography>
-                  </MenuItem>
-                </a>
+
                 <a style={{ textDecoration: "none" }} href="/ai-article-writer">
                   <MenuItem sx={{ py: "6px", px: "12px" }}>
                     <Typography variant="body2" color="text.primary">
@@ -136,6 +124,13 @@ function AppAppBar({ mode }: AppAppBarProps) {
                     </Typography>
                   </MenuItem>
                 </a>
+                <a style={{ textDecoration: "none" }} href="/about-us">
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                    <Typography variant="body2" color="text.primary">
+                      About Us
+                    </Typography>
+                  </MenuItem>
+                </a>
               </Box>
             </Box>
             <Box
@@ -145,7 +140,7 @@ function AppAppBar({ mode }: AppAppBarProps) {
                 alignItems: "center",
               }}
             >
-              <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
+              {/* <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} /> */}
               <a style={{ textDecoration: "none" }} href="/signin">
                 <Button
                   color="primary"
@@ -190,7 +185,7 @@ function AppAppBar({ mode }: AppAppBarProps) {
                     flexGrow: 1,
                   }}
                 >
-                  <Box
+                  {/* <Box
                     sx={{
                       display: "flex",
                       flexDirection: "column",
@@ -200,9 +195,9 @@ function AppAppBar({ mode }: AppAppBarProps) {
                   >
                     <ToggleColorMode
                       mode={mode}
-                      toggleColorMode={toggleColorMode}
+                      // toggleColorMode={toggleColorMode}
                     />
-                  </Box>
+                  </Box> */}
                   <a
                     style={{ textDecoration: "none" }}
                     href="/b-link-dashboard"
