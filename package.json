@@ -20,7 +20,7 @@
     "@mui/material-nextjs": "^5.15.3",
     "@mui/styles": "^5.15.12",
     "@types/node": "20.8.10",
-    "@types/react": "18.2.46",
+    "@types/react": "18.2.67",
     "@types/react-dom": "18.2.18",
     "autoprefixer": "10.4.16",
     "axios": "^1.6.5",
