@@ -22,7 +22,7 @@ function Copyright() {
   return (
     <Typography variant="body2" color="text.secondary" mt={1}>
       {"Copyright © "}
-      <Link href="https://mui.com/">Sitemark&nbsp;</Link>
+      <Link href="//">Sitemark&nbsp;</Link>
       {new Date().getFullYear()}
     </Typography>
   );

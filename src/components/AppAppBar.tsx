@@ -101,46 +101,41 @@ function AppAppBar({ mode }: AppAppBarProps) {
                 alt="logo of sitemark"
               />
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <MenuItem
-                  onClick={() => scrollToSection("features")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Features
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("testimonials")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Testimonials
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("highlights")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Highlights
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("pricing")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    Pricing
-                  </Typography>
-                </MenuItem>
-                <MenuItem
-                  onClick={() => scrollToSection("faq")}
-                  sx={{ py: "6px", px: "12px" }}
-                >
-                  <Typography variant="body2" color="text.primary">
-                    FAQ
-                  </Typography>
-                </MenuItem>
+                <a style={{ textDecoration: "none" }} href="/articles">
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                    <Typography variant="body2" color="text.primary">
+                      Articles
+                    </Typography>
+                  </MenuItem>
+                </a>
+                <a style={{ textDecoration: "none" }} href="/about-us">
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                    <Typography variant="body2" color="text.primary">
+                      About Us
+                    </Typography>
+                  </MenuItem>
+                </a>
+                <a style={{ textDecoration: "none" }} href="/ai-article-writer">
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                    <Typography variant="body2" color="text.primary">
+                      Article Writer
+                    </Typography>
+                  </MenuItem>
+                </a>
+                <a style={{ textDecoration: "none" }} href="/create-b-link">
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                    <Typography variant="body2" color="text.primary">
+                      Leads
+                    </Typography>
+                  </MenuItem>
+                </a>
+                <a style={{ textDecoration: "none" }} href="/b-link-dashboard">
+                  <MenuItem sx={{ py: "6px", px: "12px" }}>
+                    <Typography variant="body2" color="text.primary">
+                      New Lead
+                    </Typography>
+                  </MenuItem>
+                </a>
               </Box>
             </Box>
             <Box
@@ -151,26 +146,30 @@ function AppAppBar({ mode }: AppAppBarProps) {
               }}
             >
               <ToggleColorMode mode={mode} toggleColorMode={toggleColorMode} />
-              <Button
-                color="primary"
-                variant="text"
-                size="small"
-                component="a"
-                href="/material-ui/getting-started/templates/sign-in/"
-                target="_blank"
-              >
-                Sign in
-              </Button>
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                component="a"
-                href="/material-ui/getting-started/templates/sign-up/"
-                target="_blank"
-              >
-                Sign up
-              </Button>
+              <a style={{ textDecoration: "none" }} href="/signin">
+                <Button
+                  color="primary"
+                  variant="text"
+                  size="small"
+                  component="a"
+                  href="/material-ui/getting-started/templates/sign-in/"
+                  target="_blank"
+                >
+                  Sign in
+                </Button>
+              </a>
+              <a style={{ textDecoration: "none" }} href="/signup">
+                <Button
+                  color="primary"
+                  variant="contained"
+                  size="small"
+                  component="a"
+                  href="/material-ui/getting-started/templates/sign-up/"
+                  target="_blank"
+                >
+                  Sign up
+                </Button>
+              </a>
             </Box>
             <Box sx={{ display: { sm: "", md: "none" } }}>
               <Button
@@ -204,21 +203,27 @@ function AppAppBar({ mode }: AppAppBarProps) {
                       toggleColorMode={toggleColorMode}
                     />
                   </Box>
-                  <MenuItem onClick={() => scrollToSection("features")}>
-                    Features
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("testimonials")}>
-                    Testimonials
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("highlights")}>
-                    Highlights
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("pricing")}>
-                    Pricing
-                  </MenuItem>
-                  <MenuItem onClick={() => scrollToSection("faq")}>
-                    FAQ
-                  </MenuItem>
+                  <a
+                    style={{ textDecoration: "none" }}
+                    href="/b-link-dashboard"
+                  >
+                    <MenuItem>Leads</MenuItem>
+                  </a>
+                  <a style={{ textDecoration: "none" }} href="/create-b-link">
+                    <MenuItem>New Leads</MenuItem>
+                  </a>
+                  <a style={{ textDecoration: "none" }} href="/articles">
+                    <MenuItem>Articles</MenuItem>
+                  </a>
+                  <a
+                    style={{ textDecoration: "none" }}
+                    href="/ai-article-writer"
+                  >
+                    <MenuItem>Article Writer</MenuItem>
+                  </a>
+                  <a style={{ textDecoration: "none" }} href="/about-us">
+                    <MenuItem>About Us</MenuItem>
+                  </a>
                   <Divider />
                   <MenuItem>
                     <Button
