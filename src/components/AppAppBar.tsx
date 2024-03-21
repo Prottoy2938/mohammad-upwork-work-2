@@ -93,7 +93,25 @@ function AppAppBar({ mode }: AppAppBarProps) {
                 px: 0,
               }}
             >
-              <img src={"/logo.png"} style={logoStyle} alt="logo of sitemark" />
+              <img
+                src={"/logo.png"}
+                style={logoStyle}
+                alt="logo of boost link"
+              />
+              <a style={{ textDecoration: "none" }} href="/create-b-link">
+                <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <Typography variant="body2" color="text.primary">
+                    Leads
+                  </Typography>
+                </MenuItem>
+              </a>
+              <a style={{ textDecoration: "none" }} href="/b-link-dashboard">
+                <MenuItem sx={{ py: "6px", px: "12px" }}>
+                  <Typography variant="body2" color="text.primary">
+                    New Lead
+                  </Typography>
+                </MenuItem>
+              </a>
               <Box sx={{ display: { xs: "none", md: "flex" } }}>
                 <a style={{ textDecoration: "none" }} href="/articles">
                   <MenuItem sx={{ py: "6px", px: "12px" }}>
@@ -110,20 +128,7 @@ function AppAppBar({ mode }: AppAppBarProps) {
                     </Typography>
                   </MenuItem>
                 </a>
-                <a style={{ textDecoration: "none" }} href="/create-b-link">
-                  <MenuItem sx={{ py: "6px", px: "12px" }}>
-                    <Typography variant="body2" color="text.primary">
-                      Leads
-                    </Typography>
-                  </MenuItem>
-                </a>
-                <a style={{ textDecoration: "none" }} href="/b-link-dashboard">
-                  <MenuItem sx={{ py: "6px", px: "12px" }}>
-                    <Typography variant="body2" color="text.primary">
-                      New Lead
-                    </Typography>
-                  </MenuItem>
-                </a>
+
                 <a style={{ textDecoration: "none" }} href="/about-us">
                   <MenuItem sx={{ py: "6px", px: "12px" }}>
                     <Typography variant="body2" color="text.primary">
