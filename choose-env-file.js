@@ -2,7 +2,7 @@ const fs = require("fs");
 
 function copyEnvironmentFile() {
   const branch = process.env.BRANCH_NAME || "main"; // You can replace 'main' with 'development' if needed
-
+  console.log("=====================\n\nHELLO WORLD=================");
   let sourceFile, destinationFile;
   if (branch === "main") {
     sourceFile = ".prodenv";

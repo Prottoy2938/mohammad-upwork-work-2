@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "node choose-env-file.js && next build",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "predeploy": "node ./choose-env-file.js"
   },
   "main": "lib/src/index.js",
   "dependencies": {
