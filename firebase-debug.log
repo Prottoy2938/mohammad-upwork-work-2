@@ -3935,3 +3935,35 @@ FirebaseError: Firebase: Error (auth/invalid-api-key).
    We'd love to learn from you. Express your interest in helping us shape the future of Firebase Hosting: https://goo.gle/41enW5X
 
 [debug] [2024-03-22T21:23:45.042Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/compassfile-dev/sites/compassfile-dev [none]
+[debug] [2024-03-23T17:59:02.750Z] ----------------------------------------------------------------------
+[debug] [2024-03-23T17:59:02.752Z] Command:       /usr/local/share/nvm/versions/node/v20.11.1/bin/node /home/codespace/nvm/current/bin/firebase login
+[debug] [2024-03-23T17:59:02.753Z] CLI Version:   13.5.2
+[debug] [2024-03-23T17:59:02.753Z] Platform:      linux
+[debug] [2024-03-23T17:59:02.753Z] Node Version:  v20.11.1
+[debug] [2024-03-23T17:59:02.753Z] Time:          Sat Mar 23 2024 17:59:02 GMT+0000 (Coordinated Universal Time)
+[debug] [2024-03-23T17:59:02.754Z] Env Overrides: GITHUB_API_URL
+[debug] [2024-03-23T17:59:02.754Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-03-23T17:59:02.756Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] i  Firebase optionally collects CLI and Emulator Suite usage and error reporting information to help improve our products. Data is collected in accordance with Google's privacy policy (https://policies.google.com/privacy) and is not used to identify you.
+ 
+[debug] [2024-03-23T17:59:03.442Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2024-03-23T17:59:03.443Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] i  To change your data collection preference at any time, run `firebase logout` and log in again. 
+[debug] [2024-03-23T17:59:27.596Z] >>> [apiv2][query] POST https://auth.firebase.tools/attest [none]
+[debug] [2024-03-23T17:59:27.597Z] >>> [apiv2][body] POST https://auth.firebase.tools/attest {"session_id":"962d43c1-1cd7-4ada-937d-96d3f855400b"}
+[debug] [2024-03-23T17:59:28.243Z] <<< [apiv2][status] POST https://auth.firebase.tools/attest 200
+[debug] [2024-03-23T17:59:28.243Z] <<< [apiv2][body] POST https://auth.firebase.tools/attest {"token":"VWf3w48rzAIfgN1L0u9xTBfnfRcnnsriXFtsajf-jUo"}
+[info] 
+[info] To sign in to the Firebase CLI:
+[info] 
+[info] 1. Take note of your session ID:
+[info] 
+[info]    962D4
+[info] 
+[info] 2. Visit the URL below on any device and follow the instructions to get your code:
+[info] 
+[info]    https://auth.firebase.tools/login?code_challenge=KL1MvTsjeH1DUEBqwl6wULlW7F4h9W-uk4L1LJ3B0rI&session=962d43c1-1cd7-4ada-937d-96d3f855400b&attest=VWf3w48rzAIfgN1L0u9xTBfnfRcnnsriXFtsajf-jUo
+[info] 
+[info] 3. Paste or enter the authorization code below once you have it:
+[info] 
