@@ -43,8 +43,8 @@ export default function Hero() {
               textAlign: "center",
             }}
           >
-            Our latest&nbsp;
-            <Typography
+            Boost Your Retargeting Strategy&nbsp;
+            {/* <Typography
               component="span"
               variant="h1"
               sx={{
@@ -54,13 +54,12 @@ export default function Hero() {
                     : "primary.light",
               }}
             >
-              products
-            </Typography>
+              Your Strategy
+            </Typography> */}
           </Typography>
           <Typography variant="body1" textAlign="center" color="text.secondary">
-            Explore our cutting-edge dashboard, delivering high-quality
-            solutions tailored to your needs. <br />
-            Elevate your experience with top-tier features and services.
+            Unlock the full potential of your links and skyrocket your
+            conversion rates.
           </Typography>
           <Stack
             direction={{ xs: "column", sm: "row" }}
@@ -81,9 +80,11 @@ export default function Hero() {
                 ariaLabel: "Enter your email address",
               }}
             />
-            <Button variant="contained" color="primary">
-              Start now
-            </Button>
+            <a href="/signin">
+              <Button variant="contained" color="primary">
+                Start now
+              </Button>
+            </a>
           </Stack>
           <Typography
             variant="caption"

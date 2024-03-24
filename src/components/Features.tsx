@@ -26,9 +26,9 @@ const items = [
   },
   {
     icon: <EdgesensorHighRoundedIcon />,
-    title: "Mobile integration",
+    title: "High-Quality Opt-Ins",
     description:
-      "This item could provide information about the mobile app version of the product.",
+      "Ensure accurate client information with reduced typos and effortless data collection.",
     imageLight:
       'url("/static/images/templates/templates-images/mobile-light.png")',
     imageDark:
@@ -36,9 +36,48 @@ const items = [
   },
   {
     icon: <DevicesRoundedIcon />,
-    title: "Available on all platforms",
+    title: "Enhanced Productivity",
+    description: "Simplify the opt-in process, saving time and resources.",
+    imageLight:
+      'url("/static/images/templates/templates-images/devices-light.png")',
+    imageDark:
+      'url("/static/images/templates/templates-images/devices-dark.png")',
+  },
+  {
+    icon: <DevicesRoundedIcon />,
+    title: "Advanced Retargeting",
     description:
-      "This item could let users know the product is available on all platforms, such as web, mobile, and desktop.",
+      "Boost your retargeted ads effectiveness by 10x, ensuring your message reaches the right audience.",
+    imageLight:
+      'url("/static/images/templates/templates-images/devices-light.png")',
+    imageDark:
+      'url("/static/images/templates/templates-images/devices-dark.png")',
+  },
+  {
+    icon: <DevicesRoundedIcon />,
+    title: "Increased Conversion Rates",
+    description:
+      "Achieve up to 70% conversion rates for registered users, maximizing your ROI",
+    imageLight:
+      'url("/static/images/templates/templates-images/devices-light.png")',
+    imageDark:
+      'url("/static/images/templates/templates-images/devices-dark.png")',
+  },
+  {
+    icon: <DevicesRoundedIcon />,
+    title: "Comprehensive Link Management",
+    description:
+      "Aggregate and manage leads from multiple social media channels with ease.",
+    imageLight:
+      'url("/static/images/templates/templates-images/devices-light.png")',
+    imageDark:
+      'url("/static/images/templates/templates-images/devices-dark.png")',
+  },
+  {
+    icon: <DevicesRoundedIcon />,
+    title: "Real-Time Reporting",
+    description:
+      "Stay informed with immediate insights into each link's performance",
     imageLight:
       'url("/static/images/templates/templates-images/devices-light.png")',
     imageDark:
@@ -68,9 +107,8 @@ export default function Features() {
               color="text.secondary"
               sx={{ mb: { xs: 2, sm: 4 } }}
             >
-              Here you can provide a brief overview of the key features of the
-              product. For example, you could list the number of features, the
-              types of features, add-ons, or the benefits of the features.
+              All packages come with a 14-day money-back guarantee. Enjoy a 30%
+              discount on annual subscriptions.
             </Typography>
           </div>
           <Grid
